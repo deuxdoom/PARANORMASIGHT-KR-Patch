@@ -134,10 +134,10 @@
   /* two game columns; rows are shared through subgrid so both sides line up */
   .games {
     position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: repeat(7, auto); column-gap: 48px; margin-top: 30px;
+    grid-template-rows: repeat(6, auto); column-gap: 48px; margin-top: 30px;
   }
   .games::before { content: ""; position: absolute; left: 50%; top: 8px; bottom: 0; width: 1px; background: linear-gradient(var(--line-strong), var(--line) 30%, transparent); }
-  .game { display: grid; grid-row: span 7; grid-template-rows: subgrid; min-width: 0; }
+  .game { display: grid; grid-row: span 6; grid-template-rows: subgrid; min-width: 0; }
   .game > * { min-width: 0; align-self: start; }
   .g-sec { padding-top: 52px; }
   @supports not (grid-template-rows: subgrid) {
@@ -320,6 +320,12 @@
   .pcard td:nth-child(2) { white-space: nowrap; }
   .pcard .note-soon { margin: 0 0 14px; }
 
+  /* shared FAQ: common questions in one wide card, game-specific ones in the two cards */
+  .faq h2.sec::before { background: linear-gradient(var(--p1), var(--p2)); }
+  .faq-common { margin-bottom: 28px; }
+  .faq-common details:last-child, .faq .pcard details:last-child { margin-bottom: 0; }
+  .faq .pcard td:nth-child(2) { white-space: normal; }
+
   /* shared: request for feedback */
   .shared { padding-top: 64px; }
   .request {
@@ -457,9 +463,9 @@
     </nav>
   </div>
 
-  <!-- Left column = FILE23, right column = FILE38. Both columns keep the same 7 rows
-       (head, status, about, original, screens, support, faq) so the rows line up. The translation
-       policy is shared by both games and sits full width below the columns (#policy).
+  <!-- Left column = FILE23, right column = FILE38. Both columns keep the same 6 rows
+       (head, status, about, original, screens, support) so the rows line up. The FAQ and the translation
+       policy are shared by both games and sit full width below the columns (#faq, #policy).
        The FILE38 sections keep their original ids (#about, #support, ...) for links already shared. -->
   <div class="wrap games">
 
@@ -624,62 +630,6 @@
             <figcaption>Steam 게임 속성 → 일반 → 언어 → 日本語(일본어)</figcaption>
           </figure>
         </div>
-      </section>
-
-      <section class="g-sec" id="p1-faq">
-        <h3 class="sec">자주 묻는 질문</h3>
-        <p class="lead">패치를 쓰기 전에 알아 두면 좋은 내용입니다.</p>
-        <details>
-          <summary>어디서 내려받나요?</summary>
-          <div><p>상단의 <b>1편 설치파일</b> 버튼이나 <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases">GitHub Releases</a>에서 내려받을 수 있습니다. 정식 v1.0.0 설치 파일을 제공합니다.</p></div>
-        </details>
-        <details>
-          <summary>패치를 지우고 원래대로 되돌리고 싶어요.</summary>
-          <div><p>Windows 설정의 설치된 앱에서 <b>파라노마사이트1 한국어 패치</b>를 제거하면 남아 있는 <code>.bak</code>을 복원합니다. 백업이 없는 파일은 삭제되므로 제거 후 Steam의 <b>게임 파일 무결성 확인</b>으로 원본을 복구해 주세요.</p></div>
-        </details>
-        <details>
-          <summary>Switch나 모바일판에서도 쓸 수 있나요?</summary>
-          <div><p>아니요. Windows용 Steam판만 지원합니다.</p></div>
-        </details>
-        <details>
-          <summary>Steam 업데이트 뒤에 일본어로 돌아왔어요.</summary>
-          <div><p>Steam의 게임 파일 무결성 확인이나 게임 업데이트가 패치한 파일을 원래대로 되돌릴 수 있습니다. 게임이 업데이트되면 새 판본을 지원하는 패치가 나올 때까지 기다려 주세요.</p></div>
-        </details>
-        <details>
-          <summary>퍼즐 정답을 입력해도 안 넘어가요.</summary>
-          <div>
-            <p>문제별 권장 입력은 <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/blob/main/QNA_1.md">퀴즈 정답 안내(QNA_1.md)</a>에서 확인해 주세요. 스포일러가 있으므로 막힌 문제만 펼쳐 보세요.</p>
-            <p>안내된 정답으로도 진행되지 않으면 문제 장면과 입력한 답을 <a href="#report">문제 제보</a>로 알려 주세요.</p>
-          </div>
-        </details>
-        <details>
-          <summary>자료 화면의 줄바꿈이 어색한 곳이 있어요.</summary>
-          <div><p>자료의 문장 흐름과 제보된 그림·주석·메모 배치를 수정했습니다. 어색한 줄바꿈이나 진행 문제는 자료 이름·장면과 함께 제보해 주세요.</p></div>
-        </details>
-        <details>
-          <summary>그림 속 일본어가 일부 남아 있어요.</summary>
-          <div><p>진행에 필요하거나 크게 보이는 간판·표지·소품 글자와 콧쿠리 문자판만 한글화하고, 작거나 흐린 글씨와 옛 그림의 글씨는 원화 그대로 두었습니다. 읽어야 진행할 수 있는 글자가 일본어로 남아 있다면 제보해 주세요.</p></div>
-        </details>
-        <details>
-          <summary>어떤 글꼴을 쓰나요?</summary>
-          <div>
-            <p>패치에 쓰는 글꼴입니다. 글꼴 원본은 수정하지 않았고, 배포 파일의 <code>Font-Licenses.txt</code>에 각 라이선스 원문을 함께 넣었습니다.</p>
-            <div class="table-wrap">
-              <table>
-                <thead><tr><th scope="col">글꼴</th><th scope="col">쓰는 곳</th><th scope="col">라이선스</th></tr></thead>
-                <tbody>
-                  <tr><td>Noto Sans CJK KR</td><td>대사·메뉴 등 기본 본문, 연출 글씨</td><td class="note">SIL OFL 1.1 (© Adobe)</td></tr>
-                  <tr><td>Noto Serif CJK KR</td><td>자료 화면 글, 소품 그림 속 문구</td><td class="note">SIL OFL 1.1 (© Adobe)</td></tr>
-                  <tr><td>마루 부리 (MaruBuri)</td><td>인물 이름, 작은 타이틀, 장면 전환 카드</td><td class="note">SIL OFL 1.1 (© NAVER Corp.)</td></tr>
-                  <tr><td>조선100년체</td><td>큰 타이틀</td><td class="note">방일영문화재단 무료 글꼴 (수정·판매 금지)</td></tr>
-                  <tr><td>나눔손글씨 규리의 일기</td><td>콧쿠리 씨 문자판 (이미지로 그림)</td><td class="note">네이버 글꼴 (© NAVER Corp.)</td></tr>
-                  <tr><td>Nanum Brush Script · 나눔스퀘어 네오 · 나눔손글씨 대한민국 열사체</td><td>다리 명판·강변 표지판·골목 간판 (이미지로 그림)</td><td class="note">네이버 글꼴 (© NAVER Corp.)</td></tr>
-                  <tr><td>이순신체</td><td>구멍가게 차양 간판·양초 목판 (이미지로 그림)</td><td class="note">아산시 무료 글꼴 (글꼴 자체 판매 금지)</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </details>
       </section>
     </article>
 
@@ -855,40 +805,77 @@
           </figure>
         </div>
       </section>
+    </article>
+  </div>
 
-      <section class="g-sec" id="faq">
-        <h3 class="sec">자주 묻는 질문</h3>
-        <p class="lead">패치를 쓰기 전에 알아 두면 좋은 내용입니다.</p>
+  <section id="faq" class="wrap shared faq">
+    <span id="p1-faq"></span>
+    <h2 class="sec">자주 묻는 질문</h2>
+    <p class="lead">패치를 쓰기 전에 알아 두면 좋은 내용입니다. 두 작품에 함께 해당하는 질문을 먼저 모았습니다.</p>
+    <div class="card faq-common">
+      <details>
+        <summary>패치를 지우고 원래대로 되돌리고 싶어요.</summary>
+        <div><p>Windows 설정의 설치된 앱에서 해당 패치(<b>파라노마사이트1 한국어 패치</b> 또는 <b>파라노마 사이트2 한국어 패치</b>)를 제거하면 남아 있는 <code>.bak</code>을 복원합니다. 백업이 없는 파일은 삭제되므로 제거 후 Steam의 <b>게임 파일 무결성 확인</b>으로 원본을 복구해 주세요.</p></div>
+      </details>
+      <details>
+        <summary>Switch나 모바일판에서도 쓸 수 있나요?</summary>
+        <div><p>아니요. 1편과 2편 모두 Windows용 Steam판만 지원합니다.</p></div>
+      </details>
+      <details>
+        <summary>Steam 업데이트 뒤에 일본어로 돌아왔어요.</summary>
+        <div><p>Steam의 게임 파일 무결성 확인이나 게임 업데이트가 패치한 파일을 원래대로 되돌릴 수 있습니다. 게임이 업데이트되면 새 판본을 지원하는 패치가 나올 때까지 기다려 주세요.</p></div>
+      </details>
+      <details>
+        <summary>퍼즐 정답을 입력해도 안 넘어가요.</summary>
+        <div>
+          <p>문제별 권장 입력은 <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/blob/main/QNA_1.md">1편 퀴즈 정답 안내(QNA_1.md)</a>와 <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/blob/main/QNA_2.md">2편 퀴즈 정답 안내(QNA_2.md)</a>에서 확인해 주세요. 스포일러가 있으므로 막힌 문제만 펼쳐 보세요.</p>
+          <p>안내된 정답으로도 진행되지 않으면 문제 장면과 입력한 답을 <a href="#report">문제 제보</a>로 알려 주세요.</p>
+        </div>
+      </details>
+      <details>
+        <summary>자료 화면의 줄바꿈이 어색한 곳이 있어요.</summary>
+        <div><p>두 작품 모두 자료의 문장 흐름과 제보된 그림·출처·주석 배치를 수정했습니다. 어색한 줄바꿈이나 진행 문제는 작품과 자료 이름·장면을 함께 제보해 주세요.</p></div>
+      </details>
+      <details>
+        <summary>그림 속 일본어가 일부 남아 있어요.</summary>
+        <div><p>진행에 필요한 제목·안내·단서와 크게 보이는 간판·표지 글자만 한글화하고, 그림의 장식이나 작고 흐린 글씨, 옛 그림의 글씨는 원화 그대로 두었습니다. 읽어야 진행할 수 있는 글자가 일본어로 남아 있다면 제보해 주세요.</p></div>
+      </details>
+    </div>
+
+    <h3 class="policy-title">작품별 질문</h3>
+    <div class="pcards">
+      <div class="pcard p1">
+        <h4><span class="g-no">1편</span>혼조 7대 불가사의</h4>
+        <details>
+          <summary>어디서 내려받나요?</summary>
+          <div><p>상단의 <b>1편 설치파일</b> 버튼이나 <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases">GitHub Releases</a>에서 내려받을 수 있습니다. 정식 v1.0.0 설치 파일을 제공합니다.</p></div>
+        </details>
+        <details>
+          <summary>어떤 글꼴을 쓰나요?</summary>
+          <div>
+            <p>패치에 쓰는 글꼴입니다. 글꼴 원본은 수정하지 않았고, 배포 파일의 <code>Font-Licenses.txt</code>에 각 라이선스 원문을 함께 넣었습니다.</p>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th scope="col">글꼴</th><th scope="col">쓰는 곳</th><th scope="col">라이선스</th></tr></thead>
+                <tbody>
+                  <tr><td>Noto Sans CJK KR</td><td>대사·메뉴 등 기본 본문, 연출 글씨</td><td class="note">SIL OFL 1.1 (© Adobe)</td></tr>
+                  <tr><td>Noto Serif CJK KR</td><td>자료 화면 글, 소품 그림 속 문구</td><td class="note">SIL OFL 1.1 (© Adobe)</td></tr>
+                  <tr><td>마루 부리 (MaruBuri)</td><td>인물 이름, 작은 타이틀, 장면 전환 카드</td><td class="note">SIL OFL 1.1 (© NAVER Corp.)</td></tr>
+                  <tr><td>조선100년체</td><td>큰 타이틀</td><td class="note">방일영문화재단 무료 글꼴 (수정·판매 금지)</td></tr>
+                  <tr><td>나눔손글씨 규리의 일기</td><td>콧쿠리 씨 문자판 (이미지로 그림)</td><td class="note">네이버 글꼴 (© NAVER Corp.)</td></tr>
+                  <tr><td>Nanum Brush Script · 나눔스퀘어 네오 · 나눔손글씨 대한민국 열사체</td><td>다리 명판·강변 표지판·골목 간판 (이미지로 그림)</td><td class="note">네이버 글꼴 (© NAVER Corp.)</td></tr>
+                  <tr><td>이순신체</td><td>구멍가게 차양 간판·양초 목판 (이미지로 그림)</td><td class="note">아산시 무료 글꼴 (글꼴 자체 판매 금지)</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+      </div>
+      <div class="pcard p2">
+        <h4><span class="g-no">2편</span>이세 인어 이야기</h4>
         <details>
           <summary>어디서 내려받나요?</summary>
           <div><p>상단의 <b>2편 설치파일</b> 버튼이나 <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases">GitHub Releases</a>에서 내려받을 수 있습니다. 정식 v1.0.2 설치 파일을 제공합니다.</p></div>
-        </details>
-        <details>
-          <summary>패치를 지우고 원래대로 되돌리고 싶어요.</summary>
-          <div><p>Windows 설정의 설치된 앱에서 <b>파라노마 사이트2 한국어 패치</b>를 제거하면 남아 있는 <code>.bak</code>을 복원합니다. 백업이 없는 파일은 삭제되므로 제거 후 Steam의 <b>게임 파일 무결성 확인</b>으로 원본을 복구해 주세요.</p></div>
-        </details>
-        <details>
-          <summary>Switch나 모바일판에서도 쓸 수 있나요?</summary>
-          <div><p>아니요. Windows용 Steam판만 지원합니다.</p></div>
-        </details>
-        <details>
-          <summary>Steam 업데이트 뒤에 일본어로 돌아왔어요.</summary>
-          <div><p>Steam의 게임 파일 무결성 확인이나 게임 업데이트가 패치한 파일을 원래대로 되돌릴 수 있습니다. 게임이 업데이트되면 새 판본을 지원하는 패치가 나올 때까지 기다려 주세요.</p></div>
-        </details>
-        <details>
-          <summary>퍼즐 정답을 입력해도 안 넘어가요.</summary>
-          <div>
-            <p>문제별 권장 입력은 <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/blob/main/QNA_2.md">퀴즈 정답 안내(QNA_2.md)</a>에서 확인해 주세요.</p>
-            <p>안내된 정답으로도 진행되지 않으면 문제 장면과 입력한 답을 <a href="#report">문제 제보</a>로 알려 주세요.</p>
-          </div>
-        </details>
-        <details>
-          <summary>자료 화면의 줄바꿈이 어색한 곳이 있어요.</summary>
-          <div><p>자료의 문장 흐름과 제보된 그림·출처 배치를 수정했습니다. 최신 수정 화면의 추가 확인과 전체 분기 플레이 검증은 계속 수집합니다. 어색한 줄바꿈이나 진행 문제는 자료 이름·장면과 함께 제보해 주세요.</p></div>
-        </details>
-        <details>
-          <summary>그림 속 일본어가 일부 남아 있어요.</summary>
-          <div><p>진행에 필요한 제목·안내·단서만 한글화하고, 그림의 장식이나 작은 옛 글씨는 원화 그대로 두었습니다. 읽어야 진행할 수 있는 글자가 일본어로 남아 있다면 제보해 주세요.</p></div>
         </details>
         <details>
           <summary>어떤 글꼴을 쓰나요?</summary>
@@ -908,9 +895,9 @@
             </div>
           </div>
         </details>
-      </section>
-    </article>
-  </div>
+      </div>
+    </div>
+  </section>
 
   <div class="wrap shared">
     <div class="request" role="note">
@@ -1194,8 +1181,8 @@
   // a report link opened from a game column (#file23 ...) preselects that game
   function pickGameFromHash() {
     var h = location.hash;
-    if (/^#(file23|p1-)/.test(h)) game.value = 'FILE23';
-    else if (/^#(file38|about|original|screens|support|faq)$/.test(h)) game.value = 'FILE38';
+    if (/^#(file23|p1-)/.test(h) && h !== '#p1-faq') game.value = 'FILE23';
+    else if (/^#(file38|about|original|screens|support)$/.test(h)) game.value = 'FILE38';
   }
   pickGameFromHash();
   window.addEventListener('hashchange', pickGameFromHash);
