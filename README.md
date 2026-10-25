@@ -93,7 +93,7 @@ PARANORMASIGHT: The Seven Mysteries of Honjo · パラノマサイト FILE23 本
 이미지를 누르면 크게 볼 수 있습니다.
 
 > [!NOTE]
-> 테스트 빌드에서 찍은 화면입니다. 검증 과정에서 글꼴이나 번역이 달라질 수 있습니다.
+> 테스트 빌드에서 찍은 화면이라 정식 v1.0.0과 일부 표기가 다를 수 있습니다.
 
 <p align="center">
   <a href="assets/paranormasight1/screens/title.webp"><img src="assets/paranormasight1/screens/title-960.webp" alt="한국어 제목 ‘혼조 7대 불가사의’와 한국어 메뉴가 표시된 타이틀 화면" width="100%"></a><br>
@@ -133,6 +133,22 @@ PARANORMASIGHT: The Seven Mysteries of Honjo · パラノマサイト FILE23 本
 - Steam 업데이트나 무결성 확인으로 패치가 해제될 수 있습니다. 다시 적용할 때에는 현재 게임 판본의 지원 여부를 확인해 주세요.
 
 문제별 권장 입력은 [퀴즈 정답 안내](QNA_1.md)에 정리했습니다. **스포일러가 있으므로 막힌 문제만 펼쳐 보세요.** 자세한 수정 내용은 [1편 변경 이력](CHANGELOG_1.md), 파일 정보는 [v1.0.0 릴리스](https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases/tag/file23-v1.0.0)를 참고해 주세요.
+
+### 1편 글꼴
+
+패치에 쓰는 글꼴입니다. 글꼴 원본은 수정하지 않았습니다.
+
+| 글꼴 | 쓰는 곳 | 라이선스 |
+|---|---|---|
+| Noto Sans CJK KR | 대사·메뉴 등 기본 본문, 연출 글씨 | SIL Open Font License 1.1 (© Adobe) |
+| Noto Serif CJK KR | 자료 화면 글, 소품 그림 속 문구 | SIL Open Font License 1.1 (© Adobe) |
+| 마루 부리 (MaruBuri) | 인물 이름, 작은 타이틀, 장면 전환 카드 | SIL Open Font License 1.1 (© NAVER Corp.) |
+| 조선100년체 | 큰 타이틀 | 방일영문화재단 무료 글꼴 (수정·판매 금지) |
+| 나눔손글씨 규리의 일기 | 콧쿠리 씨 문자판(이미지로 그림) | 네이버 글꼴 (© NAVER Corp.) |
+| Nanum Brush Script · 나눔스퀘어 네오 · 나눔손글씨 대한민국 열사체 | 다리 명판·강변 표지판·골목 간판(이미지로 그림) | 네이버 글꼴 (© NAVER Corp.) |
+| 이순신체 | 구멍가게 차양 간판·양초 목판(이미지로 그림) | 아산시 무료 글꼴 (글꼴 자체 판매 금지) |
+
+각 글꼴의 라이선스 원문은 배포 파일의 `Font-Licenses.txt`에 함께 넣었습니다.
 
 ## 2편 FILE38 이세 인어 이야기
 
@@ -290,8 +306,6 @@ PARANORMASIGHT: The Mermaid's Curse · パラノマサイト FILE38 伊勢人魚
 ### 작품별 기준
 
 #### 1편 혼조 7대 불가사의
-
-공개 전 검수에 따라 표기가 바뀔 수 있습니다.
 
 - **그림 속 글자**는 크게 보이는 간판·표지·소품 글자를 원본과 비슷한 한국어 글꼴로 한글화하고, 작거나 흐린 글자는 원화 그대로 둡니다.
 - **콧쿠리 퍼즐**은 문자판을 한글 음절판으로 바꾸고, 동전이 한글 음절을 하나씩 짚도록 맞춥니다.
