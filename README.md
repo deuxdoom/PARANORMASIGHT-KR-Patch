@@ -115,25 +115,39 @@ PARANORMASIGHT: The Seven Mysteries of Honjo · パラノマサイト FILE23 本
 
 ### 1편 지원 환경
 
-- **Windows 10/11 64비트 Steam판**을 대상으로 합니다 (Steam AppID `2106840`).
+- **Windows용 Steam판만 지원합니다** (Steam AppID `2106840`).
+- 현재 Steam 판본을 기준으로 만들었습니다. 게임이 업데이트되면 새 판본을 지원하는 패치가 나올 때까지 기다려 주세요.
 - Nintendo Switch, iOS, Android판과 Steam 이외의 PC판은 지원하지 않습니다.
-- 게임을 정상적으로 구매해 설치한 상태여야 합니다. 배포 파일에는 수정한 게임 파일 13개와 `Font-Licenses.txt`가 들어 있습니다. 게임 전체·수정하지 않은 원본 파일·Steam 구성 파일은 포함하지 않습니다.
+- 게임을 정상적으로 구매해 설치한 상태여야 합니다. 배포 파일에는 번역을 적용해 수정한 파일만 들어 있으며, 원본 게임 파일은 포함하지 않습니다.
 
 ### 1편 설치와 사용
 
-1. 게임을 종료하고 Steam 게임 **속성 → 일반 → 언어**를 **日本語(일본어)**로 설정합니다. 내려받기가 시작되면 끝날 때까지 기다립니다.
-2. [PARANORMASIGHT1_KR_v1.0.0_Setup.exe](https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases/download/file23-v1.0.0/PARANORMASIGHT1_KR_v1.0.0_Setup.exe)를 실행합니다.
-3. 기본 경로는 `C:\Program Files (x86)\Steam\steamapps\common\PARANORMASIGHT`입니다. 다른 위치라면 **찾아보기**로 실제 게임 폴더를 선택합니다.
-4. 설치가 끝나면 **완료**를 눌러 닫고 게임을 실행합니다. 기존 패치는 먼저 제거하지 않고 같은 폴더에 다시 설치할 수 있습니다.
+정식 v1.0.0 설치 파일은 EXE 하나로 구성됩니다. 게임의 일본어 자리에 한국어를 표시합니다. 기존 패치는 먼저 제거하지 않고 같은 게임 폴더에 설치하면 됩니다.
 
-#### 1편 제거·복원
+1. 게임을 종료하고 Steam 게임 **속성 → 일반 → 언어**를 **日本語(일본어)** 로 설정합니다. 내려받기가 시작되면 완료될 때까지 기다립니다.
+2. [PARANORMASIGHT1_KR_v1.0.0_Setup.exe](https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases/download/file23-v1.0.0/PARANORMASIGHT1_KR_v1.0.0_Setup.exe)를 실행하고 설치 확인에 동의합니다.
+3. 기본 경로는 `C:\Program Files (x86)\Steam\steamapps\common\PARANORMASIGHT`입니다. 다른 위치에 설치했다면 **찾아보기**로 실제 게임 폴더를 선택합니다.
+4. 설치가 끝나면 **완료**를 눌러 닫고 게임을 실행합니다.
 
-- Windows **설정 → 앱 → 설치된 앱**에서 **파라노마사이트1 한국어 패치**를 제거하거나 게임 폴더의 `unins000.exe`를 실행합니다.
-- 기존 `.bak`은 보존하며, 새 백업은 제작 기준 원본과 일치하는 파일만 만듭니다. 이미 패치된 파일을 원본 백업으로 만들지 않습니다.
-- 제거하면 남아 있는 `.bak`을 복원합니다. `.bak`이 없는 설치 대상은 삭제되므로 원본이 필요하면 Steam **게임 파일 무결성 확인**을 이용해 주세요.
-- Steam 업데이트나 무결성 확인으로 패치가 해제될 수 있습니다. 다시 적용할 때에는 현재 게임 판본의 지원 여부를 확인해 주세요.
+<p align="center">
+  <img src="assets/paranormasight1/steam-language-japanese.png" alt="PARANORMASIGHT: THE SEVEN MYSTERIES OF HONJO의 Steam 게임 속성 일반 화면. 언어 항목에서 日本語(일본어)를 고른 모습" width="100%">
+</p>
 
-문제별 권장 입력은 [퀴즈 정답 안내](QNA_1.md)에 정리했습니다. **스포일러가 있으므로 막힌 문제만 펼쳐 보세요.** 자세한 수정 내용은 [1편 변경 이력](CHANGELOG_1.md), 파일 정보는 [v1.0.0 릴리스](https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases/tag/file23-v1.0.0)를 참고해 주세요.
+#### 1편 되돌리기
+
+- Windows **설정 → 앱 → 설치된 앱**에서 **파라노마사이트1 한국어 패치**를 제거합니다.
+- 설치 목록이 없어도 게임 폴더의 `unins000.exe`로 제거할 수 있습니다.
+- 제거할 때 설치한 파일 목록에 따라 패치 파일을 지우고, 같은 위치에 남아 있는 `파일명.bak`을 원래 이름으로 복원합니다.
+- 기존 `.bak`은 덮어쓰지 않습니다. 백업이 없으면 검증된 원본 파일만 새 `.bak`으로 만들며, 이미 패치된 파일은 원본 백업으로 만들지 않습니다.
+- `.bak`이 없는 대상은 제거 시 삭제됩니다. 원본 백업을 지운 경우에는 제거 후 Steam **속성 → 설치된 파일 → 게임 파일 무결성 확인**으로 게임 파일을 복구해 주세요.
+
+> [!NOTE]
+> Steam의 **게임 파일 무결성 확인**이나 게임 업데이트가 패치한 파일을 원래대로 되돌릴 수 있습니다. 게임이 업데이트되면 새 판본을 지원하는 패치가 나올 때까지 기다려 주세요.
+
+### 1편 알려진 제한
+
+- 그림 속 작은 글씨와 장식 문자는 원문 그대로 남아 있습니다.
+- 자료의 문장 흐름과 제보된 그림·주석·메모 배치를 수정했습니다. 어색한 줄바꿈이나 진행 문제를 발견하면 제보해 주세요.
 
 ### 1편 글꼴
 

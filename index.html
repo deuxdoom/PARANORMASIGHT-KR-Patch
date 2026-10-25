@@ -593,29 +593,37 @@
 
       <section class="g-sec" id="p1-support">
         <h3 class="sec">지원 환경과 설치</h3>
-        <p class="lead">Windows용 Steam판 한국어 패치 v1.0.0을 제공합니다.</p>
+        <p class="lead">정식 v1.0.0은 Windows용 Steam판을 대상으로 합니다.</p>
         <div class="card">
           <h4>지원 환경</h4>
           <ul>
-            <li><b>Windows 10/11 64비트 Steam판</b> 기준입니다 (Steam AppID <code>2106840</code>).</li>
+            <li><b>Windows용 Steam판만</b> 지원합니다 (Steam AppID <code>2106840</code>).</li>
+            <li>현재 Steam 판본을 기준으로 만들었습니다. 게임이 업데이트되면 새 판본을 지원하는 패치가 나올 때까지 기다려 주세요.</li>
             <li>Nintendo Switch, iOS, Android판과 Steam 이외의 PC판은 지원하지 않습니다.</li>
-            <li>게임을 정상적으로 구매해 설치한 상태여야 합니다. 수정한 게임 파일 13개와 글꼴 고지를 포함하며, 게임 전체·수정하지 않은 원본 파일·Steam 구성 파일은 포함하지 않습니다.</li>
+            <li>게임을 정상적으로 구매해 설치한 상태여야 합니다. 배포 파일에는 번역을 적용해 수정한 파일만 들어 있으며, 원본 게임 파일은 포함하지 않습니다.</li>
           </ul>
         </div>
         <div class="card">
+          <h4>되돌리기</h4>
+          <ul>
+            <li>Steam 라이브러리에서 게임의 <b>속성 → 설치된 파일 → 게임 파일 무결성 확인</b>을 실행하면 원래 파일로 돌아갑니다.</li>
+            <li>Windows 설정의 설치된 앱에서 <b>파라노마사이트1 한국어 패치</b>를 제거하면 패치 파일을 지우고 <code>.bak</code>을 원래 이름으로 복원합니다.</li>
+            <li>기존 <code>.bak</code>은 유지하며, 새 백업은 원본과 일치하는 파일만 만듭니다. 백업이 없는 파일은 제거 후 Steam 무결성 확인으로 복구해 주세요.</li>
+          </ul>
+        </div>
+        <div class="howto">
           <h4>설치 방법</h4>
+          <p>게임을 종료하고 Steam 언어를 日本語(일본어)로 설정해 주세요. 기존 패치는 먼저 제거하지 않고 같은 게임 폴더에 설치하면 됩니다.</p>
           <ol class="howto-steps">
-            <li>게임을 종료하고 Steam 게임 <b>속성 → 일반 → 언어</b>를 <b>日本語(일본어)</b>로 설정합니다.</li>
-            <li><a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases/download/file23-v1.0.0/PARANORMASIGHT1_KR_v1.0.0_Setup.exe" download>PARANORMASIGHT1_KR_v1.0.0_Setup.exe</a>를 실행합니다.</li>
+            <li>Steam 게임 <b>속성 → 일반 → 언어</b>를 <b>日本語(일본어)</b>로 바꾸고 내려받기가 끝날 때까지 기다립니다.</li>
+            <li><a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases/download/file23-v1.0.0/PARANORMASIGHT1_KR_v1.0.0_Setup.exe" download>PARANORMASIGHT1_KR_v1.0.0_Setup.exe</a>를 실행하고 설치 확인에 동의합니다.</li>
             <li>기본 경로는 <code>C:\Program Files (x86)\Steam\steamapps\common\PARANORMASIGHT</code>입니다. 다른 위치라면 <b>찾아보기</b>로 게임 폴더를 선택합니다.</li>
             <li>설치가 끝나면 <b>완료</b>를 눌러 닫고 게임을 실행합니다.</li>
           </ol>
-          <p>기존 패치는 먼저 제거하지 않고 같은 폴더에 다시 설치할 수 있습니다. 파일 크기는 약 316MB이며, 자세한 파일 정보는 <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases/tag/file23-v1.0.0">v1.0.0 릴리스</a>를 참고해 주세요.</p>
-        </div>
-        <div class="card">
-          <h4>제거·복원</h4>
-          <p>Windows 설치된 앱에서 <b>파라노마사이트1 한국어 패치</b>를 제거하거나 게임 폴더의 <code>unins000.exe</code>를 실행합니다. 기존 <code>.bak</code>은 보존하며, 새 백업은 제작 기준 원본과 일치하는 파일만 만듭니다. 제거하면 남아 있는 백업을 복원합니다.</p>
-          <p><code>.bak</code>이 없는 설치 대상은 삭제되므로 원본이 필요하면 Steam의 <b>게임 파일 무결성 확인</b>을 이용해 주세요.</p>
+          <figure class="shot">
+            <img src="assets/paranormasight1/steam-language-japanese.png" width="1218" height="286" loading="lazy" alt="PARANORMASIGHT: THE SEVEN MYSTERIES OF HONJO의 Steam 게임 속성 일반 화면. 언어 항목에서 日本語(일본어)를 고른 모습">
+            <figcaption>Steam 게임 속성 → 일반 → 언어 → 日本語(일본어)</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -624,19 +632,34 @@
         <p class="lead">패치를 쓰기 전에 알아 두면 좋은 내용입니다.</p>
         <details>
           <summary>어디서 내려받나요?</summary>
-          <div><p>상단의 <b>1편 설치파일</b> 버튼이나 <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases/tag/file23-v1.0.0">v1.0.0 릴리스</a>에서 정식 설치 파일을 내려받을 수 있습니다.</p></div>
+          <div><p>상단의 <b>1편 설치파일</b> 버튼이나 <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases">GitHub Releases</a>에서 내려받을 수 있습니다. 정식 v1.0.0 설치 파일을 제공합니다.</p></div>
+        </details>
+        <details>
+          <summary>패치를 지우고 원래대로 되돌리고 싶어요.</summary>
+          <div><p>Windows 설정의 설치된 앱에서 <b>파라노마사이트1 한국어 패치</b>를 제거하면 남아 있는 <code>.bak</code>을 복원합니다. 백업이 없는 파일은 삭제되므로 제거 후 Steam의 <b>게임 파일 무결성 확인</b>으로 원본을 복구해 주세요.</p></div>
         </details>
         <details>
           <summary>Switch나 모바일판에서도 쓸 수 있나요?</summary>
           <div><p>아니요. Windows용 Steam판만 지원합니다.</p></div>
         </details>
         <details>
-          <summary>2편 패치와 함께 써도 되나요?</summary>
-          <div><p>각 게임 폴더에 해당 작품의 패치를 따로 설치하면 됩니다. 2편 패치는 그대로 쓰면 됩니다.</p></div>
+          <summary>Steam 업데이트 뒤에 일본어로 돌아왔어요.</summary>
+          <div><p>Steam의 게임 파일 무결성 확인이나 게임 업데이트가 패치한 파일을 원래대로 되돌릴 수 있습니다. 게임이 업데이트되면 새 판본을 지원하는 패치가 나올 때까지 기다려 주세요.</p></div>
         </details>
         <details>
-          <summary>퀴즈 정답 안내도 있나요?</summary>
-          <div><p><a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/blob/main/QNA_1.md">퀴즈 정답 안내(QNA_1.md)</a>에서 직접 입력하는 네 문제의 권장 입력을 확인할 수 있습니다. <b>스포일러가 있으므로 막힌 문제만 펼쳐 보세요.</b></p></div>
+          <summary>퍼즐 정답을 입력해도 안 넘어가요.</summary>
+          <div>
+            <p>문제별 권장 입력은 <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/blob/main/QNA_1.md">퀴즈 정답 안내(QNA_1.md)</a>에서 확인해 주세요. 스포일러가 있으므로 막힌 문제만 펼쳐 보세요.</p>
+            <p>안내된 정답으로도 진행되지 않으면 문제 장면과 입력한 답을 <a href="#report">문제 제보</a>로 알려 주세요.</p>
+          </div>
+        </details>
+        <details>
+          <summary>자료 화면의 줄바꿈이 어색한 곳이 있어요.</summary>
+          <div><p>자료의 문장 흐름과 제보된 그림·주석·메모 배치를 수정했습니다. 어색한 줄바꿈이나 진행 문제는 자료 이름·장면과 함께 제보해 주세요.</p></div>
+        </details>
+        <details>
+          <summary>그림 속 일본어가 일부 남아 있어요.</summary>
+          <div><p>진행에 필요하거나 크게 보이는 간판·표지·소품 글자와 콧쿠리 문자판만 한글화하고, 작거나 흐린 글씨와 옛 그림의 글씨는 원화 그대로 두었습니다. 읽어야 진행할 수 있는 글자가 일본어로 남아 있다면 제보해 주세요.</p></div>
         </details>
         <details>
           <summary>어떤 글꼴을 쓰나요?</summary>
