@@ -103,12 +103,12 @@ PARANORMASIGHT: The Seven Mysteries of Honjo · パラノマサイト FILE23 本
 | <a href="assets/paranormasight1/screens/settings.webp"><img src="assets/paranormasight1/screens/settings-960.webp" alt="한국어로 옮긴 설정 화면. 언어 설정에 한국어가 선택되어 있다"></a> | <a href="assets/paranormasight1/screens/map.webp"><img src="assets/paranormasight1/screens/map-960.webp" alt="호온지 다리·미나미와리게스이 거리·슈모쿠 다리 부근 등 한국어 장소 이름이 표시된 혼조 지도"></a> |
 | **인물 목록** | **스토리 차트** |
 | <a href="assets/paranormasight1/screens/characters.webp"><img src="assets/paranormasight1/screens/characters-960.webp" alt="한국어 인물 목록 화면에서 오키이에 쇼고의 소개를 연 모습"></a> | <a href="assets/paranormasight1/screens/story-chart.webp"><img src="assets/paranormasight1/screens/story-chart-960.webp" alt="오키이에 쇼고의 한국어 스토리 차트에서 ‘킨시보리 공원 Part2’ 장면을 고른 모습"></a> |
-| **인물 등장 · 나미가키 유타로** | **대화 장면** |
-| <a href="assets/paranormasight1/screens/intro-namigaki.webp"><img src="assets/paranormasight1/screens/intro-namigaki-960.webp" alt="‘저주인청년’ 소개 문구와 함께 나미가키 유타로의 이름이 한국어로 크게 표시된 장면"></a> | <a href="assets/paranormasight1/screens/dialogue-woman.webp"><img src="assets/paranormasight1/screens/dialogue-woman-960.webp" alt="‘여성’ 이름표와 함께 ‘소중하고 소중한……’ 한국어 대사가 표시된 대화 장면"></a> |
-| **대화와 선택지** | **조사 화면 · 스미다강 강변** |
-| <a href="assets/paranormasight1/screens/dialogue-yoko.webp"><img src="assets/paranormasight1/screens/dialogue-yoko-960.webp" alt="후쿠나가 요코와의 대화 중 ‘그러니까……?’, ‘부활의 비술……이었나?’ 한국어 선택지가 표시된 장면"></a> | <a href="assets/paranormasight1/screens/investigation.webp"><img src="assets/paranormasight1/screens/investigation-960.webp" alt="스미다강 간판이 한국어로 바뀐 강변 조사 화면과 ‘생각한다’·‘소지품’ 버튼"></a> |
-| **자료 · 길잡이 초롱** | **시작 안내 · 한글 패치 제작자 표기** |
-| <a href="assets/paranormasight1/screens/document-lantern.webp"><img src="assets/paranormasight1/screens/document-lantern-960.webp" alt="한국어 자료 화면에서 혼조 7대 불가사의 ‘길잡이 초롱’ 항목을 연 모습"></a> | <a href="assets/paranormasight1/screens/warning.webp"><img src="assets/paranormasight1/screens/warning-960.webp" alt="한국어로 옮긴 미성년자 주의 문구와 분홍색 ‘한글 패치 제작자 : SAKURA’ 표기"></a> |
+| **인물 등장 · 토노 아야메** | **대화 장면** |
+| <a href="assets/paranormasight1/screens/intro-tono.webp"><img src="assets/paranormasight1/screens/intro-tono-960.webp" alt="‘대학생’ 소개 문구와 함께 토노 아야메의 이름이 한국어로 크게 표시된 장면"></a> | <a href="assets/paranormasight1/screens/dialogue-woman.webp"><img src="assets/paranormasight1/screens/dialogue-woman-960.webp" alt="‘여성’ 이름표와 함께 ‘소중하고 소중한……’ 한국어 대사가 표시된 대화 장면"></a> |
+| **자료 · 길잡이 초롱** | **자료 · 구멍가게 센노야** |
+| <a href="assets/paranormasight1/screens/document-lantern.webp"><img src="assets/paranormasight1/screens/document-lantern-960.webp" alt="한국어 자료 화면에서 혼조 7대 불가사의 ‘길잡이 초롱’ 항목을 연 모습"></a> | <a href="assets/paranormasight1/screens/document-sennoya.webp"><img src="assets/paranormasight1/screens/document-sennoya-960.webp" alt="한국어 자료 화면에서 ‘구멍가게 센노야’ 항목을 연 모습. 사진 속 가게 차양 간판도 ‘센노야’로 바뀌어 있다"></a> |
+| **콧쿠리 씨 문자판** | **시작 안내 · 한글 패치 제작자 표기** |
+| <a href="assets/paranormasight1/screens/kokkuri-board.webp"><img src="assets/paranormasight1/screens/kokkuri-board-960.webp" alt="예·아니요와 숫자 0~9, 한글 음절을 손글씨로 적은 콧쿠리 씨 문자판과 ‘이게 콧쿠리 씨의 문자판이야.’ 대사가 표시된 장면"></a> | <a href="assets/paranormasight1/screens/warning.webp"><img src="assets/paranormasight1/screens/warning-960.webp" alt="한국어로 옮긴 미성년자 주의 문구와 분홍색 ‘한글 패치 제작자 : SAKURA’ 표기"></a> |
 
 ### 지원 환경 (예정)
 
