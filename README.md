@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="#1편-file23-혼조-7대-불가사의"><img src="assets/series/button-p1-soon.svg" alt="1편 한글 패치 공개 예정" width="260"></a>
+  <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases/download/file23-v1.0.0/PARANORMASIGHT1_KR_v1.0.0_Setup.exe"><img src="assets/series/button-p1-download.svg" alt="1편 한글 패치 설치 파일" width="260"></a>
   <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases/download/file38-v1.0.2/PARANORMASIGHT2_KR_v1.0.2_Setup.exe"><img src="assets/series/button-p2-download.svg" alt="2편 한글 패치 설치 파일" width="260"></a>
   <a href="https://deuxdoom.github.io/PARANORMASIGHT-KR-Patch/"><img src="assets/paranormasight2/button-intro-page.png" alt="소개 페이지 바로가기" width="260"></a>
 </p>
@@ -19,7 +19,7 @@
   <a href="#1편-file23-혼조-7대-불가사의"><img src="assets/series/jump-p1.svg" alt="1편 소개 바로가기" width="150"></a>
   <a href="#2편-file38-이세-인어-이야기"><img src="assets/series/jump-p2.svg" alt="2편 소개 바로가기" width="150"></a>
   <a href="#문제-제보"><img src="assets/series/jump-report.svg" alt="문제 제보 바로가기" width="150"></a><br>
-  <sub>2편 PARANORMASIGHT2_KR_v1.0.2_Setup.exe · 약 177MB · 설치 방법은 <a href="#설치와-사용">설치와 사용</a> 참고 · 1편은 번역·검수 진행 중</sub>
+  <sub>1편 v1.0.0 · 약 316MB · <a href="#1편-설치와-사용">1편 설치 방법</a> / 2편 v1.0.2 · 약 177MB · <a href="#설치와-사용">2편 설치 방법</a></sub>
 </p>
 
 ## 1편 FILE23 혼조 7대 불가사의
@@ -27,8 +27,10 @@
 PARANORMASIGHT: The Seven Mysteries of Honjo · パラノマサイト FILE23 本所七不思議
 
 > [!IMPORTANT]
-> ### 📝 텍스트 15,940행 초벌 번역 완료 · 검수 진행 중
-> **본편 · 선택지 · 자료/인물 · 스토리 차트 · 도전 과제 · 메뉴 · 콧쿠리 문자판** 등 게임 안 텍스트 **15,940행**과 스태프 크레디트 **159행**을 일본어 원문 기준으로 초벌 번역했고, 진행에 필요한 그림 속 글자 **43장**을 한글로 다시 그렸습니다. 지금은 테스트 빌드로 실제 화면을 확인하며 문장 검수와 그림 속 글자 한글화를 진행하고 있습니다. 공개 일정은 [소개 페이지](https://deuxdoom.github.io/PARANORMASIGHT-KR-Patch/#file23)와 [GitHub Releases](https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases)에서 알려 드립니다.
+> ### 정식 v1.0.0 공개
+> **본편 · 선택지 · 자료/인물 · 스토리 차트 · 도전 과제 · 메뉴 · 콧쿠리 문자판** 등 게임 안 텍스트 **13,284행**과 스태프 크레디트 **159행**을 일본어 원문 기준으로 한국어화하고, 진행에 필요한 그림 속 글자 **43장**을 한글로 다시 그렸습니다. 플레이 검수에서 제보된 문구·글꼴·자료 배치를 반영했습니다.
+>
+> 위 **1편 설치파일** 버튼에서 내려받아 주세요. [설치와 사용](#1편-설치와-사용) · [상세 변경 이력](CHANGELOG_1.md) · [퀴즈 정답 안내 — 스포일러 주의](QNA_1.md)
 
 ### 소개
 
@@ -110,12 +112,27 @@ PARANORMASIGHT: The Seven Mysteries of Honjo · パラノマサイト FILE23 本
 | **콧쿠리 씨 문자판** | **시작 안내 · 한글 패치 제작자 표기** |
 | <a href="assets/paranormasight1/screens/kokkuri-board.webp"><img src="assets/paranormasight1/screens/kokkuri-board-960.webp" alt="예·아니요와 숫자 0~9, 한글 음절을 손글씨로 적은 콧쿠리 씨 문자판과 ‘이게 콧쿠리 씨의 문자판이야.’ 대사가 표시된 장면"></a> | <a href="assets/paranormasight1/screens/warning.webp"><img src="assets/paranormasight1/screens/warning-960.webp" alt="한국어로 옮긴 미성년자 주의 문구와 분홍색 ‘한글 패치 제작자 : SAKURA’ 표기"></a> |
 
-### 지원 환경 (예정)
+### 1편 지원 환경
 
-- **Windows용 Steam판**을 대상으로 준비하고 있습니다 (Steam AppID `2106840`).
-- Nintendo Switch, iOS, Android판과 Steam 이외의 PC판은 지원하지 않을 예정입니다.
-- 게임을 정상적으로 구매해 설치한 상태여야 합니다. 배포 파일에는 원본 게임 파일을 넣지 않습니다.
-- 설치 파일과 설치·되돌리기 방법은 공개할 때 안내합니다.
+- **Windows 10/11 64비트 Steam판**을 대상으로 합니다 (Steam AppID `2106840`).
+- Nintendo Switch, iOS, Android판과 Steam 이외의 PC판은 지원하지 않습니다.
+- 게임을 정상적으로 구매해 설치한 상태여야 합니다. 배포 파일에는 수정한 게임 파일 13개와 `Font-Licenses.txt`가 들어 있습니다. 게임 전체·수정하지 않은 원본 파일·Steam 구성 파일은 포함하지 않습니다.
+
+### 1편 설치와 사용
+
+1. 게임을 종료하고 Steam 게임 **속성 → 일반 → 언어**를 **日本語(일본어)**로 설정합니다. 내려받기가 시작되면 끝날 때까지 기다립니다.
+2. [PARANORMASIGHT1_KR_v1.0.0_Setup.exe](https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases/download/file23-v1.0.0/PARANORMASIGHT1_KR_v1.0.0_Setup.exe)를 실행합니다.
+3. 기본 경로는 `C:\Program Files (x86)\Steam\steamapps\common\PARANORMASIGHT`입니다. 다른 위치라면 **찾아보기**로 실제 게임 폴더를 선택합니다.
+4. 설치가 끝나면 **완료**를 눌러 닫고 게임을 실행합니다. 기존 패치는 먼저 제거하지 않고 같은 폴더에 다시 설치할 수 있습니다.
+
+#### 1편 제거·복원
+
+- Windows **설정 → 앱 → 설치된 앱**에서 **파라노마사이트1 한국어 패치**를 제거하거나 게임 폴더의 `unins000.exe`를 실행합니다.
+- 기존 `.bak`은 보존하며, 새 백업은 제작 기준 원본과 일치하는 파일만 만듭니다. 이미 패치된 파일을 원본 백업으로 만들지 않습니다.
+- 제거하면 남아 있는 `.bak`을 복원합니다. `.bak`이 없는 설치 대상은 삭제되므로 원본이 필요하면 Steam **게임 파일 무결성 확인**을 이용해 주세요.
+- Steam 업데이트나 무결성 확인으로 패치가 해제될 수 있습니다. 다시 적용할 때에는 현재 게임 판본의 지원 여부를 확인해 주세요.
+
+문제별 권장 입력은 [퀴즈 정답 안내](QNA_1.md)에 정리했습니다. **스포일러가 있으므로 막힌 문제만 펼쳐 보세요.** 자세한 수정 내용은 [1편 변경 이력](CHANGELOG_1.md), 파일 정보는 [v1.0.0 릴리스](https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases/tag/file23-v1.0.0)를 참고해 주세요.
 
 ## 2편 FILE38 이세 인어 이야기
 

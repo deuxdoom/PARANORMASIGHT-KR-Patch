@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>파라노마사이트 시리즈 한글 패치</title>
-<meta name="description" content="파라노마사이트 FILE23: 혼조 7대 불가사의(공개 예정)와 FILE38: 이세 인어 이야기의 비공식 한글 패치. 설치 파일, 지원 환경, 설치 안내, 번역 기준.">
+<meta name="description" content="파라노마사이트 FILE23: 혼조 7대 불가사의와 FILE38: 이세 인어 이야기의 비공식 한글 패치. 설치 파일, 지원 환경, 설치 안내, 번역 기준.">
 <meta name="theme-color" content="#0b0c0f">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ko_KR">
@@ -452,7 +452,7 @@
     <h1>파라노마사이트 시리즈 한글 패치</h1>
     <p class="series-sub">PARANORMASIGHT FILE23 · FILE38 · 한글 패치 제작 <b>SAKURA</b></p>
     <nav class="quick" aria-label="작품 바로가기">
-      <a class="p1" href="#file23">1편 혼조 7대 불가사의 <span>공개 예정</span></a>
+      <a class="p1" href="#file23">1편 혼조 7대 불가사의 <span>v1.0.0 설치 파일</span></a>
       <a class="p2" href="#file38">2편 이세 인어 이야기 <span>v1.0.2 설치 파일</span></a>
     </nav>
   </div>
@@ -470,8 +470,8 @@
         <h2 class="g-title" id="p1-title">혼조 7대 불가사의</h2>
         <p class="orig">PARANORMASIGHT: The Seven Mysteries of Honjo<br>パラノマサイト FILE23 本所七不思議</p>
         <div class="g-actions">
-          <span class="patch-download is-soon" role="img" aria-label="1편 한글 패치 공개 예정"><img src="assets/series/button-p1-soon.svg" width="640" height="128" alt=""></span>
-          <span class="changelog-link">v1.0.0 준비 중</span>
+          <a class="patch-download" href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases/download/file23-v1.0.0/PARANORMASIGHT1_KR_v1.0.0_Setup.exe" download><img src="assets/series/button-p1-download.svg" width="640" height="128" alt="1편 한글 패치 설치 파일"></a>
+          <a class="changelog-link" href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/blob/main/CHANGELOG_1.md">v1.0.0 변경내역</a>
         </div>
       </header>
 
@@ -479,16 +479,16 @@
         <div class="status done" role="note">
           <div class="status-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
           <div>
-            <p class="status-title">텍스트 <b>15,940행</b> 초벌 번역 완료 <span class="status-chip">검수 진행 중</span></p>
-            <p class="status-desc">일본어 원문을 기준으로 게임 안 텍스트의 초벌 번역을 마쳤습니다. 지금은 테스트 빌드로 실제 화면을 확인하며 문장 검수와 그림 속 글자 한글화를 진행하고 있습니다. 공개 일정은 이 페이지와 GitHub Releases에서 알려 드립니다.</p>
-            <ul class="tags" aria-label="초벌 번역한 범위">
+            <p class="status-title">텍스트 <b>13,284행</b> 한국어화 <span class="status-chip">v1.0.0 공개</span></p>
+            <p class="status-desc">일본어 원문 기준의 본편·자료·UI와 크레디트를 한국어로 옮겼습니다. 플레이 검수에서 제보된 문구·글꼴·자료 배치를 반영한 정식 v1.0.0을 제공합니다.</p>
+            <ul class="tags" aria-label="한국어화한 범위">
               <li>본편</li><li>선택지</li><li>자료·인물</li><li>스토리 차트</li><li>도전 과제</li><li>메뉴</li><li>콧쿠리 문자판</li><li>스태프 크레디트 159행</li><li>그림 글자 43장</li>
             </ul>
           </div>
         </div>
-        <div class="stats" aria-label="초벌 번역 분량">
-          <div class="stat"><b>15,940</b><span>초벌 번역을 마친 텍스트 행</span></div>
-          <div class="stat"><b>159</b><span>초벌 번역을 마친 크레디트 행</span></div>
+        <div class="stats" aria-label="한국어화 분량">
+          <div class="stat"><b>13,284</b><span>게임 안 텍스트 행</span></div>
+          <div class="stat"><b>159</b><span>한국어 크레디트 행</span></div>
           <div class="stat"><b>43</b><span>한글로 다시 그린 그림</span></div>
           <div class="stat"><b>15</b><span>퀴즈 한국어 정답</span></div>
         </div>
@@ -593,39 +593,50 @@
 
       <section class="g-sec" id="p1-support">
         <h3 class="sec">지원 환경과 설치</h3>
-        <p class="lead">Windows용 Steam판을 대상으로 준비하고 있습니다.</p>
+        <p class="lead">Windows용 Steam판 한국어 패치 v1.0.0을 제공합니다.</p>
         <div class="card">
-          <h4>지원 예정 환경</h4>
+          <h4>지원 환경</h4>
           <ul>
-            <li><b>Windows용 Steam판</b>을 대상으로 합니다 (Steam AppID <code>2106840</code>).</li>
-            <li>Nintendo Switch, iOS, Android판과 Steam 이외의 PC판은 지원하지 않을 예정입니다.</li>
-            <li>게임을 정상적으로 구매해 설치한 상태여야 합니다. 배포 파일에는 원본 게임 파일을 넣지 않습니다.</li>
+            <li><b>Windows 10/11 64비트 Steam판</b> 기준입니다 (Steam AppID <code>2106840</code>).</li>
+            <li>Nintendo Switch, iOS, Android판과 Steam 이외의 PC판은 지원하지 않습니다.</li>
+            <li>게임을 정상적으로 구매해 설치한 상태여야 합니다. 수정한 게임 파일 13개와 글꼴 고지를 포함하며, 게임 전체·수정하지 않은 원본 파일·Steam 구성 파일은 포함하지 않습니다.</li>
           </ul>
         </div>
         <div class="card">
           <h4>설치 방법</h4>
-          <p>설치 파일과 설치·되돌리기 방법은 공개할 때 이 자리에서 안내합니다.</p>
+          <ol class="howto-steps">
+            <li>게임을 종료하고 Steam 게임 <b>속성 → 일반 → 언어</b>를 <b>日本語(일본어)</b>로 설정합니다.</li>
+            <li><a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases/download/file23-v1.0.0/PARANORMASIGHT1_KR_v1.0.0_Setup.exe" download>PARANORMASIGHT1_KR_v1.0.0_Setup.exe</a>를 실행합니다.</li>
+            <li>기본 경로는 <code>C:\Program Files (x86)\Steam\steamapps\common\PARANORMASIGHT</code>입니다. 다른 위치라면 <b>찾아보기</b>로 게임 폴더를 선택합니다.</li>
+            <li>설치가 끝나면 <b>완료</b>를 눌러 닫고 게임을 실행합니다.</li>
+          </ol>
+          <p>기존 패치는 먼저 제거하지 않고 같은 폴더에 다시 설치할 수 있습니다. 파일 크기는 약 316MB이며, 자세한 파일 정보는 <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases/tag/file23-v1.0.0">v1.0.0 릴리스</a>를 참고해 주세요.</p>
+        </div>
+        <div class="card">
+          <h4>제거·복원</h4>
+          <p>Windows 설치된 앱에서 <b>파라노마사이트1 한국어 패치</b>를 제거하거나 게임 폴더의 <code>unins000.exe</code>를 실행합니다. 기존 <code>.bak</code>은 보존하며, 새 백업은 제작 기준 원본과 일치하는 파일만 만듭니다. 제거하면 남아 있는 백업을 복원합니다.</p>
+          <p><code>.bak</code>이 없는 설치 대상은 삭제되므로 원본이 필요하면 Steam의 <b>게임 파일 무결성 확인</b>을 이용해 주세요.</p>
         </div>
       </section>
 
       <section class="g-sec" id="p1-faq">
         <h3 class="sec">자주 묻는 질문</h3>
-        <p class="lead">1편 패치 공개 전에 많이 묻는 내용입니다.</p>
+        <p class="lead">패치를 쓰기 전에 알아 두면 좋은 내용입니다.</p>
         <details>
-          <summary>언제 공개되나요?</summary>
-          <div><p>번역 검수와 실제 플레이 확인을 마치면 이 페이지와 <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases">GitHub Releases</a>에서 알려 드립니다. 아직 정해진 날짜는 없습니다.</p></div>
+          <summary>어디서 내려받나요?</summary>
+          <div><p>상단의 <b>1편 설치파일</b> 버튼이나 <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases/tag/file23-v1.0.0">v1.0.0 릴리스</a>에서 정식 설치 파일을 내려받을 수 있습니다.</p></div>
         </details>
         <details>
           <summary>Switch나 모바일판에서도 쓸 수 있나요?</summary>
-          <div><p>아니요. Windows용 Steam판을 대상으로 준비하고 있습니다.</p></div>
+          <div><p>아니요. Windows용 Steam판만 지원합니다.</p></div>
         </details>
         <details>
           <summary>2편 패치와 함께 써도 되나요?</summary>
-          <div><p>1편과 2편은 서로 다른 게임이라 패치도 각 게임 폴더에 따로 설치하는 방식으로 준비하고 있습니다. 2편 패치는 지금처럼 그대로 쓰면 됩니다.</p></div>
+          <div><p>각 게임 폴더에 해당 작품의 패치를 따로 설치하면 됩니다. 2편 패치는 그대로 쓰면 됩니다.</p></div>
         </details>
         <details>
           <summary>퀴즈 정답 안내도 있나요?</summary>
-          <div><p>2편처럼 이름을 입력하는 퀴즈의 권장 정답 안내를 공개할 때 함께 제공할 예정입니다.</p></div>
+          <div><p><a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/blob/main/QNA_1.md">퀴즈 정답 안내(QNA_1.md)</a>에서 직접 입력하는 네 문제의 권장 입력을 확인할 수 있습니다. <b>스포일러가 있으므로 막힌 문제만 펼쳐 보세요.</b></p></div>
         </details>
       </section>
     </article>
