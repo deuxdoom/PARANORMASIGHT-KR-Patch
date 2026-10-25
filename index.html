@@ -281,12 +281,6 @@
   .play:hover { border-color: var(--line-strong); }
   .i-pause { width: 12px; height: 12px; border-left: 4px solid var(--foam); border-right: 4px solid var(--foam); box-sizing: border-box; }
   .i-play { width: 0; height: 0; margin-left: 3px; border-left: 11px solid var(--foam); border-top: 7px solid transparent; border-bottom: 7px solid transparent; }
-  .soon-panel {
-    aspect-ratio: 16 / 9; display: grid; place-items: center; text-align: center; gap: 6px; padding: 20px;
-    border: 1.5px dashed rgba(var(--accent-rgb), 0.45); border-radius: 16px; color: var(--muted);
-    background: radial-gradient(circle at 50% 45%, rgba(var(--accent-rgb), 0.10), rgba(12, 14, 18, 0.5) 70%);
-  }
-  .soon-panel b { display: block; color: var(--foam); font-family: var(--serif); font-size: 18px; }
   #lightbox { padding: 0; border: 0; background: transparent; width: min(1600px, 94vw); max-width: none; max-height: none; overflow: visible; cursor: zoom-out; }
   #lightbox::backdrop { background: rgba(2, 4, 6, 0.9); }
   #lightbox figure { margin: 0; }
@@ -560,8 +554,41 @@
 
       <section class="g-sec" id="p1-screens">
         <h3 class="sec">적용 화면</h3>
-        <p class="lead">공개할 때 실제 적용 화면을 함께 올립니다.</p>
-        <div class="soon-panel"><div><b>적용 화면 준비 중</b>정식 공개 빌드로 찍은 화면을 추가합니다.</div></div>
+        <p class="lead">이미지를 누르면 크게 보이고, 다시 누르면 돌아갑니다.</p>
+        <p class="note-soon">테스트 빌드에서 찍은 화면입니다. 검증 과정에서 글꼴이나 번역이 달라질 수 있습니다.</p>
+        <div class="carousel" id="carousel-p1" aria-roledescription="캐러셀" aria-label="1편 적용 화면">
+          <div class="viewport">
+            <ul class="track">
+              <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="1 / 11: 타이틀 화면"><button type="button" class="slide-btn" data-full="assets/paranormasight1/screens/title.webp" tabindex="-1"><img src="assets/paranormasight1/screens/title-960.webp" srcset="assets/paranormasight1/screens/title-960.webp 960w, assets/paranormasight1/screens/title.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="한국어 제목 ‘혼조 7대 불가사의’와 한국어 메뉴가 표시된 타이틀 화면"></button><p class="cap">타이틀 화면</p></li>
+              <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="2 / 11: 설정 · 언어 설정"><button type="button" class="slide-btn" data-full="assets/paranormasight1/screens/settings.webp" tabindex="-1"><img src="assets/paranormasight1/screens/settings-960.webp" srcset="assets/paranormasight1/screens/settings-960.webp 960w, assets/paranormasight1/screens/settings.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="한국어로 옮긴 설정 화면. 언어 설정에 한국어가 선택되어 있다"></button><p class="cap">설정 · 언어 설정</p></li>
+              <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="3 / 11: 혼조 지도"><button type="button" class="slide-btn" data-full="assets/paranormasight1/screens/map.webp" tabindex="-1"><img src="assets/paranormasight1/screens/map-960.webp" srcset="assets/paranormasight1/screens/map-960.webp 960w, assets/paranormasight1/screens/map.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="혼조 일대 지도에 장소 사진과 이름표, 오키이에 쇼고의 현재 위치가 표시된 화면"></button><p class="cap">혼조 지도</p></li>
+              <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="4 / 11: 인물 목록"><button type="button" class="slide-btn" data-full="assets/paranormasight1/screens/characters.webp" tabindex="-1"><img src="assets/paranormasight1/screens/characters-960.webp" srcset="assets/paranormasight1/screens/characters-960.webp 960w, assets/paranormasight1/screens/characters.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="한국어 인물 목록 화면에서 오키이에 쇼고의 소개를 연 모습"></button><p class="cap">인물 목록</p></li>
+              <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="5 / 11: 스토리 차트"><button type="button" class="slide-btn" data-full="assets/paranormasight1/screens/story-chart.webp" tabindex="-1"><img src="assets/paranormasight1/screens/story-chart-960.webp" srcset="assets/paranormasight1/screens/story-chart-960.webp 960w, assets/paranormasight1/screens/story-chart.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="오키이에 쇼고의 한국어 스토리 차트에서 ‘킨시보리 공원 Part2’ 장면을 고른 모습"></button><p class="cap">스토리 차트</p></li>
+              <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="6 / 11: 인물 등장 · 나미가키 유타로"><button type="button" class="slide-btn" data-full="assets/paranormasight1/screens/intro-namigaki.webp" tabindex="-1"><img src="assets/paranormasight1/screens/intro-namigaki-960.webp" srcset="assets/paranormasight1/screens/intro-namigaki-960.webp 960w, assets/paranormasight1/screens/intro-namigaki.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="‘저주인청년’ 소개 문구와 함께 나미가키 유타로의 이름이 한국어로 크게 표시된 장면"></button><p class="cap">인물 등장 · 나미가키 유타로</p></li>
+              <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="7 / 11: 대화 장면"><button type="button" class="slide-btn" data-full="assets/paranormasight1/screens/dialogue-woman.webp" tabindex="-1"><img src="assets/paranormasight1/screens/dialogue-woman-960.webp" srcset="assets/paranormasight1/screens/dialogue-woman-960.webp 960w, assets/paranormasight1/screens/dialogue-woman.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="‘여성’ 이름표와 함께 ‘소중하고 소중한……’ 한국어 대사가 표시된 대화 장면"></button><p class="cap">대화 장면</p></li>
+              <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="8 / 11: 대화와 선택지"><button type="button" class="slide-btn" data-full="assets/paranormasight1/screens/dialogue-yoko.webp" tabindex="-1"><img src="assets/paranormasight1/screens/dialogue-yoko-960.webp" srcset="assets/paranormasight1/screens/dialogue-yoko-960.webp 960w, assets/paranormasight1/screens/dialogue-yoko.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="후쿠나가 요코와의 대화 중 ‘그러니까……?’, ‘부활의 비술……이었나?’ 한국어 선택지가 표시된 장면"></button><p class="cap">대화와 선택지</p></li>
+              <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="9 / 11: 조사 화면 · 스미다강 강변"><button type="button" class="slide-btn" data-full="assets/paranormasight1/screens/investigation.webp" tabindex="-1"><img src="assets/paranormasight1/screens/investigation-960.webp" srcset="assets/paranormasight1/screens/investigation-960.webp 960w, assets/paranormasight1/screens/investigation.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="스미다강 간판이 한국어로 바뀐 강변 조사 화면과 ‘생각한다’·‘소지품’ 버튼"></button><p class="cap">조사 화면 · 스미다강 강변</p></li>
+              <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="10 / 11: 자료 · 길잡이 초롱"><button type="button" class="slide-btn" data-full="assets/paranormasight1/screens/document-lantern.webp" tabindex="-1"><img src="assets/paranormasight1/screens/document-lantern-960.webp" srcset="assets/paranormasight1/screens/document-lantern-960.webp 960w, assets/paranormasight1/screens/document-lantern.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="한국어 자료 화면에서 혼조 7대 불가사의 ‘길잡이 초롱’ 항목을 연 모습"></button><p class="cap">자료 · 길잡이 초롱</p></li>
+              <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="11 / 11: 시작 안내 · 한글 패치 제작자 표기"><button type="button" class="slide-btn" data-full="assets/paranormasight1/screens/warning.webp" tabindex="-1"><img src="assets/paranormasight1/screens/warning-960.webp" srcset="assets/paranormasight1/screens/warning-960.webp 960w, assets/paranormasight1/screens/warning.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="한국어로 옮긴 미성년자 주의 문구와 분홍색 ‘한글 패치 제작자 : SAKURA’ 표기"></button><p class="cap">시작 안내 · 한글 패치 제작자 표기</p></li>
+            </ul>
+          </div>
+          <div class="controls">
+            <div class="dots">
+              <button type="button" class="pip" aria-label="타이틀 화면 보기"><span class="fill"></span></button>
+              <button type="button" class="pip" aria-label="설정 · 언어 설정 보기"><span class="fill"></span></button>
+              <button type="button" class="pip" aria-label="혼조 지도 보기"><span class="fill"></span></button>
+              <button type="button" class="pip" aria-label="인물 목록 보기"><span class="fill"></span></button>
+              <button type="button" class="pip" aria-label="스토리 차트 보기"><span class="fill"></span></button>
+              <button type="button" class="pip" aria-label="인물 등장 · 나미가키 유타로 보기"><span class="fill"></span></button>
+              <button type="button" class="pip" aria-label="대화 장면 보기"><span class="fill"></span></button>
+              <button type="button" class="pip" aria-label="대화와 선택지 보기"><span class="fill"></span></button>
+              <button type="button" class="pip" aria-label="조사 화면 · 스미다강 강변 보기"><span class="fill"></span></button>
+              <button type="button" class="pip" aria-label="자료 · 길잡이 초롱 보기"><span class="fill"></span></button>
+              <button type="button" class="pip" aria-label="시작 안내 · 한글 패치 제작자 표기 보기"><span class="fill"></span></button>
+            </div>
+            <button type="button" class="play" aria-label="자동 넘김 일시 정지"><span class="i-pause" aria-hidden="true"></span></button>
+          </div>
+        </div>
       </section>
 
       <section class="g-sec" id="p1-support">
@@ -705,9 +732,9 @@
       <section class="g-sec" id="screens">
         <h3 class="sec">적용 화면</h3>
         <p class="lead">이미지를 누르면 크게 보이고, 다시 누르면 돌아갑니다.</p>
-        <div class="carousel" id="carousel" aria-roledescription="캐러셀" aria-label="2편 적용 화면">
+        <div class="carousel" id="carousel-p2" aria-roledescription="캐러셀" aria-label="2편 적용 화면">
           <div class="viewport">
-            <ul class="track" id="track">
+            <ul class="track">
               <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="1 / 11: 타이틀 화면"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/title.webp" tabindex="-1"><img src="assets/paranormasight2/screens/title-960.webp" srcset="assets/paranormasight2/screens/title-960.webp 960w, assets/paranormasight2/screens/title.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="한국어 제목 ‘이세 인어 이야기’와 한국어 메뉴가 표시된 타이틀 화면"></button><p class="cap">타이틀 화면</p></li>
               <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="2 / 11: 설정 · 언어 설정"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/settings.webp" tabindex="-1"><img src="assets/paranormasight2/screens/settings-960.webp" srcset="assets/paranormasight2/screens/settings-960.webp 960w, assets/paranormasight2/screens/settings.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="한국어로 옮긴 설정 화면. 언어 설정에 한국어가 선택되어 있다"></button><p class="cap">설정 · 언어 설정</p></li>
               <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="3 / 11: 카메시마 지도"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/map.webp" tabindex="-1"><img src="assets/paranormasight2/screens/map-960.webp" srcset="assets/paranormasight2/screens/map-960.webp 960w, assets/paranormasight2/screens/map.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="부두·와카무라 가·등대 등 한국어 장소 이름이 표시된 카메시마 지도"></button><p class="cap">카메시마 지도</p></li>
@@ -722,7 +749,7 @@
             </ul>
           </div>
           <div class="controls">
-            <div class="dots" id="dots">
+            <div class="dots">
               <button type="button" class="pip" aria-label="타이틀 화면 보기"><span class="fill"></span></button>
               <button type="button" class="pip" aria-label="설정 · 언어 설정 보기"><span class="fill"></span></button>
               <button type="button" class="pip" aria-label="카메시마 지도 보기"><span class="fill"></span></button>
@@ -735,7 +762,7 @@
               <button type="button" class="pip" aria-label="대화 장면 보기"><span class="fill"></span></button>
               <button type="button" class="pip" aria-label="시작 안내 · 한글 패치 제작자 표기 보기"><span class="fill"></span></button>
             </div>
-            <button type="button" class="play" id="play" aria-label="자동 넘김 일시 정지"><span class="i-pause" aria-hidden="true"></span></button>
+            <button type="button" class="play" aria-label="자동 넘김 일시 정지"><span class="i-pause" aria-hidden="true"></span></button>
           </div>
         </div>
       </section>
@@ -975,15 +1002,29 @@
 
 <script>
 (function () {
-  var root = document.getElementById('carousel');
-  if (!root) return;
-  var track = document.getElementById('track');
-  var slides = Array.prototype.slice.call(track.children);
-  var dots = Array.prototype.slice.call(document.querySelectorAll('#dots .pip'));
-  var play = document.getElementById('play');
+  // one shared lightbox; every .carousel (FILE23 and FILE38 columns) gets its own controller
   var box = document.getElementById('lightbox');
   var lbImg = document.getElementById('lb-img');
   var lbCap = document.getElementById('lb-cap');
+
+  function shrink() {
+    if (!box.open || box.classList.contains('is-closing')) return;
+    box.classList.add('is-closing');
+    setTimeout(function () {             // matches the 0.28s zoom-out animation
+      box.classList.remove('is-closing');
+      box.close();
+    }, 280);
+  }
+  box.addEventListener('click', shrink);
+  box.addEventListener('cancel', function (e) { e.preventDefault(); shrink(); });
+
+  Array.prototype.forEach.call(document.querySelectorAll('.carousel'), setup);
+
+  function setup(root) {
+  var track = root.querySelector('.track');
+  var slides = Array.prototype.slice.call(track.children);
+  var dots = Array.prototype.slice.call(root.querySelectorAll('.dots .pip'));
+  var play = root.querySelector('.play');
   var at = 0, paused = false, userPaused = false, offscreen = false;
 
   function place(instant) {
@@ -1057,16 +1098,6 @@
     });
   });
 
-  function shrink() {
-    if (!box.open || box.classList.contains('is-closing')) return;
-    box.classList.add('is-closing');
-    setTimeout(function () {             // matches the 0.28s zoom-out animation
-      box.classList.remove('is-closing');
-      box.close();
-    }, 280);
-  }
-  box.addEventListener('click', shrink);
-  box.addEventListener('cancel', function (e) { e.preventDefault(); shrink(); });
   box.addEventListener('close', refresh);
 
   // swipe on touch screens
@@ -1078,7 +1109,7 @@
     if (Math.abs(dx) > 50) go(at + (dx < 0 ? 1 : -1));
   });
 
-  // the carousel sits low in the right column: only advance while it is on screen
+  // the carousels sit low in the columns: only advance while on screen
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (entries) {
       offscreen = !entries[0].isIntersecting;
@@ -1091,6 +1122,7 @@
   go(0);
   place(true);
   requestAnimationFrame(tick);
+  }
 })();
 
 (function () {

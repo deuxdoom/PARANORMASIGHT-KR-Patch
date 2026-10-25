@@ -86,12 +86,36 @@ PARANORMASIGHT: The Seven Mysteries of Honjo · パラノマサイト FILE23 本
 
 <sub>출처: [원작 공식 사이트(일본어)](https://www.jp.square-enix.com/paranormasight/)의 소개 문구와 인물 정보를 한국어로 옮겼습니다. © SQUARE ENIX</sub>
 
+### 적용 화면
+
+이미지를 누르면 크게 볼 수 있습니다.
+
+> [!NOTE]
+> 테스트 빌드에서 찍은 화면입니다. 검증 과정에서 글꼴이나 번역이 달라질 수 있습니다.
+
+<p align="center">
+  <a href="assets/paranormasight1/screens/title.webp"><img src="assets/paranormasight1/screens/title-960.webp" alt="한국어 제목 ‘혼조 7대 불가사의’와 한국어 메뉴가 표시된 타이틀 화면" width="100%"></a><br>
+  <sub>타이틀 화면</sub>
+</p>
+
+| **설정 · 언어 설정** | **혼조 지도** |
+|---|---|
+| <a href="assets/paranormasight1/screens/settings.webp"><img src="assets/paranormasight1/screens/settings-960.webp" alt="한국어로 옮긴 설정 화면. 언어 설정에 한국어가 선택되어 있다"></a> | <a href="assets/paranormasight1/screens/map.webp"><img src="assets/paranormasight1/screens/map-960.webp" alt="혼조 일대 지도에 장소 사진과 이름표, 오키이에 쇼고의 현재 위치가 표시된 화면"></a> |
+| **인물 목록** | **스토리 차트** |
+| <a href="assets/paranormasight1/screens/characters.webp"><img src="assets/paranormasight1/screens/characters-960.webp" alt="한국어 인물 목록 화면에서 오키이에 쇼고의 소개를 연 모습"></a> | <a href="assets/paranormasight1/screens/story-chart.webp"><img src="assets/paranormasight1/screens/story-chart-960.webp" alt="오키이에 쇼고의 한국어 스토리 차트에서 ‘킨시보리 공원 Part2’ 장면을 고른 모습"></a> |
+| **인물 등장 · 나미가키 유타로** | **대화 장면** |
+| <a href="assets/paranormasight1/screens/intro-namigaki.webp"><img src="assets/paranormasight1/screens/intro-namigaki-960.webp" alt="‘저주인청년’ 소개 문구와 함께 나미가키 유타로의 이름이 한국어로 크게 표시된 장면"></a> | <a href="assets/paranormasight1/screens/dialogue-woman.webp"><img src="assets/paranormasight1/screens/dialogue-woman-960.webp" alt="‘여성’ 이름표와 함께 ‘소중하고 소중한……’ 한국어 대사가 표시된 대화 장면"></a> |
+| **대화와 선택지** | **조사 화면 · 스미다강 강변** |
+| <a href="assets/paranormasight1/screens/dialogue-yoko.webp"><img src="assets/paranormasight1/screens/dialogue-yoko-960.webp" alt="후쿠나가 요코와의 대화 중 ‘그러니까……?’, ‘부활의 비술……이었나?’ 한국어 선택지가 표시된 장면"></a> | <a href="assets/paranormasight1/screens/investigation.webp"><img src="assets/paranormasight1/screens/investigation-960.webp" alt="스미다강 간판이 한국어로 바뀐 강변 조사 화면과 ‘생각한다’·‘소지품’ 버튼"></a> |
+| **자료 · 길잡이 초롱** | **시작 안내 · 한글 패치 제작자 표기** |
+| <a href="assets/paranormasight1/screens/document-lantern.webp"><img src="assets/paranormasight1/screens/document-lantern-960.webp" alt="한국어 자료 화면에서 혼조 7대 불가사의 ‘길잡이 초롱’ 항목을 연 모습"></a> | <a href="assets/paranormasight1/screens/warning.webp"><img src="assets/paranormasight1/screens/warning-960.webp" alt="한국어로 옮긴 미성년자 주의 문구와 분홍색 ‘한글 패치 제작자 : SAKURA’ 표기"></a> |
+
 ### 지원 환경 (예정)
 
 - **Windows용 Steam판**을 대상으로 준비하고 있습니다 (Steam AppID `2106840`).
 - Nintendo Switch, iOS, Android판과 Steam 이외의 PC판은 지원하지 않을 예정입니다.
 - 게임을 정상적으로 구매해 설치한 상태여야 합니다. 배포 파일에는 원본 게임 파일을 넣지 않습니다.
-- 설치 파일과 설치·되돌리기 방법, 적용 화면은 공개할 때 안내합니다.
+- 설치 파일과 설치·되돌리기 방법은 공개할 때 안내합니다.
 
 ## 2편 FILE38 이세 인어 이야기
 
