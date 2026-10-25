@@ -100,7 +100,7 @@ PARANORMASIGHT: The Seven Mysteries of Honjo · パラノマサイト FILE23 本
 
 | **설정 · 언어 설정** | **혼조 지도** |
 |---|---|
-| <a href="assets/paranormasight1/screens/settings.webp"><img src="assets/paranormasight1/screens/settings-960.webp" alt="한국어로 옮긴 설정 화면. 언어 설정에 한국어가 선택되어 있다"></a> | <a href="assets/paranormasight1/screens/map.webp"><img src="assets/paranormasight1/screens/map-960.webp" alt="호온지 다리·미나미와리게스이 거리·슈모쿠 다리 부근 등 한국어 장소 이름이 표시된 혼조 지도"></a> |
+| <a href="assets/paranormasight1/screens/settings.webp"><img src="assets/paranormasight1/screens/settings-960.webp" alt="한국어로 옮긴 설정 화면. 언어 설정에 영어·중국어 번체·중국어 간체·한국어가 표시되고 한국어가 선택되어 있다"></a> | <a href="assets/paranormasight1/screens/map.webp"><img src="assets/paranormasight1/screens/map-960.webp" alt="호온지 다리·미나미와리게스이 거리·슈모쿠 다리 부근·킨시초 부근 등 한국어 장소 이름이 표시된 혼조 지도"></a> |
 | **인물 목록** | **스토리 차트** |
 | <a href="assets/paranormasight1/screens/characters.webp"><img src="assets/paranormasight1/screens/characters-960.webp" alt="한국어 인물 목록 화면에서 오키이에 쇼고의 소개를 연 모습"></a> | <a href="assets/paranormasight1/screens/story-chart.webp"><img src="assets/paranormasight1/screens/story-chart-960.webp" alt="오키이에 쇼고의 한국어 스토리 차트에서 ‘킨시보리 공원 Part2’ 장면을 고른 모습"></a> |
 | **인물 등장 · 토노 아야메** | **대화 장면** |
