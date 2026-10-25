@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="#1편-file23-혼조-7대-불가사의"><img src="assets/series/button-p1-soon.svg" alt="1편 한글 패치 공개 예정" width="260"></a>
-  <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases/download/v1.0.2/PARANORMASIGHT2_KR_v1.0.2_Setup.exe"><img src="assets/series/button-p2-download.svg" alt="2편 한글 패치 설치 파일" width="260"></a>
+  <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases/download/file38-v1.0.2/PARANORMASIGHT2_KR_v1.0.2_Setup.exe"><img src="assets/series/button-p2-download.svg" alt="2편 한글 패치 설치 파일" width="260"></a>
   <a href="https://deuxdoom.github.io/PARANORMASIGHT-KR-Patch/"><img src="assets/paranormasight2/button-intro-page.png" alt="소개 페이지 바로가기" width="260"></a>
 </p>
 
@@ -191,7 +191,7 @@ PARANORMASIGHT: The Mermaid's Curse · パラノマサイト FILE38 伊勢人魚
 정식 v1.0.2 설치 파일은 EXE 하나로 구성됩니다. 게임의 일본어 자리에 한국어를 표시합니다. 기존 버전 사용자는 먼저 제거하지 않고 같은 게임 폴더에 설치하면 됩니다.
 
 1. 게임을 종료하고 Steam 게임 **속성 → 일반 → 언어**를 **日本語(일본어)** 로 설정합니다. 내려받기가 시작되면 완료될 때까지 기다립니다.
-2. [PARANORMASIGHT2_KR_v1.0.2_Setup.exe](https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases/download/v1.0.2/PARANORMASIGHT2_KR_v1.0.2_Setup.exe)를 실행하고 설치 확인에 동의합니다.
+2. [PARANORMASIGHT2_KR_v1.0.2_Setup.exe](https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases/download/file38-v1.0.2/PARANORMASIGHT2_KR_v1.0.2_Setup.exe)를 실행하고 설치 확인에 동의합니다.
 3. 기본 경로는 `C:\Program Files (x86)\Steam\steamapps\common\PARANORMASIGHT_2`입니다. 다른 위치에 설치했다면 **찾아보기**로 실제 게임 폴더를 선택합니다.
 4. 설치가 끝나면 **완료**를 눌러 닫고 게임을 실행합니다.
 
