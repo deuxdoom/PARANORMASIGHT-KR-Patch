@@ -93,9 +93,6 @@ PARANORMASIGHT: The Seven Mysteries of Honjo · パラノマサイト FILE23 本
 
 이미지를 누르면 크게 볼 수 있습니다.
 
-> [!NOTE]
-> 테스트 빌드에서 찍은 화면이라 정식 v1.0.0과 일부 표기가 다를 수 있습니다.
-
 <p align="center">
   <a href="assets/paranormasight1/screens/title.webp"><img src="assets/paranormasight1/screens/title-960.webp" alt="한국어 제목 ‘혼조 7대 불가사의’와 한국어 메뉴가 표시된 타이틀 화면" width="100%"></a><br>
   <sub>타이틀 화면</sub>
