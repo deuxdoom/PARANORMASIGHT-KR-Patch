@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>이세 인어 이야기 한글 패치</title>
-<meta name="description" content="파라노마사이트 FILE38: 이세 인어 이야기(PARANORMASIGHT: The Mermaid's Curse) 비공식 한글 패치. 설치 파일, 지원 환경, 설치 안내, 번역 기준.">
-<meta name="theme-color" content="#06181b">
+<title>파라노마사이트 시리즈 한글 패치</title>
+<meta name="description" content="파라노마사이트 FILE23: 혼조 7대 불가사의(공개 예정)와 FILE38: 이세 인어 이야기의 비공식 한글 패치. 설치 파일, 지원 환경, 설치 안내, 번역 기준.">
+<meta name="theme-color" content="#0b0c0f">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:title" content="파라노마사이트 FILE38: 이세 인어 이야기 한글 패치">
-<meta property="og:description" content="PARANORMASIGHT: The Mermaid's Curse 비공식 한국어 번역 패치 · 한글 패치 제작 SAKURA">
-<meta property="og:image" content="assets/paranormasight2/og-image.jpg">
+<meta property="og:title" content="파라노마사이트 시리즈 한글 패치">
+<meta property="og:description" content="PARANORMASIGHT FILE23 · FILE38 비공식 한국어 번역 패치 · 한글 패치 제작 SAKURA">
+<meta property="og:image" content="https://deuxdoom.github.io/PARANORMASIGHT-KR-Patch/assets/series/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/paranormasight2/icon/favicon-32.png">
 <link rel="icon" href="assets/paranormasight2/icon/favicon.ico" sizes="16x16 32x32 48x48">
@@ -21,32 +21,50 @@
 <style>
   :root {
     color-scheme: dark;
-    --deep: #06181b;
-    --sea: #0b2a2e;
-    --sea-2: #10383d;
-    --line: rgba(146, 214, 204, 0.18);
-    --line-strong: rgba(146, 214, 204, 0.36);
-    --glow: #7fd8cb;
-    --foam: #e9f4f1;
-    --text: #d7e7e4;
-    --muted: #93b3ae;
-    --ember: #c4333a;
+    --bg: #0b0c0f;
+    --line: rgba(214, 222, 230, 0.13);
+    --line-strong: rgba(214, 222, 230, 0.30);
+    --foam: #f1f4f6;
+    --text: #d9dfe4;
+    --muted: #98a3ab;
+    --pink: #ff8fbf;
+    --pink-rgb: 255, 143, 191;
     --sun: #e8c36a;
+    --ember: #e5484d;
     --paper: #f3eee4;
     --ink: #1b1b1b;
+    /* FILE23: night in Honjo (rose red) / FILE38: summer sea (teal) */
+    --p1: #ec8a92;
+    --p1-rgb: 236, 138, 146;
+    --p2: #7fd8cb;
+    --p2-rgb: 127, 216, 203;
+    /* request for feedback: bright orange (user 2026-10-25) */
+    --ask: #ffa552;
+    --ask-rgb: 255, 165, 82;
+    /* reporting (form, report buttons): sky blue, distinct from both games */
+    --report: #6cb8ff;
+    --report-rgb: 108, 184, 255;
+    --report-ink: #03213d;
+    --accent: var(--pink);
+    --accent-rgb: var(--pink-rgb);
+    --accent-ink: #2b0a18;
+    --tint: rgba(40, 18, 30, 0.45);
     --radius: 14px;
-    --wrap: 1080px;
+    --wrap: 1240px;
     --serif: "Noto Serif KR", "Nanum Myeongjo", serif;
     --sans: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   }
+  .p1 { --accent: var(--p1); --accent-rgb: var(--p1-rgb); --accent-ink: #2a0b10; --tint: rgba(46, 18, 24, 0.42); }
+  .p2 { --accent: var(--p2); --accent-rgb: var(--p2-rgb); --accent-ink: #05211f; --tint: rgba(11, 42, 46, 0.48); }
+  .rp { --accent: var(--report); --accent-rgb: var(--report-rgb); --accent-ink: var(--report-ink); --tint: rgba(10, 30, 52, 0.5); }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; scroll-padding-top: 72px; }
   body {
     margin: 0;
-    background: var(--deep);
+    background: var(--bg);
     background-image:
-      radial-gradient(1200px 600px at 85% -10%, rgba(127, 216, 203, 0.10), transparent 60%),
-      radial-gradient(900px 500px at -10% 40%, rgba(16, 56, 61, 0.55), transparent 70%);
+      radial-gradient(1000px 640px at -8% 30%, rgba(120, 30, 44, 0.20), transparent 70%),
+      radial-gradient(1000px 640px at 108% 30%, rgba(16, 70, 74, 0.28), transparent 70%);
     color: var(--text);
     font-family: var(--sans);
     font-size: 16px;
@@ -54,7 +72,7 @@
     word-break: keep-all;
     overflow-wrap: anywhere;
   }
-  a { color: var(--glow); text-underline-offset: 3px; }
+  a { color: var(--accent); text-underline-offset: 3px; }
   a:hover { color: var(--foam); }
   img { max-width: 100%; height: auto; display: block; }
   .wrap { width: min(var(--wrap), 100% - 32px); margin-inline: auto; }
@@ -62,228 +80,215 @@
   /* top bar */
   .bar {
     position: sticky; top: 0; z-index: 10;
-    background: rgba(6, 24, 27, 0.82);
+    background: rgba(11, 12, 15, 0.84);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
   }
   .bar .wrap { display: flex; align-items: center; gap: 16px; min-height: 56px; }
   .brand { font-family: var(--serif); font-weight: 700; color: var(--foam); text-decoration: none; font-size: 15px; white-space: nowrap; }
-  .brand span { color: var(--ember); }
+  .brand span { color: var(--pink); }
   .bar nav { margin-left: auto; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
   .bar nav::-webkit-scrollbar { display: none; }
-  .bar nav a { color: var(--muted); text-decoration: none; font-size: 14px; padding: 6px 10px; border-radius: 999px; white-space: nowrap; }
-  .bar nav a:hover { color: var(--foam); background: rgba(127, 216, 203, 0.08); }
+  .bar nav a { color: var(--muted); text-decoration: none; font-size: 14px; padding: 6px 12px; border-radius: 999px; white-space: nowrap; }
+  .bar nav a:hover { color: var(--foam); background: rgba(var(--accent-rgb), 0.12); }
+  .bar nav a b { color: var(--accent); font-weight: 700; margin-right: 4px; }
 
-  /* hero */
-  .hero { position: relative; }
-  .hero picture img { width: 100%; height: auto; max-height: 78vh; object-fit: cover; object-position: center; }
-  .hero::after {
-    content: ""; position: absolute; inset: auto 0 0 0; height: 30%;
-    background: linear-gradient(to bottom, transparent, var(--deep));
-    pointer-events: none;
+  /* hero: FILE23 key visual (left) and FILE38 key art (right) joined by a soft diagonal */
+  .hero { position: relative; width: min(1280px, 100% - 32px); margin: 18px auto 0; border-radius: 22px; overflow: hidden; background: #0b0a0d; box-shadow: 0 28px 70px rgba(0, 0, 0, 0.45); }
+  .hero img { width: 100%; height: auto; }
+  .hero-tag {
+    position: absolute; bottom: 18px; display: inline-flex; align-items: center; gap: 8px;
+    padding: 7px 14px; border-radius: 999px; font-size: 14px; font-weight: 700; text-decoration: none;
+    backdrop-filter: blur(6px); transition: transform .15s ease;
   }
-  .intro { position: relative; z-index: 1; margin-top: -48px; padding-bottom: 8px; }
-  .intro-heading { display: grid; grid-template-columns: minmax(0, 1fr) 320px; grid-template-areas: "meta ." "title download" "orig changelog"; gap: 6px 32px; align-items: center; margin-bottom: 20px; }
-  .intro-meta { grid-area: meta; min-width: 0; }
-  .intro-series { margin: 6px 0 0; font-family: var(--serif); font-size: clamp(15px, 1.9vw, 22px); font-weight: 600; color: var(--text); line-height: 1.3; }
-  .intro-heading h1 { grid-area: title; min-width: 0; margin: 0; font-size: clamp(30px, 3.8vw, 44px); line-height: 64px; }
-  .intro-heading .orig { grid-area: orig; margin: 0; }
-  .patch-download { grid-area: download; display: block; width: 320px; max-width: 100%; justify-self: end; border-radius: 999px; transition: filter .15s ease, transform .15s ease; }
-  .patch-download img { width: 100%; height: auto; }
-  .patch-download:hover { filter: brightness(1.08); transform: translateY(-1px); }
-  .patch-download:focus-visible { outline: 3px solid var(--foam); outline-offset: 5px; }
-  .kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; letter-spacing: 0.08em; color: var(--glow); text-transform: uppercase; }
-  .kicker::before { content: ""; width: 22px; height: 1px; background: var(--glow); }
+  .hero-tag:hover { transform: translateY(-1px); }
+  .hero-tag small { font-weight: 500; opacity: 0.8; }
+  .hero-tag.p1 { left: 18px; color: var(--foam); background: rgba(20, 8, 12, 0.66); border: 1px solid rgba(var(--p1-rgb), 0.55); }
+  .hero-tag.p2 { right: 18px; color: #06302b; background: rgba(255, 255, 255, 0.78); border: 1px solid rgba(16, 92, 84, 0.45); }
+  .hero-tag.p1:hover { color: #fff; }
+  .hero-tag.p2:hover { color: #021512; }
+
+  /* series heading */
+  .series-head { text-align: center; padding: 28px 0 6px; }
+  .kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; letter-spacing: 0.08em; color: var(--accent); text-transform: uppercase; }
+  .kicker::before, .series-head .kicker::after { content: ""; width: 22px; height: 1px; background: currentColor; }
   h1 {
     font-family: var(--serif); font-weight: 900; color: var(--foam);
-    font-size: clamp(30px, 5.2vw, 54px); line-height: 1.25; margin: 10px 0 12px;
+    font-size: clamp(28px, 4vw, 44px); line-height: 1.25; margin: 8px 0 6px;
     text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
   }
-  h1 small { display: block; font-size: 0.5em; font-weight: 600; color: var(--text); margin-bottom: 6px; }
-  .orig { color: var(--muted); font-size: 15px; margin: 0 0 20px; }
-  .credit { color: var(--text); }
-  .credit b { color: #ff8fbf; font-weight: 700; }
+  .series-head h1, .series-sub { text-wrap: balance; }
+  .series-sub { margin: 0; color: var(--muted); font-size: 15px; }
+  .series-sub b, .credit b { color: var(--pink); font-weight: 700; }
+  .quick { display: none; }
 
   .btn {
     display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700; font-size: 15px;
     padding: 11px 18px; border-radius: 999px; border: 1px solid var(--line-strong); color: var(--foam);
-    background: rgba(127, 216, 203, 0.06);
+    background: rgba(var(--accent-rgb), 0.06);
   }
-  .btn:hover { background: rgba(127, 216, 203, 0.14); color: var(--foam); }
-  .btn.primary { background: var(--glow); color: #05211f; border-color: transparent; }
-  .btn.primary:hover { background: var(--foam); color: #05211f; }
-  .btn svg { width: 18px; height: 18px; }
+  .btn:hover { background: rgba(var(--accent-rgb), 0.16); color: var(--foam); }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+  .btn.primary:hover { background: var(--foam); color: var(--accent-ink); }
 
-  /* translation & review complete */
-  .complete {
-    display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: start; margin: 14px 0 0;
-    padding: 22px 24px; border-radius: 18px; border: 1px solid rgba(127, 216, 203, 0.55);
-    background: linear-gradient(135deg, rgba(127, 216, 203, 0.16), rgba(16, 56, 61, 0.55) 55%, rgba(11, 42, 46, 0.6));
-    box-shadow: 0 0 0 1px rgba(127, 216, 203, 0.08), 0 14px 40px rgba(0, 0, 0, 0.35), inset 0 0 40px rgba(127, 216, 203, 0.07);
+  /* two game columns; rows are shared through subgrid so both sides line up */
+  .games {
+    position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(7, auto); column-gap: 48px; margin-top: 30px;
   }
-  .complete-mark { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: var(--glow); color: #05211f; box-shadow: 0 0 0 6px rgba(127, 216, 203, 0.18), 0 0 26px rgba(127, 216, 203, 0.55); }
-  .complete-mark svg { width: 28px; height: 28px; }
-  .complete-title { margin: 0 0 6px; font-family: var(--serif); font-weight: 900; color: var(--foam); font-size: clamp(21px, 2.8vw, 28px); line-height: 1.3; }
-  .complete-title b { color: var(--glow); }
-  .complete-desc { margin: 0 0 12px; color: var(--text); }
-  .complete-tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
-  .complete-tags li { font-size: 13px; font-weight: 700; color: var(--foam); padding: 4px 11px; border-radius: 999px; background: rgba(127, 216, 203, 0.14); border: 1px solid rgba(127, 216, 203, 0.35); }
-  .complete-tags li:nth-last-child(-n+2) { background: rgba(232, 195, 106, 0.12); border-color: rgba(232, 195, 106, 0.4); color: #f4dca0; }
-
-  /* request for translation feedback */
-  .request {
-    display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: start; margin: 4px 0 0;
-    padding: 20px 24px; border-radius: 18px; border: 1px solid rgba(255, 143, 191, 0.45);
-    background: linear-gradient(135deg, rgba(255, 143, 191, 0.12), rgba(16, 56, 61, 0.5) 60%, rgba(11, 42, 46, 0.6));
+  .games::before { content: ""; position: absolute; left: 50%; top: 8px; bottom: 0; width: 1px; background: linear-gradient(var(--line-strong), var(--line) 30%, transparent); }
+  .game { display: grid; grid-row: span 7; grid-template-rows: subgrid; min-width: 0; }
+  .game > * { min-width: 0; align-self: start; }
+  .g-sec { padding-top: 52px; }
+  @supports not (grid-template-rows: subgrid) {
+    .game { display: block; }
   }
-  .request-mark { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; color: #ff8fbf; background: rgba(255, 143, 191, 0.14); border: 1px solid rgba(255, 143, 191, 0.5); }
-  .request-mark svg { width: 26px; height: 26px; }
-  .request-title { margin: 0 0 6px; font-family: var(--serif); font-weight: 900; color: var(--foam); font-size: clamp(19px, 2.4vw, 23px); }
-  .request p { margin: 0 0 8px; color: var(--text); }
-  .request strong { color: #ffb3d1; }
-  .request-btn { margin-top: 6px; border-color: rgba(255, 143, 191, 0.6); background: rgba(255, 143, 191, 0.12); }
-  .request-btn:hover { background: rgba(255, 143, 191, 0.24); }
 
-  /* stats */
-  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 14px 0 8px; }
-  .stat { border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; background: rgba(11, 42, 46, 0.5); }
-  .stat b { display: block; font-family: var(--serif); font-size: clamp(24px, 3.2vw, 34px); color: var(--foam); line-height: 1.2; }
+  .g-head { padding: 4px 0 0; }
+  .g-kicker { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 14px; color: var(--muted); }
+  .g-no { display: inline-grid; place-items: center; min-width: 40px; height: 26px; padding: 0 10px; border-radius: 999px; background: rgba(var(--accent-rgb), 0.16); border: 1px solid rgba(var(--accent-rgb), 0.5); color: var(--accent); font-weight: 700; font-size: 13px; }
+  .g-title { font-family: var(--serif); font-weight: 900; color: var(--foam); font-size: clamp(28px, 3.2vw, 40px); line-height: 1.25; margin: 8px 0 6px; }
+  .orig { color: var(--muted); font-size: 14.5px; margin: 0 0 18px; line-height: 1.6; }
+  .g-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+  .patch-download { display: block; width: 300px; max-width: 100%; border-radius: 999px; transition: filter .15s ease, transform .15s ease; }
+  .patch-download img { width: 100%; height: auto; }
+  a.patch-download:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  a.patch-download:focus-visible { outline: 3px solid var(--foam); outline-offset: 5px; }
+  .patch-download.is-soon { cursor: default; }
+  .changelog-link {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 7px 15px; border: 1px solid var(--line-strong);
+    border-radius: 999px; background: rgba(var(--accent-rgb), 0.08); color: var(--accent);
+    font-size: 13px; font-weight: 700; line-height: 1.5; text-decoration: none;
+    transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+  }
+  a.changelog-link:hover, a.changelog-link:focus-visible { background: #f6d34d; border-color: #f6d34d; color: var(--bg); }
+  a.changelog-link:focus-visible { outline: 2px solid var(--foam); outline-offset: 4px; }
+  span.changelog-link { color: var(--muted); background: transparent; border-style: dashed; }
+
+  /* status boxes */
+  .status {
+    display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: start; margin: 26px 0 0;
+    padding: 20px 22px; border-radius: 18px; border: 1px solid rgba(var(--accent-rgb), 0.5);
+    background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.15), var(--tint) 55%, rgba(12, 14, 18, 0.6));
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.3), inset 0 0 40px rgba(var(--accent-rgb), 0.06);
+  }
+  .status-mark { width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--accent-ink); box-shadow: 0 0 0 6px rgba(var(--accent-rgb), 0.18), 0 0 24px rgba(var(--accent-rgb), 0.45); }
+  .status.soon .status-mark { background: transparent; color: var(--accent); border: 2px solid var(--accent); box-shadow: 0 0 0 6px rgba(var(--accent-rgb), 0.10); }
+  .status-mark svg { width: 26px; height: 26px; }
+  .status-title { margin: 0 0 6px; font-family: var(--serif); font-weight: 900; color: var(--foam); font-size: clamp(19px, 2.2vw, 24px); line-height: 1.35; }
+  .status-title b { color: var(--accent); }
+  .status-title { text-wrap: balance; }
+  .status-chip { display: inline-block; vertical-align: 0.25em; margin-left: 4px; padding: 2px 10px; border-radius: 999px; font-family: var(--sans); font-size: 13px; font-weight: 700; color: var(--accent); border: 1px dashed rgba(var(--accent-rgb), 0.7); white-space: nowrap; }
+  .status-desc { margin: 0 0 12px; color: var(--text); }
+  .tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+  .tags li { font-size: 13px; font-weight: 700; color: var(--foam); padding: 3px 11px; border-radius: 999px; background: rgba(var(--accent-rgb), 0.14); border: 1px solid rgba(var(--accent-rgb), 0.35); }
+  .status.done .tags li:nth-last-child(-n+2) { background: rgba(232, 195, 106, 0.12); border-color: rgba(232, 195, 106, 0.4); color: #f4dca0; }
+  .status.soon .tags li { background: transparent; border-style: dashed; color: var(--text); }
+  .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 12px 0 0; }
+  .stat { border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; background: var(--tint); }
+  .stat b { display: block; font-family: var(--serif); font-size: clamp(22px, 2.6vw, 30px); color: var(--foam); line-height: 1.2; }
   .stat span { color: var(--muted); font-size: 14px; }
 
-  /* sections */
-  section { padding: 56px 0 8px; }
-  h2 {
-    font-family: var(--serif); font-weight: 700; color: var(--foam); font-size: clamp(22px, 3vw, 30px);
+  /* sections inside a column */
+  h3.sec {
+    font-family: var(--serif); font-weight: 700; color: var(--foam); font-size: clamp(21px, 2.4vw, 26px);
     margin: 0 0 6px; display: flex; align-items: center; gap: 12px;
   }
-  h2::before { content: ""; width: 6px; height: 1.1em; border-radius: 3px; background: linear-gradient(var(--glow), var(--ember)); }
-  .lead { color: var(--muted); margin: 0 0 24px; }
-  h3 { font-family: var(--serif); color: var(--foam); font-size: 19px; margin: 0 0 10px; }
+  h3.sec::before { content: ""; width: 6px; height: 1.1em; border-radius: 3px; background: linear-gradient(var(--accent), rgba(var(--accent-rgb), 0.25)); }
+  .lead { color: var(--muted); margin: 0 0 20px; }
+  h4 { font-family: var(--serif); color: var(--foam); font-size: 18px; margin: 0 0 10px; }
   p { margin: 0 0 14px; }
+  .note-soon { color: var(--muted); font-size: 14px; border-left: 3px solid rgba(var(--accent-rgb), 0.6); padding: 2px 0 2px 12px; margin: 0 0 18px; }
 
-  .about { display: grid; grid-template-columns: 1fr 280px; gap: 36px; align-items: start; }
-  .about figure { margin: 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
-  .about figcaption { font-size: 13px; color: var(--muted); padding: 8px 12px; background: rgba(11, 42, 46, 0.7); }
-
-  /* progress */
-  .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
-  .step {
-    display: grid; grid-template-columns: 26px 1fr auto; gap: 14px; align-items: start;
-    border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; background: rgba(11, 42, 46, 0.45);
-  }
-  .step .mark { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; font-weight: 700; }
-  .step.done .mark { background: var(--glow); color: #05211f; }
-  .step.doing .mark { background: transparent; border: 2px solid var(--sun); color: var(--sun); }
-  .step.todo .mark { background: transparent; border: 2px solid var(--line-strong); color: var(--muted); }
-  .step h3 { font-size: 17px; margin: 0 0 2px; font-family: var(--sans); }
-  .step p { margin: 0; color: var(--muted); font-size: 15px; }
-  .chip { font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
-  .done .chip { background: rgba(127, 216, 203, 0.14); color: var(--glow); }
-  .doing .chip { background: rgba(232, 195, 106, 0.14); color: var(--sun); }
-  .todo .chip { background: rgba(147, 179, 174, 0.12); color: var(--muted); }
-  .footnote { color: var(--muted); font-size: 14px; margin-top: 14px; }
-
-  /* cards */
-  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .card { border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; background: rgba(11, 42, 46, 0.45); }
+  .card { border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; background: var(--tint); }
+  .card + .card { margin-top: 14px; }
   .card ul { margin: 0; padding-left: 1.1em; }
   .card li { margin: 6px 0; }
-  code { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: 0.92em; color: var(--foam); background: rgba(127, 216, 203, 0.1); padding: 1px 6px; border-radius: 6px; }
-  .tip { margin-top: 16px; border-left: 3px solid var(--sun); padding: 10px 14px; background: rgba(232, 195, 106, 0.07); border-radius: 0 10px 10px 0; color: var(--text); font-size: 15px; }
+  .card p:last-child { margin-bottom: 0; }
+  code { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: 0.92em; color: var(--foam); background: rgba(var(--accent-rgb), 0.1); padding: 1px 6px; border-radius: 6px; }
 
   /* table */
   .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); }
-  table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 520px; }
-  th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  th { color: var(--foam); font-weight: 700; background: rgba(16, 56, 61, 0.6); font-size: 14px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 440px; }
+  th, td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--foam); font-weight: 700; background: var(--tint); font-size: 14px; }
   tr:last-child td { border-bottom: 0; }
   td.ja { font-family: var(--serif); color: var(--foam); white-space: nowrap; }
   td.note { color: var(--muted); }
 
-  .rules { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 24px; }
-  .rule { border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; background: rgba(11, 42, 46, 0.35); }
+  .rules { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 22px; }
+  .rule { border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; background: rgba(12, 14, 18, 0.45); }
   .rule b { display: block; color: var(--foam); margin-bottom: 4px; }
   .rule p { margin: 0; color: var(--muted); font-size: 15px; }
 
-  /* faq */
-  details { border: 1px solid var(--line); border-radius: var(--radius); background: rgba(11, 42, 46, 0.4); margin-bottom: 10px; }
-  summary { cursor: pointer; padding: 16px 18px; font-weight: 700; color: var(--foam); list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  /* faq & folds */
+  details { border: 1px solid var(--line); border-radius: var(--radius); background: rgba(12, 14, 18, 0.45); margin-bottom: 10px; }
+  summary { cursor: pointer; padding: 15px 18px; font-weight: 700; color: var(--foam); list-style: none; display: flex; justify-content: space-between; gap: 12px; }
   summary::-webkit-details-marker { display: none; }
-  summary::after { content: "+"; color: var(--glow); font-weight: 400; font-size: 20px; line-height: 1; }
+  summary::after { content: "+"; color: var(--accent); font-weight: 400; font-size: 20px; line-height: 1; }
   details[open] summary::after { content: "−"; }
   details > div { padding: 0 18px 16px; color: var(--text); }
   details > div p:last-child { margin-bottom: 0; }
-
-  /* footer */
-  footer { margin-top: 72px; border-top: 1px solid var(--line); background: rgba(4, 16, 18, 0.7); padding: 36px 0 44px; font-size: 14px; color: var(--muted); }
-  .foot { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: start; }
-  .official { background: var(--paper); border-radius: 12px; padding: 14px 16px; width: 220px; text-decoration: none; color: var(--ink); display: block; }
-  .official img { width: 100%; height: auto; }
-  .official span { display: block; font-size: 12px; margin-top: 8px; color: #555; }
-  footer p { margin: 0 0 8px; }
-  footer .maker { color: var(--foam); font-weight: 700; }
-  footer .maker b { color: #ff8fbf; }
-  .changelog-link {
-    display: inline-flex; align-items: center; justify-content: center;
-    grid-area: changelog; justify-self: center;
-    padding: 7px 15px; border: 1px solid var(--line-strong);
-    border-radius: 999px; background: rgba(127, 216, 203, 0.08); color: var(--glow);
-    font-size: 13px; font-weight: 700; line-height: 1.5; text-decoration: none;
-    transition: background-color .15s ease, border-color .15s ease, color .15s ease;
-  }
-  .changelog-link:hover, .changelog-link:focus-visible {
-    background: #f6d34d; border-color: #f6d34d; color: var(--deep);
-  }
-  .changelog-link:focus-visible { outline: 2px solid var(--foam); outline-offset: 4px; }
-
-  /* original game introduction (collapsible) */
-  details.fold summary { font-family: var(--serif); font-size: 18px; padding: 18px 20px; }
+  details.fold summary { font-family: var(--serif); font-size: 18px; padding: 16px 20px; }
   details.fold > div { padding: 2px 20px 20px; }
-  details.fold[open] { border-color: var(--line-strong); }
-  .synopsis { text-align: center; font-family: var(--serif); font-weight: 600; color: var(--foam); font-size: clamp(16px, 2.1vw, 20px); line-height: 2; padding: 10px 0 4px; }
+  details.fold[open] { border-color: rgba(var(--accent-rgb), 0.4); }
+  .synopsis { text-align: center; font-family: var(--serif); font-weight: 600; color: var(--foam); font-size: clamp(15px, 1.7vw, 18px); line-height: 2; padding: 10px 0 4px; }
   .synopsis p { margin: 0; }
-  .synopsis em { font-style: normal; font-weight: 900; color: #e5484d; font-size: 1.35em; text-shadow: 0 0 18px rgba(229, 72, 77, 0.35); }
-  .cast { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .cast li { display: grid; grid-template-columns: 112px 1fr; gap: 16px; align-items: start; border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; background: rgba(4, 16, 18, 0.45); }
-  .cast-pic { width: 112px; height: 132px; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: radial-gradient(circle at 50% 30%, rgba(127, 216, 203, 0.2), rgba(4, 16, 18, 0.7) 75%); }
+  .synopsis b { font-weight: 900; }
+  .synopsis em { font-style: normal; font-weight: 900; color: #e5484d; font-size: 1.3em; text-shadow: 0 0 18px rgba(229, 72, 77, 0.35); }
+  .synopsis .gap { margin-top: 14px; }
+  .cast { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .cast li { display: grid; grid-template-columns: 104px 1fr; gap: 16px; align-items: start; border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; background: rgba(4, 6, 8, 0.45); }
+  .cast-pic { width: 104px; height: 120px; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: radial-gradient(circle at 50% 30%, rgba(var(--accent-rgb), 0.2), rgba(4, 6, 8, 0.7) 75%); }
   .cast-pic img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
-  .cast h3 { margin: 0; font-size: 18px; }
+  .cast h4 { margin: 0; font-size: 18px; }
   .orig-name { display: block; font-size: 13px; color: var(--muted); margin: 2px 0 8px; }
   .cast p { margin: 0; font-size: 15px; color: var(--text); }
+  .cast.compact { grid-template-columns: 1fr 1fr; }
+  .cast.compact li { grid-template-columns: 72px 1fr; gap: 10px 12px; align-items: center; align-content: start; padding: 10px 12px; }
+  .cast.compact .cast-pic { width: 72px; height: 72px; }
+  .cast.compact h4 { font-size: 16px; }
+  .cast.compact .orig-name { margin: 0 0 2px; font-size: 12px; }
+  .cast.compact p { font-size: 14px; color: var(--muted); }
+  .cast.compact .cast-desc { grid-column: 1 / -1; margin: 0; font-size: 14px; line-height: 1.65; color: var(--text); }
   .staff { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
-  .staff li { border: 1px solid var(--line); border-radius: 12px; padding: 14px 18px; background: rgba(4, 16, 18, 0.45); }
-  .staff .role { display: inline-block; font-size: 12px; font-weight: 700; color: var(--glow); border: 1px solid rgba(127, 216, 203, 0.4); border-radius: 999px; padding: 2px 10px; margin-right: 10px; vertical-align: 2px; }
+  .staff li { border: 1px solid var(--line); border-radius: 12px; padding: 14px 18px; background: rgba(4, 6, 8, 0.45); }
+  .staff .role { display: inline-block; font-size: 12px; font-weight: 700; color: var(--accent); border: 1px solid rgba(var(--accent-rgb), 0.4); border-radius: 999px; padding: 2px 10px; margin-right: 10px; vertical-align: 2px; }
   .staff b { font-family: var(--serif); font-size: 18px; color: var(--foam); }
   .staff .orig-name { display: inline; margin: 0 0 0 8px; }
   .staff p { margin: 6px 0 0; font-size: 14px; color: var(--muted); }
   .source { font-size: 13px; color: var(--muted); margin: 12px 0 0; }
 
-  /* screenshots: Apple-style carousel */
-  .carousel { --slide: min(820px, 80vw); --gap: 22px; --dur: 5s; margin-top: 4px; }
-  .viewport { overflow: hidden; padding: 6px 0 4px; }
+  /* screenshots: one slide per column */
+  .carousel { --gap: 14px; }
+  .viewport { overflow: hidden; padding: 4px 0; }
   .track { list-style: none; margin: 0; padding: 0; display: flex; gap: var(--gap); will-change: transform;
     transition: transform 0.9s cubic-bezier(0.22, 0.61, 0.24, 1); }
-  .slide { flex: 0 0 var(--slide); opacity: 0.38; transform: scale(0.94); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.22, 0.61, 0.24, 1); }
-  .slide.is-active { opacity: 1; transform: none; }
-  .slide-btn { display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: #000; cursor: pointer; }
-  .slide:not(.is-active) .slide-btn { cursor: default; }
-  .slide.is-active .slide-btn { cursor: zoom-in; box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45); }
+  .slide { flex: 0 0 100%; opacity: 0.38; transition: opacity 0.9s ease; }
+  .slide.is-active { opacity: 1; }
+  .slide-btn { display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: #000; cursor: zoom-in; }
   .slide-btn img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
-  .cap { text-align: center; margin: 12px 0 0; color: var(--muted); font-size: 15px; transition: color 0.6s; }
-  .slide.is-active .cap { color: var(--foam); }
-  .controls { display: flex; justify-content: center; align-items: center; gap: 14px; margin-top: 18px; }
-  .dots { display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 999px; background: rgba(11, 42, 46, 0.75); border: 1px solid var(--line); }
-  .pip { position: relative; width: 10px; height: 10px; padding: 0; border: 0; border-radius: 999px; background: rgba(233, 244, 241, 0.32); cursor: pointer; overflow: hidden;
+  .cap { text-align: center; margin: 10px 0 0; color: var(--foam); font-size: 15px; }
+  .controls { display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 14px; }
+  .dots { display: flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 999px; background: rgba(12, 14, 18, 0.75); border: 1px solid var(--line); }
+  .pip { position: relative; width: 9px; height: 9px; padding: 0; border: 0; border-radius: 999px; background: rgba(233, 244, 241, 0.32); cursor: pointer; overflow: hidden;
     transition: width 0.5s cubic-bezier(0.22, 0.61, 0.24, 1), background-color 0.3s; }
   .pip:hover { background: rgba(233, 244, 241, 0.55); }
-  .pip.is-active { width: 48px; background: rgba(233, 244, 241, 0.3); }
-  .pip .fill { position: absolute; inset: 0 auto 0 0; width: 0; border-radius: inherit; background: var(--glow); }
-  .play { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: rgba(11, 42, 46, 0.75); cursor: pointer; display: grid; place-items: center; }
+  .pip.is-active { width: 40px; background: rgba(233, 244, 241, 0.3); }
+  .pip .fill { position: absolute; inset: 0 auto 0 0; width: 0; border-radius: inherit; background: var(--accent); }
+  .play { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line); background: rgba(12, 14, 18, 0.75); cursor: pointer; display: grid; place-items: center; }
   .play:hover { border-color: var(--line-strong); }
   .i-pause { width: 12px; height: 12px; border-left: 4px solid var(--foam); border-right: 4px solid var(--foam); box-sizing: border-box; }
   .i-play { width: 0; height: 0; margin-left: 3px; border-left: 11px solid var(--foam); border-top: 7px solid transparent; border-bottom: 7px solid transparent; }
+  .soon-panel {
+    aspect-ratio: 16 / 9; display: grid; place-items: center; text-align: center; gap: 6px; padding: 20px;
+    border: 1.5px dashed rgba(var(--accent-rgb), 0.45); border-radius: 16px; color: var(--muted);
+    background: radial-gradient(circle at 50% 45%, rgba(var(--accent-rgb), 0.10), rgba(12, 14, 18, 0.5) 70%);
+  }
+  .soon-panel b { display: block; color: var(--foam); font-family: var(--serif); font-size: 18px; }
   #lightbox { padding: 0; border: 0; background: transparent; width: min(1600px, 94vw); max-width: none; max-height: none; overflow: visible; cursor: zoom-out; }
-  #lightbox::backdrop { background: rgba(2, 10, 12, 0.9); }
+  #lightbox::backdrop { background: rgba(2, 4, 6, 0.9); }
   #lightbox figure { margin: 0; }
   #lightbox img { width: 100%; max-height: 86vh; object-fit: contain; border-radius: 12px; }
   #lightbox figcaption { color: var(--foam); text-align: center; margin-top: 12px; font-size: 15px; }
@@ -296,48 +301,81 @@
   @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
   @keyframes fade-out { from { opacity: 1; } to { opacity: 0; } }
 
-  /* how to show Korean */
-  .howto { margin-top: 16px; border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; background: rgba(11, 42, 46, 0.45); }
+  /* install steps */
+  .howto { margin-top: 14px; border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; background: var(--tint); }
   .howto > p { color: var(--muted); }
   .howto-steps { margin: 0 0 18px; padding-left: 1.3em; }
   .howto-steps li { margin: 6px 0; }
-  .howto-steps li::marker { color: var(--glow); font-weight: 700; }
+  .howto-steps li::marker { color: var(--accent); font-weight: 700; }
   .shot { margin: 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--line-strong); background: #171d25; }
   .shot img { width: 100%; }
-  .shot figcaption { font-size: 13px; color: var(--muted); padding: 8px 12px; background: rgba(11, 42, 46, 0.8); }
+  .shot figcaption { font-size: 13px; color: var(--muted); padding: 8px 12px; background: rgba(12, 14, 18, 0.8); }
 
-  /* report form */
+  /* shared translation policy: common rules once, game-specific points in two cards */
+  .policy h2.sec::before { background: linear-gradient(var(--p1), var(--p2)); }
+  .policy .rules { grid-template-columns: repeat(3, 1fr); margin-bottom: 28px; }
+  .policy-title { font-family: var(--serif); color: var(--foam); font-size: 20px; margin: 0 0 14px; }
+  .pcards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: start; }
+  .pcard { border: 1px solid rgba(var(--accent-rgb), 0.45); border-radius: 18px; padding: 20px 22px; background: linear-gradient(160deg, rgba(var(--accent-rgb), 0.10), var(--tint) 45%, rgba(12, 14, 18, 0.55)); }
+  .pcard h4 { display: flex; align-items: center; gap: 10px; margin: 0 0 12px; font-size: 19px; }
+  .pcard-list { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 10px; }
+  .pcard-list li { padding-left: 14px; border-left: 3px solid rgba(var(--accent-rgb), 0.6); }
+  .pcard-list b { display: block; color: var(--foam); }
+  .pcard-list span { color: var(--muted); font-size: 15px; }
+  .pcard .table-wrap table { min-width: 0; }
+  .pcard td:nth-child(2) { white-space: nowrap; }
+  .pcard .note-soon { margin: 0 0 14px; }
+
+  /* shared: request for feedback */
+  .shared { padding-top: 64px; }
+  .request {
+    display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: start;
+    padding: 20px 24px; border-radius: 18px; border: 1px solid rgba(var(--ask-rgb), 0.55);
+    background: linear-gradient(135deg, rgba(var(--ask-rgb), 0.16), rgba(40, 24, 12, 0.5) 60%, rgba(12, 14, 18, 0.6));
+  }
+  .request-mark { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; color: var(--ask); background: rgba(var(--ask-rgb), 0.16); border: 1px solid rgba(var(--ask-rgb), 0.6); }
+  .request-mark svg { width: 26px; height: 26px; }
+  .request-title { margin: 0 0 6px; font-family: var(--serif); font-weight: 900; color: var(--foam); font-size: clamp(19px, 2.4vw, 23px); }
+  .request p { margin: 0 0 8px; color: var(--text); }
+  .request strong { color: #ffc792; }
+  .request-btn { margin-top: 6px; color: #e3f1ff; border-color: rgba(var(--report-rgb), 0.7); background: rgba(var(--report-rgb), 0.16); }
+  .request-btn:hover { color: var(--report-ink); background: var(--report); }
+
+  /* shared: report form */
+  h2.sec { font-family: var(--serif); font-weight: 700; color: var(--foam); font-size: clamp(22px, 3vw, 30px); margin: 0 0 6px; display: flex; align-items: center; gap: 12px; }
+  h2.sec::before { content: ""; width: 6px; height: 1.1em; border-radius: 3px; background: linear-gradient(var(--accent), rgba(var(--accent-rgb), 0.25)); }
+  #report .card { border-color: rgba(var(--report-rgb), 0.35); }
   .report { display: grid; gap: 16px; }
-  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 16px; }
   .field { display: grid; gap: 6px; }
   .label { font-weight: 700; color: var(--foam); font-size: 15px; }
   .label em { font-style: normal; font-size: 12px; color: var(--ember); margin-left: 6px; font-weight: 700; }
   .label small { font-size: 12px; color: var(--muted); margin-left: 6px; font-weight: 400; }
   .report input, .report select, .report textarea {
     width: 100%; font: inherit; font-size: 15px; color: var(--foam);
-    background: rgba(4, 16, 18, 0.7); border: 1px solid var(--line-strong); border-radius: 10px; padding: 10px 12px;
+    background: rgba(4, 6, 8, 0.7); border: 1px solid var(--line-strong); border-radius: 10px; padding: 10px 12px;
   }
   .report textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
-  .report input::placeholder, .report textarea::placeholder { color: #6f8f8a; }
+  .report input::placeholder, .report textarea::placeholder { color: #6f7b83; }
   .report input:focus, .report select:focus, .report textarea:focus, .drop:focus {
-    outline: 2px solid var(--glow); outline-offset: 1px; border-color: transparent;
+    outline: 2px solid var(--accent); outline-offset: 1px; border-color: transparent;
   }
-  .report select option { background: var(--sea); }
+  .report select option { background: #15181d; }
   .report .invalid { border-color: var(--ember); }
   .drop {
     display: grid; gap: 4px; place-items: center; text-align: center; cursor: pointer;
-    border: 1.5px dashed var(--line-strong); border-radius: 12px; padding: 22px 16px; background: rgba(4, 16, 18, 0.45);
+    border: 1.5px dashed var(--line-strong); border-radius: 12px; padding: 22px 16px; background: rgba(4, 6, 8, 0.45);
   }
   .drop b { color: var(--foam); }
   .drop span { color: var(--muted); font-size: 14px; }
-  .drop.over { border-color: var(--glow); background: rgba(127, 216, 203, 0.08); }
+  .drop.over { border-color: var(--accent); background: rgba(var(--accent-rgb), 0.08); }
   .thumbs { list-style: none; margin: 4px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
   .thumbs:empty { display: none; }
-  .thumbs li { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: rgba(4, 16, 18, 0.6); }
+  .thumbs li { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: rgba(4, 6, 8, 0.6); }
   .thumbs img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
   .thumbs .row { display: flex; gap: 6px; padding: 6px; }
-  .thumbs button { flex: 1; font: inherit; font-size: 13px; padding: 5px 0; border-radius: 8px; cursor: pointer; border: 1px solid var(--line-strong); color: var(--foam); background: rgba(127, 216, 203, 0.06); }
-  .thumbs button:hover { background: rgba(127, 216, 203, 0.16); }
+  .thumbs button { flex: 1; font: inherit; font-size: 13px; padding: 5px 0; border-radius: 8px; cursor: pointer; border: 1px solid var(--line-strong); color: var(--foam); background: rgba(var(--accent-rgb), 0.06); }
+  .thumbs button:hover { background: rgba(var(--accent-rgb), 0.16); }
   .hint { font-size: 14px; color: var(--muted); margin: 0; }
   .hint.alert { color: var(--text); border: 1px solid rgba(255, 99, 99, 0.6); border-left-width: 4px; background: rgba(255, 80, 80, 0.09); border-radius: 10px; padding: 12px 14px; }
   .hint-alert { display: flex; align-items: center; gap: 8px; color: #ff6b6b; font-weight: 700; font-size: 16px; margin-bottom: 6px; }
@@ -345,32 +383,49 @@
   kbd { font-family: inherit; font-size: 12px; border: 1px solid var(--line-strong); border-bottom-width: 2px; border-radius: 5px; padding: 0 5px; color: var(--foam); }
   .form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
   .form-actions .btn { cursor: pointer; font-family: inherit; }
-  .status { font-size: 14px; color: var(--glow); }
-  .status.warn { color: var(--sun); }
+  .status-line { font-size: 14px; color: var(--accent); }
+  .status-line.warn { color: var(--sun); }
 
-  @media (max-width: 860px) {
-    .intro-heading { grid-template-columns: 1fr; grid-template-areas: "meta" "title" "orig" "download" "changelog"; }
-    .intro-heading h1 { line-height: 1.3; }
-    .patch-download { justify-self: start; margin-top: 14px; }
-    .changelog-link { justify-self: start; }
-    .about, .grid-2, .rules, .field-row, .cast { grid-template-columns: 1fr; }
-    .carousel { --slide: 88vw; --gap: 12px; }
-    .about figure { display: none; }
-    .stats { grid-template-columns: repeat(2, 1fr); }
+  /* footer */
+  footer { margin-top: 72px; border-top: 1px solid var(--line); background: rgba(6, 7, 9, 0.75); padding: 36px 0 44px; font-size: 14px; color: var(--muted); }
+  .foot { display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: start; }
+  .officials { display: grid; gap: 12px; }
+  .official { background: var(--paper); border-radius: 12px; padding: 14px 16px; width: 220px; text-decoration: none; color: var(--ink); display: block; }
+  .official img { width: 100%; height: auto; aspect-ratio: 360 / 141; object-fit: contain; }
+  .official span { display: block; font-size: 12px; margin-top: 8px; color: #555; }
+  footer p { margin: 0 0 8px; }
+  footer .maker { color: var(--foam); font-weight: 700; }
+  footer .maker b { color: var(--pink); }
+
+  @media (max-width: 900px) {
+    .games { grid-template-columns: 1fr; grid-template-rows: none; margin-top: 18px; }
+    .games::before { display: none; }
+    .game { display: block; }
+    .game.p2 { margin-top: 72px; padding-top: 36px; border-top: 1px solid var(--line); }
+    .g-sec { padding-top: 44px; }
+    .quick { display: grid; gap: 8px; margin: 18px auto 0; max-width: 460px; }
+    .quick a { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 11px 16px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 15px; color: var(--foam); border: 1px solid rgba(var(--accent-rgb), 0.5); background: rgba(var(--accent-rgb), 0.10); }
+    .quick a span { color: var(--accent); font-size: 13px; white-space: nowrap; }
+    .field-row { grid-template-columns: 1fr 1fr; }
+    .policy .rules { grid-template-columns: 1fr 1fr; }
+    .pcards { grid-template-columns: 1fr; }
+    .field-row .field:last-child { grid-column: 1 / -1; }
     .foot { grid-template-columns: 1fr; }
+    .officials { grid-template-columns: repeat(2, minmax(0, 220px)); }
   }
   @media (max-width: 640px) {
-    .hero picture img { max-height: none; }
-    .intro { margin-top: -24px; }
+    .hero { width: calc(100% - 32px); border-radius: 16px; margin-top: 12px; }
+    .hero-tag { display: none; }
+    .series-head { padding-top: 22px; }
     .bar nav { display: none; }
-    .step { grid-template-columns: 26px 1fr; }
-    .step .chip { grid-column: 2; justify-self: start; }
-    table { min-width: 0; font-size: 14px; }
+    .rules, .cast.compact, .field-row { grid-template-columns: 1fr; }
     .cast li { grid-template-columns: 84px 1fr; gap: 12px; padding: 12px; }
     .cast-pic { width: 84px; height: 100px; }
+    table { min-width: 0; font-size: 14px; }
     th, td { padding: 10px 12px; }
-    section { padding-top: 44px; }
-    .dots { gap: 8px; padding: 10px 14px; }
+    .status, .request { grid-template-columns: 1fr; }
+    .officials { grid-template-columns: 1fr 1fr; }
+    .official { width: auto; }
   }
 </style>
 </head>
@@ -378,15 +433,12 @@
 
 <header class="bar">
   <div class="wrap">
-    <a class="brand" href="#top">이세 인어 이야기 <span>한글 패치</span></a>
+    <a class="brand" href="#top">파라노마사이트 <span>한글 패치</span></a>
     <nav aria-label="페이지 목차">
-      <a href="#about">소개</a>
-      <a href="#original">원작 소개</a>
-      <a href="#screens">적용 화면</a>
-      <a href="#support">지원·설치</a>
+      <a class="p1" href="#file23"><b>1편</b>혼조 7대 불가사의</a>
+      <a class="p2" href="#file38"><b>2편</b>이세 인어 이야기</a>
       <a href="#policy">번역 기준</a>
-      <a href="#faq">자주 묻는 질문</a>
-      <a href="#report">문제 제보</a>
+      <a class="rp" href="#report"><b>✉</b>문제 제보</a>
     </nav>
   </div>
 </header>
@@ -394,26 +446,393 @@
 <main id="top">
   <div class="hero">
     <picture>
-      <source media="(max-width: 640px)" srcset="assets/paranormasight2/keyart-portrait.webp 800w, assets/paranormasight2/keyart-portrait-1200.webp 1200w" sizes="100vw" width="1200" height="1800">
-      <img src="assets/paranormasight2/keyart-wide.webp" srcset="assets/paranormasight2/keyart-wide-960.webp 960w, assets/paranormasight2/keyart-wide.webp 1920w" sizes="100vw" width="1920" height="1080" alt="PARANORMASIGHT: The Mermaid's Curse 키 아트. 바닷속에서 인어와 카메시마 사람들이 모여 있다.">
+      <source media="(max-width: 640px)" srcset="assets/series/hero-tall-450.webp 450w, assets/series/hero-tall.webp 900w" sizes="calc(100vw - 32px)" width="900" height="1500">
+      <img src="assets/series/hero-wide.webp" srcset="assets/series/hero-wide-960.webp 960w, assets/series/hero-wide.webp 1920w" sizes="(max-width: 1312px) calc(100vw - 32px), 1280px" width="1920" height="720" fetchpriority="high" alt="왼쪽은 어두운 원 안의 『파라노마사이트 FILE23 혼조 7대 불가사의』 키 비주얼, 오른쪽은 흰 바탕 원 안의 『파라노마사이트 FILE38 이세 인어 이야기』 키 아트. 두 그림 사이가 대각선으로 흐려지며 이어진다.">
     </picture>
+    <a class="hero-tag p1" href="#file23">1편 <small>FILE23 혼조 7대 불가사의</small></a>
+    <a class="hero-tag p2" href="#file38">2편 <small>FILE38 이세 인어 이야기</small></a>
   </div>
 
-  <div class="wrap intro">
-    <div class="intro-heading">
-      <div class="intro-meta">
-        <div class="kicker">비공식 한국어 번역 패치</div>
-        <p class="intro-series">파라노마사이트 FILE38</p>
-      </div>
-      <h1>이세 인어 이야기 한글 패치</h1>
-      <p class="orig">PARANORMASIGHT: The Mermaid's Curse · パラノマサイト FILE38 伊勢人魚物語<br>
-        <span class="credit">한글 패치 제작 <b>SAKURA</b></span></p>
-      <a class="patch-download" href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases/latest/download/PARANORMASIGHT2_KR_v1.0.2_Setup.exe" download>
-        <img src="assets/paranormasight2/button-download-v1.svg" width="640" height="128" alt="한글패치 설치파일">
-      </a>
-      <a class="changelog-link" href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/blob/main/CHANGELOG_2.md">v1.0.2 변경내역</a>
-    </div>
+  <div class="wrap series-head">
+    <p class="kicker">비공식 한국어 번역 패치</p>
+    <h1>파라노마사이트 시리즈 한글 패치</h1>
+    <p class="series-sub">PARANORMASIGHT FILE23 · FILE38 · 한글 패치 제작 <b>SAKURA</b></p>
+    <nav class="quick" aria-label="작품 바로가기">
+      <a class="p1" href="#file23">1편 혼조 7대 불가사의 <span>공개 예정</span></a>
+      <a class="p2" href="#file38">2편 이세 인어 이야기 <span>v1.0.2 설치 파일</span></a>
+    </nav>
+  </div>
 
+  <!-- Left column = FILE23, right column = FILE38. Both columns keep the same 7 rows
+       (head, status, about, original, screens, support, faq) so the rows line up. The translation
+       policy is shared by both games and sits full width below the columns (#policy).
+       The FILE38 sections keep their original ids (#about, #support, ...) for links already shared. -->
+  <div class="wrap games">
+
+    <!-- ===================== FILE23 ===================== -->
+    <article class="game p1" id="file23" aria-labelledby="p1-title">
+      <header class="g-head">
+        <p class="g-kicker"><span class="g-no">1편</span>파라노마사이트 FILE23</p>
+        <h2 class="g-title" id="p1-title">혼조 7대 불가사의</h2>
+        <p class="orig">PARANORMASIGHT: The Seven Mysteries of Honjo<br>パラノマサイト FILE23 本所七不思議</p>
+        <div class="g-actions">
+          <span class="patch-download is-soon" role="img" aria-label="1편 한글 패치 공개 예정"><img src="assets/series/button-p1-soon.svg" width="640" height="128" alt=""></span>
+          <span class="changelog-link">v1.0.0 준비 중</span>
+        </div>
+      </header>
+
+      <div>
+        <div class="status done" role="note">
+          <div class="status-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+          <div>
+            <p class="status-title">텍스트 <b>15,940행</b> 초벌 번역 완료 <span class="status-chip">검수 진행 중</span></p>
+            <p class="status-desc">일본어 원문을 기준으로 게임 안 텍스트의 초벌 번역을 마쳤습니다. 지금은 테스트 빌드로 실제 화면을 확인하며 문장 검수와 그림 속 글자 한글화를 진행하고 있습니다. 공개 일정은 이 페이지와 GitHub Releases에서 알려 드립니다.</p>
+            <ul class="tags" aria-label="초벌 번역한 범위">
+              <li>본편</li><li>선택지</li><li>자료·인물</li><li>스토리 차트</li><li>도전 과제</li><li>메뉴</li><li>콧쿠리 문자판</li><li>스태프 크레디트 159행</li><li>그림 글자 43장</li>
+            </ul>
+          </div>
+        </div>
+        <div class="stats" aria-label="초벌 번역 분량">
+          <div class="stat"><b>15,940</b><span>초벌 번역을 마친 텍스트 행</span></div>
+          <div class="stat"><b>159</b><span>초벌 번역을 마친 크레디트 행</span></div>
+          <div class="stat"><b>43</b><span>한글로 다시 그린 그림</span></div>
+          <div class="stat"><b>15</b><span>퀴즈 한국어 정답</span></div>
+        </div>
+      </div>
+
+      <section class="g-sec" id="p1-about">
+        <h3 class="sec">소개</h3>
+        <p>『파라노마사이트 FILE23 혼조 7대 불가사의』는 스퀘어 에닉스의 호러 미스터리 어드벤처 게임입니다. 쇼와 후기의 도쿄도 스미다구를 무대로, 저주의 힘을 얻은 사람들이 혼조 7대 불가사의에 숨겨진 《부활의 비술》을 둘러싸고 서로 맞섭니다.</p>
+        <p>2023년 3월 9일에 Nintendo Switch, PC(Steam), iOS, Android로 출시되었으며, 정식 한국어는 지원하지 않습니다.</p>
+        <p>이 패치는 일본어 원문을 기준으로 대사, 선택지, 자료, 메뉴, 인물 소개, 스태프 크레디트를 한국어로 옮깁니다. 게임의 일본어 언어 설정 자리에 한국어가 표시되는 방식입니다.</p>
+      </section>
+
+      <section class="g-sec" id="p1-original">
+        <h3 class="sec">원작 소개</h3>
+        <p class="lead">원작 공식 사이트의 줄거리, 등장인물, 제작 스태프 소개를 한국어로 옮겼습니다. 제목을 누르면 펼쳐집니다.</p>
+
+        <details class="fold">
+          <summary>줄거리</summary>
+          <div>
+            <div class="synopsis">
+              <p>쇼와 후기의 <b>도쿄도 스미다구</b>를 무대로,</p>
+              <p>저주의 힘을 얻은 9명의 남녀가</p>
+              <p><b>7대 불가사의</b>에 숨겨진 <em>《부활의 비술》</em>을</p>
+              <p>누가 쓸지를 두고 저마다의 마음을 부딪치는</p>
+              <p><b>군상 호러 미스터리 어드벤처</b>.</p>
+              <p class="gap">마지막에 당신을 기다리는 <em>수수께끼</em>란…!?</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="fold">
+          <summary>등장인물</summary>
+          <div>
+            <ul class="cast compact">
+              <li><div class="cast-pic"><img src="assets/paranormasight1/characters/okiie.webp" width="364" height="321" loading="lazy" alt="오키이에 쇼고"></div><div><h4>오키이에 쇼고</h4><span class="orig-name">興家 彰吾 · Shogo Okiie</span><p>회사원 · 25세</p></div></li>
+              <li><div class="cast-pic"><img src="assets/paranormasight1/characters/fukunaga.webp" width="364" height="321" loading="lazy" alt="후쿠나가 요코"></div><div><h4>후쿠나가 요코</h4><span class="orig-name">福永 葉子 · Yoko Fukunaga</span><p>가사 보조 · 23세</p></div></li>
+              <li><div class="cast-pic"><img src="assets/paranormasight1/characters/harue.webp" width="364" height="321" loading="lazy" alt="시기마 하루에"></div><div><h4>시기마 하루에</h4><span class="orig-name">志岐間 春恵 · Harue Shigima</span><p>주부 · 36세</p></div></li>
+              <li><div class="cast-pic"><img src="assets/paranormasight1/characters/kai.webp" width="364" height="321" loading="lazy" alt="카이 리히타"></div><div><h4>카이 리히타</h4><span class="orig-name">櫂 利飛太 · Richter Kai</span><p>사립 탐정 · 28세</p></div></li>
+              <li><div class="cast-pic"><img src="assets/paranormasight1/characters/tsutsumi.webp" width="364" height="321" loading="lazy" alt="츠츠미 테츠오"></div><div><h4>츠츠미 테츠오</h4><span class="orig-name">津詰 徹生 · Tetsuo Tsutsumi</span><p>형사 · 50세</p></div></li>
+              <li><div class="cast-pic"><img src="assets/paranormasight1/characters/erio.webp" width="364" height="321" loading="lazy" alt="에리오 준"></div><div><h4>에리오 준</h4><span class="orig-name">襟尾 純 · Jun Erio</span><p>형사 · 28세</p></div></li>
+              <li><div class="cast-pic"><img src="assets/paranormasight1/characters/chozawa.webp" width="364" height="321" loading="lazy" alt="초자와 마유"></div><div><h4>초자와 마유</h4><span class="orig-name">蝶澤 麻由 · Mayu Chozawa</span><p>미용사 · 27세</p></div></li>
+              <li><div class="cast-pic"><img src="assets/paranormasight1/characters/yakko.webp" width="364" height="321" loading="lazy" alt="사카자키 얏코"></div><div><h4>사카자키 얏코</h4><span class="orig-name">逆崎 約子 · Yakko Sakazaki</span><p>고등학생 · 17세</p></div></li>
+              <li><div class="cast-pic"><img src="assets/paranormasight1/characters/mio.webp" width="364" height="321" loading="lazy" alt="쿠로스즈 미오"></div><div><h4>쿠로스즈 미오</h4><span class="orig-name">黒鈴 ミヲ · Mio Kurosuzu</span><p>고등학생 · 16세</p></div></li>
+              <li><div class="cast-pic"><img src="assets/paranormasight1/characters/michiyo.webp" width="364" height="321" loading="lazy" alt="시라이시 미치요"></div><div><h4>시라이시 미치요</h4><span class="orig-name">白石 美智代 · Michiyo Shiraishi</span><p>고등학생 · 17세</p></div></li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="fold">
+          <summary>제작 스태프</summary>
+          <div>
+            <ul class="staff">
+              <li><span class="role">디렉터 / 시나리오</span><b>이시야마 타카나리</b><span class="orig-name">石山貴也</span>
+                <p>「스쿨걸 스트라이커즈」, 「탐정 케부카와 료스케 사건담」 시리즈(And Joy 작품) 등</p></li>
+              <li><span class="role">캐릭터 디자인</span><b>코바야시 겐</b><span class="orig-name">小林 元</span>
+                <p>「스쿨걸 스트라이커즈」, 「すばらしきこのせかい(The World Ends with You)」 시리즈 등</p></li>
+            </ul>
+          </div>
+        </details>
+
+        <p class="source">출처: <a href="https://www.jp.square-enix.com/paranormasight/" rel="noopener">원작 공식 사이트(일본어)</a>의 소개 문구와 인물 정보를 한국어로 옮겼습니다. © SQUARE ENIX</p>
+      </section>
+
+      <section class="g-sec" id="p1-screens">
+        <h3 class="sec">적용 화면</h3>
+        <p class="lead">공개할 때 실제 적용 화면을 함께 올립니다.</p>
+        <div class="soon-panel"><div><b>적용 화면 준비 중</b>정식 공개 빌드로 찍은 화면을 추가합니다.</div></div>
+      </section>
+
+      <section class="g-sec" id="p1-support">
+        <h3 class="sec">지원 환경과 설치</h3>
+        <p class="lead">Windows용 Steam판을 대상으로 준비하고 있습니다.</p>
+        <div class="card">
+          <h4>지원 예정 환경</h4>
+          <ul>
+            <li><b>Windows용 Steam판</b>을 대상으로 합니다 (Steam AppID <code>2106840</code>).</li>
+            <li>Nintendo Switch, iOS, Android판과 Steam 이외의 PC판은 지원하지 않을 예정입니다.</li>
+            <li>게임을 정상적으로 구매해 설치한 상태여야 합니다. 배포 파일에는 원본 게임 파일을 넣지 않습니다.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>설치 방법</h4>
+          <p>설치 파일과 설치·되돌리기 방법은 공개할 때 이 자리에서 안내합니다.</p>
+        </div>
+      </section>
+
+      <section class="g-sec" id="p1-faq">
+        <h3 class="sec">자주 묻는 질문</h3>
+        <p class="lead">1편 패치 공개 전에 많이 묻는 내용입니다.</p>
+        <details>
+          <summary>언제 공개되나요?</summary>
+          <div><p>번역 검수와 실제 플레이 확인을 마치면 이 페이지와 <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases">GitHub Releases</a>에서 알려 드립니다. 아직 정해진 날짜는 없습니다.</p></div>
+        </details>
+        <details>
+          <summary>Switch나 모바일판에서도 쓸 수 있나요?</summary>
+          <div><p>아니요. Windows용 Steam판을 대상으로 준비하고 있습니다.</p></div>
+        </details>
+        <details>
+          <summary>2편 패치와 함께 써도 되나요?</summary>
+          <div><p>1편과 2편은 서로 다른 게임이라 패치도 각 게임 폴더에 따로 설치하는 방식으로 준비하고 있습니다. 2편 패치는 지금처럼 그대로 쓰면 됩니다.</p></div>
+        </details>
+        <details>
+          <summary>퀴즈 정답 안내도 있나요?</summary>
+          <div><p>2편처럼 이름을 입력하는 퀴즈의 권장 정답 안내를 공개할 때 함께 제공할 예정입니다.</p></div>
+        </details>
+      </section>
+    </article>
+
+    <!-- ===================== FILE38 ===================== -->
+    <article class="game p2" id="file38" aria-labelledby="p2-title">
+      <header class="g-head">
+        <p class="g-kicker"><span class="g-no">2편</span>파라노마사이트 FILE38</p>
+        <h2 class="g-title" id="p2-title">이세 인어 이야기</h2>
+        <p class="orig">PARANORMASIGHT: The Mermaid's Curse<br>パラノマサイト FILE38 伊勢人魚物語</p>
+        <div class="g-actions">
+          <a class="patch-download" href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases/download/v1.0.2/PARANORMASIGHT2_KR_v1.0.2_Setup.exe" download>
+            <img src="assets/paranormasight2/button-download-v1.svg" width="640" height="128" alt="2편 한글패치 설치파일">
+          </a>
+          <a class="changelog-link" href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/blob/main/CHANGELOG_2.md">v1.0.2 변경내역</a>
+        </div>
+      </header>
+
+      <div>
+        <div class="status done" role="note">
+          <div class="status-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+          <div>
+            <p class="status-title">텍스트 <b>14,156행</b> 전부 번역·검수 완료</p>
+            <p class="status-desc">게임 안 텍스트를 하나도 빠짐없이 번역하고, 모두 일본어 원문과 대조해 검수했습니다. 진행에 필요한 그림 속 글자도 한글화와 검수를 마쳤습니다.</p>
+            <ul class="tags" aria-label="번역·검수한 범위">
+              <li>본편</li><li>선택지</li><li>자료·머리글</li><li>인물</li><li>차트</li><li>미니게임</li><li>엔딩</li><li>극장</li><li>스태프 크레디트 433행</li><li>핵심 이미지 14종</li>
+            </ul>
+          </div>
+        </div>
+        <div class="stats" aria-label="번역 분량">
+          <div class="stat"><b>14,156</b><span>번역·검수를 마친 텍스트 행</span></div>
+          <div class="stat"><b>433</b><span>번역·검수를 마친 크레디트 행</span></div>
+          <div class="stat"><b>14</b><span>한글화·검수한 핵심 이미지</span></div>
+          <div class="stat"><b>35</b><span>입력 퍼즐 한국어 정답</span></div>
+        </div>
+      </div>
+
+      <section class="g-sec" id="about">
+        <h3 class="sec">소개</h3>
+        <p>『파라노마사이트 FILE38: 이세 인어 이야기』는 스퀘어 에닉스의 미스터리 어드벤처 게임입니다. 198x년 여름, 미에현 이세만에 떠 있는 외딴섬 카메시마를 무대로 인어 전설과 섬을 덮친 저주를 쫓아갑니다.</p>
+        <p>2026년 2월 19일에 Nintendo Switch, PC(Steam), iOS, Android로 출시되었으며, 정식 한국어는 지원하지 않습니다.</p>
+        <p>이 패치는 일본어 원문을 기준으로 대사, 선택지, 자료, 메뉴, 인물 소개, 스태프 크레디트를 한국어로 옮깁니다. 게임의 일본어 언어 설정 자리에 한국어가 표시되는 방식입니다.</p>
+      </section>
+
+      <section class="g-sec" id="original">
+        <h3 class="sec">원작 소개</h3>
+        <p class="lead">원작 공식 사이트의 줄거리, 등장인물, 제작 스태프 소개를 한국어로 옮겼습니다. 제목을 누르면 펼쳐집니다.</p>
+
+        <details class="fold">
+          <summary>줄거리</summary>
+          <div>
+            <div class="synopsis">
+              <p>무대는 미에현 이세시마 지방.</p>
+              <p><em>불로불사</em>를 가져다준다는 인어의 수수께끼를 둘러싸고</p>
+              <p>여름 외딴섬에서 펼쳐지는 군상극 전기(傳奇) 미스터리.</p>
+              <p>등장인물 저마다의 속셈이 얽히고설키며</p>
+              <p>이윽고 수백 년의 역사를 넘나드는 인어의 저주를 둘러싼</p>
+              <p><em>경악할 드라마</em>로 이어져 간다.</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="fold">
+          <summary>등장인물</summary>
+          <div>
+            <ul class="cast compact">
+              <li><div class="cast-pic"><img src="assets/paranormasight2/characters/yuza.webp" width="364" height="321" loading="lazy" alt="미나구치 유자"></div><div><h4>미나구치 유자</h4><span class="orig-name">水口 勇佐 · Yuza Minakuchi</span></div>
+                <p class="cast-desc">카메시마에 사는, 성실하면서도 마이페이스인 소년. 은퇴한 할머니의 뒤를 이어 해녀 일을 시작했다. 5년 전 해난 사고로 부모님을 잃었고, 그때 어떤 신비한 일을 겪었다.</p></li>
+              <li><div class="cast-pic"><img src="assets/paranormasight2/characters/azami.webp" width="364" height="321" loading="lazy" alt="쿠모이 아자미"></div><div><h4>쿠모이 아자미</h4><span class="orig-name">雲居 アザミ · Azami Kumoi</span></div>
+                <p class="cast-desc">미나구치 유자의 소꿉친구이자 단짝. 세상을 떠난 아버지의 어선을 물려받아 어부로 일한다. 남을 잘 챙겨 주변에서 의지하는 타입으로, 고향 사랑만큼은 누구보다 강하다고 자부한다.</p></li>
+              <li><div class="cast-pic"><img src="assets/paranormasight2/characters/sato.webp" width="364" height="321" loading="lazy" alt="시라나미 사토"></div><div><h4>시라나미 사토</h4><span class="orig-name">白浪 里 · Sato Shiranami</span></div>
+                <p class="cast-desc">몇 달 전 카메시마에 흘러들어 온 수수께끼의 소녀. 기억을 잃은 것 같은데…….</p></li>
+              <li><div class="cast-pic"><img src="assets/paranormasight2/characters/tsukasa.webp" width="364" height="321" loading="lazy" alt="아와오 츠카사"></div><div><h4>아와오 츠카사</h4><span class="orig-name">沫緒 つかさ · Tsukasa Awao</span></div>
+                <p class="cast-desc">카메시마에서 나고 자란 밝고 활발한 소녀. 지금은 고등학교에 다니려고 본토에서 하숙하고 있다. 미나구치 유자, 쿠모이 아자미와는 소꿉친구. 고향에 내려온 동안 시라나미 사토와 친해졌다.</p></li>
+              <li><div class="cast-pic"><img src="assets/paranormasight2/characters/avi.webp" width="364" height="321" loading="lazy" alt="아르나브 바넘"></div><div><h4>아르나브 바넘</h4><span class="orig-name">アルナーヴ・バーナム · Arnav Barnum</span></div>
+                <p class="cast-desc">낭만을 찾아 일본에 온 미국인. 본업은 판타지 작가 겸 오컬트 라이터. 아무래도 이세시마에서 인어를 찾고 있는 모양이다. 애칭은 ‘아비’. 40세. 독신.</p></li>
+              <li><div class="cast-pic"><img src="assets/paranormasight2/characters/circe.webp" width="364" height="321" loading="lazy" alt="키르케 루나라이트"></div><div><h4>키르케 루나라이트</h4><span class="orig-name">キルケ・ルナーライト · Circe Lunarlight</span></div>
+                <p class="cast-desc">《엑소시스트》 소녀. 영국 명문가 출신으로 일본에 유학 중이다. 일본의 전승과 오컬트에 밝아, 친척인 아비의 부탁으로 가이드를 맡고 있다.</p></li>
+              <li><div class="cast-pic"><img src="assets/paranormasight2/characters/yumeko.webp" width="364" height="321" loading="lazy" alt="시키 유메코"></div><div><h4>시키 유메코</h4><span class="orig-name">志貴 結命子 · Yumeko Shiki</span></div>
+                <p class="cast-desc">자칭 도쿄의 주부. 무언가를 조사하고 있는 모양인데…….</p></li>
+              <li><div class="cast-pic"><img src="assets/paranormasight2/characters/sodo.webp" width="364" height="321" loading="lazy" alt="키류 소도"></div><div><h4>키류 소도</h4><span class="orig-name">霧生 双奴 · Sodo Kiryu</span></div>
+                <p class="cast-desc">시키 유메코의 조수로 일하는 청년. 범상치 않은 분위기를 풍긴다.</p></li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="fold">
+          <summary>제작 스태프</summary>
+          <div>
+            <ul class="staff">
+              <li><span class="role">디렉터 / 시나리오</span><b>이시야마 타카나리</b><span class="orig-name">石山貴也</span>
+                <p>「스쿨걸 스트라이커즈」, 「파라노마사이트 FILE23 혼조 칠대 불가사의」 등</p></li>
+              <li><span class="role">캐릭터 디자인</span><b>코바야시 겐</b><span class="orig-name">小林 元</span>
+                <p>「스쿨걸 스트라이커즈」, 「파라노마사이트 FILE23 혼조 칠대 불가사의」 등</p></li>
+              <li><span class="role">사운드 컴포저</span><b>이와사키 히데노리</b><span class="orig-name">岩﨑英則</span>
+                <p>「파이널 판타지 크리스탈 크로니클 크리스탈 베어러」, 「파라노마사이트 FILE23 혼조 칠대 불가사의」 등</p></li>
+            </ul>
+          </div>
+        </details>
+
+        <p class="source">출처: <a href="https://www.jp.square-enix.com/paranormasight/file38/" rel="noopener">원작 공식 사이트(일본어)</a>의 소개 문구를 한국어로 옮겼습니다. © SQUARE ENIX</p>
+      </section>
+
+      <section class="g-sec" id="screens">
+        <h3 class="sec">적용 화면</h3>
+        <p class="lead">이미지를 누르면 크게 보이고, 다시 누르면 돌아갑니다.</p>
+        <div class="carousel" id="carousel" aria-roledescription="캐러셀" aria-label="2편 적용 화면">
+          <div class="viewport">
+            <ul class="track" id="track">
+              <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="1 / 11: 타이틀 화면"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/title.webp" tabindex="-1"><img src="assets/paranormasight2/screens/title-960.webp" srcset="assets/paranormasight2/screens/title-960.webp 960w, assets/paranormasight2/screens/title.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="한국어 제목 ‘이세 인어 이야기’와 한국어 메뉴가 표시된 타이틀 화면"></button><p class="cap">타이틀 화면</p></li>
+              <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="2 / 11: 설정 · 언어 설정"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/settings.webp" tabindex="-1"><img src="assets/paranormasight2/screens/settings-960.webp" srcset="assets/paranormasight2/screens/settings-960.webp 960w, assets/paranormasight2/screens/settings.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="한국어로 옮긴 설정 화면. 언어 설정에 한국어가 선택되어 있다"></button><p class="cap">설정 · 언어 설정</p></li>
+              <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="3 / 11: 카메시마 지도"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/map.webp" tabindex="-1"><img src="assets/paranormasight2/screens/map-960.webp" srcset="assets/paranormasight2/screens/map-960.webp 960w, assets/paranormasight2/screens/map.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="부두·와카무라 가·등대 등 한국어 장소 이름이 표시된 카메시마 지도"></button><p class="cap">카메시마 지도</p></li>
+              <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="4 / 11: 인물 목록"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/characters.webp" tabindex="-1"><img src="assets/paranormasight2/screens/characters-960.webp" srcset="assets/paranormasight2/screens/characters-960.webp 960w, assets/paranormasight2/screens/characters.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="한국어 인물 목록 화면에서 미나구치 유자의 소개를 연 모습"></button><p class="cap">인물 목록</p></li>
+              <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="5 / 11: 자료 · 카메시마 남해의 대재난"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/document-disaster.webp" tabindex="-1"><img src="assets/paranormasight2/screens/document-disaster-960.webp" srcset="assets/paranormasight2/screens/document-disaster-960.webp 960w, assets/paranormasight2/screens/document-disaster.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="한국어 자료 화면에서 카메시마 남해의 대재난 항목을 연 모습"></button><p class="cap">자료 · 카메시마 남해의 대재난</p></li>
+              <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="6 / 11: 자료 · 카메시마루"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/document-kamessy.webp" tabindex="-1"><img src="assets/paranormasight2/screens/document-kamessy-960.webp" srcset="assets/paranormasight2/screens/document-kamessy-960.webp 960w, assets/paranormasight2/screens/document-kamessy.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="한국어 자료 화면에서 카메시마루 항목을 연 모습"></button><p class="cap">자료 · 카메시마루</p></li>
+              <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="7 / 11: 자료 · 이세 이야기"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/document-ise.webp" tabindex="-1"><img src="assets/paranormasight2/screens/document-ise-960.webp" srcset="assets/paranormasight2/screens/document-ise-960.webp 960w, assets/paranormasight2/screens/document-ise.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="한국어 자료 화면에서 이세 이야기 항목을 연 모습. 그림 두루마리의 세로쓰기 글귀도 한국어로 옮겼다"></button><p class="cap">자료 · 이세 이야기</p></li>
+              <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="8 / 11: 자료 · 여름의 대삼각형"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/document-summer-triangle.webp" tabindex="-1"><img src="assets/paranormasight2/screens/document-summer-triangle-960.webp" srcset="assets/paranormasight2/screens/document-summer-triangle-960.webp 960w, assets/paranormasight2/screens/document-summer-triangle.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="한국어 자료 화면에서 여름의 대삼각형 항목을 연 모습. 성도의 별·별자리 이름도 한국어로 옮겼다"></button><p class="cap">자료 · 여름의 대삼각형</p></li>
+              <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="9 / 11: 인물 등장 · 시키 유메코"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/intro-yumeko.webp" tabindex="-1"><img src="assets/paranormasight2/screens/intro-yumeko-960.webp" srcset="assets/paranormasight2/screens/intro-yumeko-960.webp 960w, assets/paranormasight2/screens/intro-yumeko.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="‘도쿄의 주부 시키 유메코’ 한국어 인물 소개가 표시된 장면"></button><p class="cap">인물 등장 · 시키 유메코</p></li>
+              <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="10 / 11: 대화 장면"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/dialogue-tsukasa.webp" tabindex="-1"><img src="assets/paranormasight2/screens/dialogue-tsukasa-960.webp" srcset="assets/paranormasight2/screens/dialogue-tsukasa-960.webp 960w, assets/paranormasight2/screens/dialogue-tsukasa.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="츠카사가 한국어로 말하는 대화 장면"></button><p class="cap">대화 장면</p></li>
+              <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="11 / 11: 시작 안내 · 한글 패치 제작자 표기"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/warning.webp" tabindex="-1"><img src="assets/paranormasight2/screens/warning-960.webp" srcset="assets/paranormasight2/screens/warning-960.webp 960w, assets/paranormasight2/screens/warning.webp 1920w" sizes="(max-width: 900px) calc(100vw - 32px), 600px" width="1920" height="1080" loading="lazy" alt="한국어로 옮긴 시작 안내 문구와 분홍색 ‘한글 패치 제작자 : SAKURA’ 표기"></button><p class="cap">시작 안내 · 한글 패치 제작자 표기</p></li>
+            </ul>
+          </div>
+          <div class="controls">
+            <div class="dots" id="dots">
+              <button type="button" class="pip" aria-label="타이틀 화면 보기"><span class="fill"></span></button>
+              <button type="button" class="pip" aria-label="설정 · 언어 설정 보기"><span class="fill"></span></button>
+              <button type="button" class="pip" aria-label="카메시마 지도 보기"><span class="fill"></span></button>
+              <button type="button" class="pip" aria-label="인물 목록 보기"><span class="fill"></span></button>
+              <button type="button" class="pip" aria-label="자료 · 카메시마 남해의 대재난 보기"><span class="fill"></span></button>
+              <button type="button" class="pip" aria-label="자료 · 카메시마루 보기"><span class="fill"></span></button>
+              <button type="button" class="pip" aria-label="자료 · 이세 이야기 보기"><span class="fill"></span></button>
+              <button type="button" class="pip" aria-label="자료 · 여름의 대삼각형 보기"><span class="fill"></span></button>
+              <button type="button" class="pip" aria-label="인물 등장 · 시키 유메코 보기"><span class="fill"></span></button>
+              <button type="button" class="pip" aria-label="대화 장면 보기"><span class="fill"></span></button>
+              <button type="button" class="pip" aria-label="시작 안내 · 한글 패치 제작자 표기 보기"><span class="fill"></span></button>
+            </div>
+            <button type="button" class="play" id="play" aria-label="자동 넘김 일시 정지"><span class="i-pause" aria-hidden="true"></span></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="g-sec" id="support">
+        <h3 class="sec">지원 환경과 설치</h3>
+        <p class="lead">정식 v1.0.2는 Windows용 Steam판을 대상으로 합니다.</p>
+        <div class="card">
+          <h4>지원 환경</h4>
+          <ul>
+            <li><b>Windows용 Steam판만</b> 지원합니다 (Steam AppID <code>2701440</code>).</li>
+            <li>Steam 빌드 <code>22496791</code>을 기준으로 만들었습니다. 게임이 업데이트되면 새 판본을 지원하는 패치가 나올 때까지 기다려 주세요.</li>
+            <li>Nintendo Switch, iOS, Android판과 Steam 이외의 PC판은 지원하지 않습니다.</li>
+            <li>게임을 정상적으로 구매해 설치한 상태여야 합니다. 배포 파일에는 번역을 적용해 수정한 파일만 들어 있으며, 원본 게임 파일은 포함하지 않습니다.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>되돌리기</h4>
+          <ul>
+            <li>Steam 라이브러리에서 게임의 <b>속성 → 설치된 파일 → 게임 파일 무결성 확인</b>을 실행하면 원래 파일로 돌아갑니다.</li>
+            <li>Windows 설정의 설치된 앱에서 <b>파라노마 사이트2 한국어 패치</b>를 제거하면 패치 파일을 지우고 <code>.bak</code>을 원래 이름으로 복원합니다.</li>
+            <li>기존 <code>.bak</code>은 유지하며, 새 백업은 원본과 일치하는 파일만 만듭니다. 백업이 없는 파일은 제거 후 Steam 무결성 확인으로 복구해 주세요.</li>
+          </ul>
+        </div>
+        <div class="howto">
+          <h4>설치 방법</h4>
+          <p>게임을 종료하고 Steam 언어를 日本語(일본어)로 설정해 주세요. 기존 버전은 먼저 제거하지 않고 같은 게임 폴더에 설치하면 됩니다.</p>
+          <ol class="howto-steps">
+            <li>Steam 게임 <b>속성 → 일반 → 언어</b>를 <b>日本語(일본어)</b>로 바꾸고 내려받기가 끝날 때까지 기다립니다.</li>
+            <li><a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases/download/v1.0.2/PARANORMASIGHT2_KR_v1.0.2_Setup.exe" download>PARANORMASIGHT2_KR_v1.0.2_Setup.exe</a>를 실행하고 설치 확인에 동의합니다.</li>
+            <li>기본 경로는 <code>C:\Program Files (x86)\Steam\steamapps\common\PARANORMASIGHT_2</code>입니다. 다른 위치라면 <b>찾아보기</b>로 게임 폴더를 선택합니다.</li>
+            <li>설치가 끝나면 <b>완료</b>를 눌러 닫고 게임을 실행합니다.</li>
+          </ol>
+          <figure class="shot">
+            <img src="assets/paranormasight2/steam-language-japanese.png" width="1263" height="260" loading="lazy" alt="Steam 게임 속성의 일반 화면. 언어 항목에서 日本語(일본어)를 고른 모습">
+            <figcaption>Steam 게임 속성 → 일반 → 언어 → 日本語(일본어)</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="g-sec" id="faq">
+        <h3 class="sec">자주 묻는 질문</h3>
+        <p class="lead">패치를 쓰기 전에 알아 두면 좋은 내용입니다.</p>
+        <details>
+          <summary>어디서 내려받나요?</summary>
+          <div><p>상단의 <b>한글패치 설치파일</b> 버튼이나 <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases">GitHub Releases</a>에서 내려받을 수 있습니다. 정식 v1.0.2 설치 파일을 제공합니다.</p></div>
+        </details>
+        <details>
+          <summary>패치를 지우고 원래대로 되돌리고 싶어요.</summary>
+          <div><p>Windows 설정의 설치된 앱에서 <b>파라노마 사이트2 한국어 패치</b>를 제거하면 남아 있는 <code>.bak</code>을 복원합니다. 백업이 없는 파일은 삭제되므로 제거 후 Steam의 <b>게임 파일 무결성 확인</b>으로 원본을 복구해 주세요.</p></div>
+        </details>
+        <details>
+          <summary>Switch나 모바일판에서도 쓸 수 있나요?</summary>
+          <div><p>아니요. Windows용 Steam판만 지원합니다.</p></div>
+        </details>
+        <details>
+          <summary>Steam 업데이트 뒤에 일본어로 돌아왔어요.</summary>
+          <div><p>Steam의 게임 파일 무결성 확인이나 게임 업데이트가 패치한 파일을 원래대로 되돌릴 수 있습니다. 게임이 업데이트되면 새 판본을 지원하는 패치가 나올 때까지 기다려 주세요.</p></div>
+        </details>
+        <details>
+          <summary>퍼즐 정답을 입력해도 안 넘어가요.</summary>
+          <div>
+            <p>문제별 권장 입력은 <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/blob/main/QNA_2.md">퀴즈 정답 안내(QNA_2.md)</a>에서 확인해 주세요.</p>
+            <p>안내된 정답으로도 진행되지 않으면 문제 장면과 입력한 답을 <a href="#report">문제 제보</a>로 알려 주세요.</p>
+          </div>
+        </details>
+        <details>
+          <summary>자료 화면의 줄바꿈이 어색한 곳이 있어요.</summary>
+          <div><p>자료의 문장 흐름과 제보된 그림·출처 배치를 수정했습니다. 최신 수정 화면의 추가 확인과 전체 분기 플레이 검증은 계속 수집합니다. 어색한 줄바꿈이나 진행 문제는 자료 이름·장면과 함께 제보해 주세요.</p></div>
+        </details>
+        <details>
+          <summary>그림 속 일본어가 일부 남아 있어요.</summary>
+          <div><p>진행에 필요한 제목·안내·단서만 한글화하고, 그림의 장식이나 작은 옛 글씨는 원화 그대로 두었습니다. 읽어야 진행할 수 있는 글자가 일본어로 남아 있다면 제보해 주세요.</p></div>
+        </details>
+        <details>
+          <summary>어떤 글꼴을 쓰나요?</summary>
+          <div>
+            <p>패치에 쓰는 글꼴입니다. 글꼴 원본은 수정하지 않았고, 배포 파일의 <code>Font-Licenses.txt</code>에 각 라이선스 원문을 함께 넣었습니다.</p>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th scope="col">글꼴</th><th scope="col">쓰는 곳</th><th scope="col">라이선스</th></tr></thead>
+                <tbody>
+                  <tr><td>Noto Sans CJK KR</td><td>대사·메뉴 등 기본 본문</td><td class="note">SIL OFL 1.1 (© Adobe)</td></tr>
+                  <tr><td>Noto Serif CJK KR</td><td>자료 화면 글, 자료 그림 속 문구</td><td class="note">SIL OFL 1.1 (© Adobe)</td></tr>
+                  <tr><td>Pretendard</td><td>시작 화면 저작권 주의 문구</td><td class="note">SIL OFL 1.1</td></tr>
+                  <tr><td>마루 부리 (MaruBuri)</td><td>인물 이름, 작은 타이틀</td><td class="note">SIL OFL 1.1 (© NAVER Corp.)</td></tr>
+                  <tr><td>조선100년체</td><td>큰 타이틀 (이미지로 그림)</td><td class="note">방일영문화재단 무료 글꼴 (수정·판매 금지)</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+      </section>
+    </article>
+  </div>
+
+  <div class="wrap shared">
     <div class="request" role="note">
       <div class="request-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.9-.9L3 20l1.1-4.2A8.4 8.4 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4z"/><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01"/></svg></div>
       <div>
@@ -423,321 +842,127 @@
         <a class="btn request-btn" href="#report">오역·개선 의견 제보하기</a>
       </div>
     </div>
+  </div>
 
-    <div class="complete" role="note">
-      <div class="complete-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
-      <div>
-        <p class="complete-title">텍스트 <b>14,156행</b> 전부 번역·검수 완료</p>
-        <p class="complete-desc">게임 안 텍스트를 하나도 빠짐없이 번역하고, 모두 일본어 원문과 대조해 검수했습니다. 진행에 필요한 그림 속 글자도 한글화와 검수를 마쳤습니다.</p>
-        <ul class="complete-tags" aria-label="번역·검수한 범위">
-          <li>본편</li><li>선택지</li><li>자료·머리글</li><li>인물</li><li>차트</li><li>미니게임</li><li>엔딩</li><li>극장</li><li>스태프 크레디트 433행</li><li>핵심 이미지 14종</li>
+  <section id="policy" class="wrap shared policy">
+    <span id="p1-policy"></span>
+    <h2 class="sec">번역 기준</h2>
+    <p class="lead">1편과 2편은 같은 기준으로 옮깁니다. 처음 플레이하는 사람이 원작의 단서와 인물 관계, 분위기를 그대로 느낄 수 있도록 옮겼습니다.</p>
+    <div class="rules">
+      <div class="rule"><b>일본어 원문 기준</b><p>영어판은 문맥을 확인하는 참고 자료로만 씁니다.</p></div>
+      <div class="rule"><b>고유명사 표기</b><p>한국 게임·애니메이션에서 널리 쓰는 표기를 따릅니다(오키이에 쇼고, 카메시마, 츠카사 등). 도쿄처럼 굳은 표기와 공식 명칭은 그대로 씁니다.</p></div>
+      <div class="rule"><b>호칭과 말투</b><p>인물 소개의 나이와 관계, 원문의 말버릇과 사투리에 맞춥니다. 예를 들어 2편의 츠카사는 유자와 아자미를 ‘오빠’라고 부릅니다.</p></div>
+      <div class="rule"><b>숫자와 연도</b><p>‘5년 전’처럼 아라비아 숫자로 씁니다.</p></div>
+      <div class="rule"><b>스태프 크레디트</b><p>업무명과 일본어 이름을 한국어로 옮기고, 아래쪽 영문 이름은 그대로 둡니다.</p></div>
+      <div class="rule"><b>공통 용어</b><p>呪主는 두 작품 모두 ‘저주인’으로 씁니다. 음독 ‘주주’로는 뜻이 전해지지 않아 ‘저주를 지닌 사람’이라는 뜻을 살렸습니다.</p></div>
+    </div>
+
+    <h3 class="policy-title">작품별 기준</h3>
+    <div class="pcards">
+      <div class="pcard p1">
+        <h4><span class="g-no">1편</span>혼조 7대 불가사의</h4>
+        <p class="note-soon">공개 전 검수에 따라 표기가 바뀔 수 있습니다.</p>
+        <ul class="pcard-list">
+          <li><b>그림 속 글자</b><span>크게 보이는 간판·표지·소품 글자는 원본과 비슷한 한국어 글꼴로 한글화하고, 작거나 흐린 글자는 원화 그대로 둡니다.</span></li>
+          <li><b>콧쿠리 퍼즐</b><span>문자판을 한글 음절판으로 바꾸고, 동전이 한글 음절을 하나씩 짚도록 맞춥니다.</span></li>
         </ul>
-      </div>
-    </div>
-
-    <div class="stats" aria-label="번역 분량">
-      <div class="stat"><b>14,156</b><span>번역·검수를 마친 텍스트 행</span></div>
-      <div class="stat"><b>433</b><span>번역·검수를 마친 크레디트 행</span></div>
-      <div class="stat"><b>14</b><span>한글화·검수한 핵심 이미지</span></div>
-      <div class="stat"><b>35</b><span>입력 퍼즐 한국어 정답</span></div>
-    </div>
-  </div>
-
-  <section id="about">
-    <div class="wrap about">
-      <div>
-        <h2>소개</h2>
-        <p>『파라노마사이트 FILE38: 이세 인어 이야기』는 스퀘어 에닉스의 미스터리 어드벤처 게임입니다. 198x년 여름, 미에현 이세만에 떠 있는 외딴섬 카메시마를 무대로 인어 전설과 섬을 덮친 저주를 쫓아갑니다.</p>
-        <p>2026년 2월 19일에 Nintendo Switch, PC(Steam), iOS, Android로 출시되었으며, 정식 한국어는 지원하지 않습니다.</p>
-        <p>이 패치는 일본어 원문을 기준으로 대사, 선택지, 자료, 메뉴, 인물 소개, 스태프 크레디트를 한국어로 옮깁니다. 게임의 일본어 언어 설정 자리에 한국어가 표시되는 방식입니다.</p>
-      </div>
-      <figure>
-        <img src="assets/paranormasight2/keyart-portrait.webp" srcset="assets/paranormasight2/keyart-portrait.webp 800w, assets/paranormasight2/keyart-portrait-1200.webp 1200w" sizes="280px" width="800" height="1200" loading="lazy" alt="PARANORMASIGHT: The Mermaid's Curse 세로형 키 아트">
-        <figcaption>© SQUARE ENIX</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section id="original">
-    <div class="wrap">
-      <h2>원작 소개</h2>
-      <p class="lead">원작 공식 사이트의 줄거리, 등장인물, 제작 스태프 소개를 한국어로 옮겼습니다. 제목을 누르면 펼쳐집니다.</p>
-
-      <details class="fold">
-        <summary>줄거리</summary>
-        <div>
-          <div class="synopsis">
-            <p>무대는 미에현 이세시마 지방.</p>
-            <p><em>불로불사</em>를 가져다준다는 인어의 수수께끼를 둘러싸고</p>
-            <p>여름 외딴섬에서 펼쳐지는 군상극 전기(傳奇) 미스터리.</p>
-            <p>등장인물 저마다의 속셈이 얽히고설키며</p>
-            <p>이윽고 수백 년의 역사를 넘나드는 인어의 저주를 둘러싼</p>
-            <p><em>경악할 드라마</em>로 이어져 간다.</p>
-          </div>
-        </div>
-      </details>
-
-      <details class="fold">
-        <summary>등장인물</summary>
-        <div>
-          <ul class="cast">
-            <li><div class="cast-pic"><img src="assets/paranormasight2/characters/yuza.webp" width="364" height="321" loading="lazy" alt="미나구치 유자"></div><div class="cast-body"><h3>미나구치 유자</h3><span class="orig-name">水口 勇佐 · Yuza Minakuchi</span>
-              <p>카메시마에 사는, 성실하면서도 마이페이스인 소년. 은퇴한 할머니의 뒤를 이어 해녀 일을 시작했다. 5년 전 해난 사고로 부모님을 잃었고, 그때 어떤 신비한 일을 겪었다.</p></div></li>
-            <li><div class="cast-pic"><img src="assets/paranormasight2/characters/azami.webp" width="364" height="321" loading="lazy" alt="쿠모이 아자미"></div><div class="cast-body"><h3>쿠모이 아자미</h3><span class="orig-name">雲居 アザミ · Azami Kumoi</span>
-              <p>미나구치 유자의 소꿉친구이자 단짝. 세상을 떠난 아버지의 어선을 물려받아 어부로 일한다. 남을 잘 챙겨 주변에서 의지하는 타입으로, 고향 사랑만큼은 누구보다 강하다고 자부한다.</p></div></li>
-            <li><div class="cast-pic"><img src="assets/paranormasight2/characters/sato.webp" width="364" height="321" loading="lazy" alt="시라나미 사토"></div><div class="cast-body"><h3>시라나미 사토</h3><span class="orig-name">白浪 里 · Sato Shiranami</span>
-              <p>몇 달 전 카메시마에 흘러들어 온 수수께끼의 소녀. 기억을 잃은 것 같은데…….</p></div></li>
-            <li><div class="cast-pic"><img src="assets/paranormasight2/characters/tsukasa.webp" width="364" height="321" loading="lazy" alt="아와오 츠카사"></div><div class="cast-body"><h3>아와오 츠카사</h3><span class="orig-name">沫緒 つかさ · Tsukasa Awao</span>
-              <p>카메시마에서 나고 자란 밝고 활발한 소녀. 지금은 고등학교에 다니려고 본토에서 하숙하고 있다. 미나구치 유자, 쿠모이 아자미와는 소꿉친구. 고향에 내려온 동안 시라나미 사토와 친해졌다.</p></div></li>
-            <li><div class="cast-pic"><img src="assets/paranormasight2/characters/avi.webp" width="364" height="321" loading="lazy" alt="아르나브 바넘"></div><div class="cast-body"><h3>아르나브 바넘</h3><span class="orig-name">アルナーヴ・バーナム · Arnav Barnum</span>
-              <p>낭만을 찾아 일본에 온 미국인. 본업은 판타지 작가 겸 오컬트 라이터. 아무래도 이세시마에서 인어를 찾고 있는 모양이다. 애칭은 ‘아비’. 40세. 독신.</p></div></li>
-            <li><div class="cast-pic"><img src="assets/paranormasight2/characters/circe.webp" width="364" height="321" loading="lazy" alt="키르케 루나라이트"></div><div class="cast-body"><h3>키르케 루나라이트</h3><span class="orig-name">キルケ・ルナーライト · Circe Lunarlight</span>
-              <p>《엑소시스트》 소녀. 영국 명문가 출신으로 일본에 유학 중이다. 일본의 전승과 오컬트에 밝아, 친척인 아비의 부탁으로 가이드를 맡고 있다.</p></div></li>
-            <li><div class="cast-pic"><img src="assets/paranormasight2/characters/yumeko.webp" width="364" height="321" loading="lazy" alt="시키 유메코"></div><div class="cast-body"><h3>시키 유메코</h3><span class="orig-name">志貴 結命子 · Yumeko Shiki</span>
-              <p>자칭 도쿄의 주부. 무언가를 조사하고 있는 모양인데…….</p></div></li>
-            <li><div class="cast-pic"><img src="assets/paranormasight2/characters/sodo.webp" width="364" height="321" loading="lazy" alt="키류 소도"></div><div class="cast-body"><h3>키류 소도</h3><span class="orig-name">霧生 双奴 · Sodo Kiryu</span>
-              <p>시키 유메코의 조수로 일하는 청년. 범상치 않은 분위기를 풍긴다.</p></div></li>
-          </ul>
-        </div>
-      </details>
-
-      <details class="fold">
-        <summary>제작 스태프</summary>
-        <div>
-          <ul class="staff">
-            <li><span class="role">디렉터 / 시나리오</span><b>이시야마 타카나리</b><span class="orig-name">石山貴也</span>
-              <p>「스쿨걸 스트라이커즈」, 「파라노마사이트 FILE23 혼조 칠대 불가사의」 등</p></li>
-            <li><span class="role">캐릭터 디자인</span><b>코바야시 겐</b><span class="orig-name">小林 元</span>
-              <p>「스쿨걸 스트라이커즈」, 「파라노마사이트 FILE23 혼조 칠대 불가사의」 등</p></li>
-            <li><span class="role">사운드 컴포저</span><b>이와사키 히데노리</b><span class="orig-name">岩﨑英則</span>
-              <p>「파이널 판타지 크리스탈 크로니클 크리스탈 베어러」, 「파라노마사이트 FILE23 혼조 칠대 불가사의」 등</p></li>
-          </ul>
-        </div>
-      </details>
-
-      <p class="source">출처: <a href="https://www.jp.square-enix.com/paranormasight/file38/" rel="noopener">원작 공식 사이트(일본어)</a>의 소개 문구를 한국어로 옮겼습니다. © SQUARE ENIX</p>
-    </div>
-  </section>
-
-  <section id="screens">
-    <div class="wrap">
-      <h2>적용 화면</h2>
-      <p class="lead">이미지를 누르면 크게 보이고, 다시 누르면 돌아갑니다.</p>
-    </div>
-    <div class="carousel" id="carousel" aria-roledescription="캐러셀" aria-label="적용 화면">
-    <div class="viewport">
-      <ul class="track" id="track">
-        <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="1 / 11: 타이틀 화면"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/title.webp" tabindex="-1"><img src="assets/paranormasight2/screens/title-960.webp" srcset="assets/paranormasight2/screens/title-960.webp 960w, assets/paranormasight2/screens/title.webp 1920w" sizes="(max-width: 860px) 88vw, 820px" width="1920" height="1080" fetchpriority="high" alt="한국어 제목 ‘이세 인어 이야기’와 한국어 메뉴가 표시된 타이틀 화면"></button><p class="cap">타이틀 화면</p></li>
-        <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="2 / 11: 설정 · 언어 설정"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/settings.webp" tabindex="-1"><img src="assets/paranormasight2/screens/settings-960.webp" srcset="assets/paranormasight2/screens/settings-960.webp 960w, assets/paranormasight2/screens/settings.webp 1920w" sizes="(max-width: 860px) 88vw, 820px" width="1920" height="1080" loading="lazy" alt="한국어로 옮긴 설정 화면. 언어 설정에 한국어가 선택되어 있다"></button><p class="cap">설정 · 언어 설정</p></li>
-        <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="3 / 11: 카메시마 지도"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/map.webp" tabindex="-1"><img src="assets/paranormasight2/screens/map-960.webp" srcset="assets/paranormasight2/screens/map-960.webp 960w, assets/paranormasight2/screens/map.webp 1920w" sizes="(max-width: 860px) 88vw, 820px" width="1920" height="1080" loading="lazy" alt="부두·와카무라 가·등대 등 한국어 장소 이름이 표시된 카메시마 지도"></button><p class="cap">카메시마 지도</p></li>
-        <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="4 / 11: 인물 목록"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/characters.webp" tabindex="-1"><img src="assets/paranormasight2/screens/characters-960.webp" srcset="assets/paranormasight2/screens/characters-960.webp 960w, assets/paranormasight2/screens/characters.webp 1920w" sizes="(max-width: 860px) 88vw, 820px" width="1920" height="1080" loading="lazy" alt="한국어 인물 목록 화면에서 미나구치 유자의 소개를 연 모습"></button><p class="cap">인물 목록</p></li>
-        <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="5 / 11: 자료 · 카메시마 남해의 대재난"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/document-disaster.webp" tabindex="-1"><img src="assets/paranormasight2/screens/document-disaster-960.webp" srcset="assets/paranormasight2/screens/document-disaster-960.webp 960w, assets/paranormasight2/screens/document-disaster.webp 1920w" sizes="(max-width: 860px) 88vw, 820px" width="1920" height="1080" loading="lazy" alt="한국어 자료 화면에서 카메시마 남해의 대재난 항목을 연 모습"></button><p class="cap">자료 · 카메시마 남해의 대재난</p></li>
-        <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="6 / 11: 자료 · 카메시마루"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/document-kamessy.webp" tabindex="-1"><img src="assets/paranormasight2/screens/document-kamessy-960.webp" srcset="assets/paranormasight2/screens/document-kamessy-960.webp 960w, assets/paranormasight2/screens/document-kamessy.webp 1920w" sizes="(max-width: 860px) 88vw, 820px" width="1920" height="1080" loading="lazy" alt="한국어 자료 화면에서 카메시마루 항목을 연 모습"></button><p class="cap">자료 · 카메시마루</p></li>
-        <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="7 / 11: 자료 · 이세 이야기"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/document-ise.webp" tabindex="-1"><img src="assets/paranormasight2/screens/document-ise-960.webp" srcset="assets/paranormasight2/screens/document-ise-960.webp 960w, assets/paranormasight2/screens/document-ise.webp 1920w" sizes="(max-width: 860px) 88vw, 820px" width="1920" height="1080" loading="lazy" alt="한국어 자료 화면에서 이세 이야기 항목을 연 모습. 그림 두루마리의 세로쓰기 글귀도 한국어로 옮겼다"></button><p class="cap">자료 · 이세 이야기</p></li>
-        <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="8 / 11: 자료 · 여름의 대삼각형"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/document-summer-triangle.webp" tabindex="-1"><img src="assets/paranormasight2/screens/document-summer-triangle-960.webp" srcset="assets/paranormasight2/screens/document-summer-triangle-960.webp 960w, assets/paranormasight2/screens/document-summer-triangle.webp 1920w" sizes="(max-width: 860px) 88vw, 820px" width="1920" height="1080" loading="lazy" alt="한국어 자료 화면에서 여름의 대삼각형 항목을 연 모습. 성도의 별·별자리 이름도 한국어로 옮겼다"></button><p class="cap">자료 · 여름의 대삼각형</p></li>
-        <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="9 / 11: 인물 등장 · 시키 유메코"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/intro-yumeko.webp" tabindex="-1"><img src="assets/paranormasight2/screens/intro-yumeko-960.webp" srcset="assets/paranormasight2/screens/intro-yumeko-960.webp 960w, assets/paranormasight2/screens/intro-yumeko.webp 1920w" sizes="(max-width: 860px) 88vw, 820px" width="1920" height="1080" loading="lazy" alt="‘도쿄의 주부 시키 유메코’ 한국어 인물 소개가 표시된 장면"></button><p class="cap">인물 등장 · 시키 유메코</p></li>
-        <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="10 / 11: 대화 장면"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/dialogue-tsukasa.webp" tabindex="-1"><img src="assets/paranormasight2/screens/dialogue-tsukasa-960.webp" srcset="assets/paranormasight2/screens/dialogue-tsukasa-960.webp 960w, assets/paranormasight2/screens/dialogue-tsukasa.webp 1920w" sizes="(max-width: 860px) 88vw, 820px" width="1920" height="1080" loading="lazy" alt="츠카사가 한국어로 말하는 대화 장면"></button><p class="cap">대화 장면</p></li>
-        <li class="slide" role="group" aria-roledescription="슬라이드" aria-label="11 / 11: 시작 안내 · 한글 패치 제작자 표기"><button type="button" class="slide-btn" data-full="assets/paranormasight2/screens/warning.webp" tabindex="-1"><img src="assets/paranormasight2/screens/warning-960.webp" srcset="assets/paranormasight2/screens/warning-960.webp 960w, assets/paranormasight2/screens/warning.webp 1920w" sizes="(max-width: 860px) 88vw, 820px" width="1920" height="1080" loading="lazy" alt="한국어로 옮긴 시작 안내 문구와 분홍색 ‘한글 패치 제작자 : SAKURA’ 표기"></button><p class="cap">시작 안내 · 한글 패치 제작자 표기</p></li>
-      </ul>
-    </div>
-    <div class="controls">
-      <div class="dots" id="dots">
-        <button type="button" class="pip" aria-label="타이틀 화면 보기"><span class="fill"></span></button>
-        <button type="button" class="pip" aria-label="설정 · 언어 설정 보기"><span class="fill"></span></button>
-        <button type="button" class="pip" aria-label="카메시마 지도 보기"><span class="fill"></span></button>
-        <button type="button" class="pip" aria-label="인물 목록 보기"><span class="fill"></span></button>
-        <button type="button" class="pip" aria-label="자료 · 카메시마 남해의 대재난 보기"><span class="fill"></span></button>
-        <button type="button" class="pip" aria-label="자료 · 카메시마루 보기"><span class="fill"></span></button>
-        <button type="button" class="pip" aria-label="자료 · 이세 이야기 보기"><span class="fill"></span></button>
-        <button type="button" class="pip" aria-label="자료 · 여름의 대삼각형 보기"><span class="fill"></span></button>
-        <button type="button" class="pip" aria-label="인물 등장 · 시키 유메코 보기"><span class="fill"></span></button>
-        <button type="button" class="pip" aria-label="대화 장면 보기"><span class="fill"></span></button>
-        <button type="button" class="pip" aria-label="시작 안내 · 한글 패치 제작자 표기 보기"><span class="fill"></span></button>
-      </div>
-      <button type="button" class="play" id="play" aria-label="자동 넘김 일시 정지"><span class="i-pause" aria-hidden="true"></span></button>
-    </div>
-  </div>
-  </section>
-
-  <section id="support">
-    <div class="wrap">
-      <h2>지원 환경과 설치</h2>
-      <p class="lead">정식 v1.0.2는 Windows용 Steam판을 대상으로 합니다.</p>
-      <div class="grid-2">
-        <div class="card">
-          <h3>지원 환경</h3>
-          <ul>
-            <li><b>Windows용 Steam판만</b> 지원합니다 (Steam AppID <code>2701440</code>).</li>
-            <li>Steam 빌드 <code>22496791</code>을 기준으로 만들었습니다. 게임이 업데이트되면 새 판본을 지원하는 패치가 나올 때까지 기다려 주세요.</li>
-            <li>Nintendo Switch, iOS, Android판과 Steam 이외의 PC판은 지원하지 않습니다.</li>
-            <li>게임을 정상적으로 구매해 설치한 상태여야 합니다. 배포 파일에는 번역을 적용해 수정한 파일만 들어 있으며, 원본 게임 파일은 포함하지 않습니다.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>되돌리기</h3>
-          <ul>
-            <li>Steam 라이브러리에서 게임의 <b>속성 → 설치된 파일 → 게임 파일 무결성 확인</b>을 실행하면 원래 파일로 돌아갑니다.</li>
-            <li>Windows 설정의 설치된 앱에서 <b>파라노마 사이트2 한국어 패치</b>를 제거하면 패치 파일을 지우고 <code>.bak</code>을 원래 이름으로 복원합니다.</li>
-            <li>기존 <code>.bak</code>은 유지하며, 새 백업은 원본과 일치하는 파일만 만듭니다. 백업이 없는 파일은 제거 후 Steam 무결성 확인으로 복구해 주세요.</li>
-          </ul>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">원문</th><th scope="col">한국어</th><th scope="col">비고</th></tr></thead>
+            <tbody>
+              <tr><td class="ja">本所七不思議</td><td>혼조 7대 불가사의</td><td class="note">작품의 중심이 되는 혼조의 일곱 괴담</td></tr>
+              <tr><td class="ja">蘇りの秘術</td><td>부활의 비술</td><td class="note">죽은 사람을 되살린다는 비술</td></tr>
+              <tr><td class="ja">呪詛珠</td><td>저주옥</td><td class="note">저주의 힘이 깃든 구슬</td></tr>
+              <tr><td class="ja">駄菓子屋</td><td>구멍가게</td><td class="note">가게를 가리킬 때. 과자 자체(駄菓子)는 ‘불량식품’</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
-      <div class="howto">
-        <h3>설치 방법</h3>
-        <p>게임을 종료하고 Steam 언어를 日本語(일본어)로 설정해 주세요. 기존 버전은 먼저 제거하지 않고 같은 게임 폴더에 설치하면 됩니다.</p>
-        <ol class="howto-steps">
-          <li>Steam 게임 <b>속성 → 일반 → 언어</b>를 <b>日本語(일본어)</b>로 바꾸고 내려받기가 끝날 때까지 기다립니다.</li>
-          <li><a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases/latest/download/PARANORMASIGHT2_KR_v1.0.2_Setup.exe" download>PARANORMASIGHT2_KR_v1.0.2_Setup.exe</a>를 실행하고 설치 확인에 동의합니다.</li>
-          <li>기본 경로는 <code>C:\Program Files (x86)\Steam\steamapps\common\PARANORMASIGHT_2</code>입니다. 다른 위치라면 <b>찾아보기</b>로 게임 폴더를 선택합니다.</li>
-          <li>설치가 끝나면 <b>완료</b>를 눌러 닫고 게임을 실행합니다.</li>
-        </ol>
-        <figure class="shot">
-          <img src="assets/paranormasight2/steam-language-japanese.png" width="1263" height="260" loading="lazy" alt="Steam 게임 속성의 일반 화면. 언어 항목에서 日本語(일본어)를 고른 모습">
-          <figcaption>Steam 게임 속성 → 일반 → 언어 → 日本語(일본어)</figcaption>
-        </figure>
+      <div class="pcard p2">
+        <h4><span class="g-no">2편</span>이세 인어 이야기</h4>
+        <ul class="pcard-list">
+          <li><b>그림 속 글자</b><span>제목·안내·조작·퍼즐 단서처럼 진행에 필요한 글자만 한글화했습니다. 장식·낙관·작은 옛 글씨는 원화 그대로입니다.</span></li>
+          <li><b>물질과 잠수 어로</b><span>素潜り漁는 대사에서 ‘물질’, 미니게임·자료 화면에서 ‘잠수 어로’로 씁니다.</span></li>
+        </ul>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">원문</th><th scope="col">한국어</th><th scope="col">비고</th></tr></thead>
+            <tbody>
+              <tr><td class="ja">亀島</td><td>카메시마</td><td class="note">작품의 무대가 되는 섬</td></tr>
+              <tr><td class="ja">八百比丘尼</td><td>야오비쿠니</td><td class="note">공식 명칭을 따름</td></tr>
+              <tr><td class="ja">なめどり</td><td>양아치 새</td><td class="note">새들의 불량배 무리. 개별 새 이름은 한국어 말장난으로 옮김</td></tr>
+              <tr><td class="ja">トモカヅキ</td><td>토모카즈키</td><td class="note">이세·시마 지역 해녀 전승</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="policy">
-    <div class="wrap">
-      <h2>번역 기준</h2>
-      <p class="lead">처음 한 번 플레이하는 사람이 원작의 단서와 인물 관계를 그대로 느낄 수 있도록 옮겼습니다.</p>
-      <div class="rules">
-        <div class="rule"><b>일본어 원문 기준</b><p>영어판은 문맥을 확인하는 참고 자료로만 썼습니다.</p></div>
-        <div class="rule"><b>고유명사 표기</b><p>한국 게임·애니메이션에서 널리 쓰는 표기를 따릅니다(카메시마, 츠카사, 타이라노 토모시게). 도쿄처럼 굳은 표기와 공식 명칭은 그대로 씁니다.</p></div>
-        <div class="rule"><b>호칭과 존댓말</b><p>인물 소개의 나이와 관계에 맞췄습니다. 예를 들어 츠카사는 유자와 아자미를 ‘오빠’라고 부릅니다.</p></div>
-        <div class="rule"><b>이미지 범위</b><p>제목·안내·조작·퍼즐 단서처럼 진행에 필요한 글자만 한글화했습니다. 장식·낙관·작은 옛 글씨는 원화 그대로입니다.</p></div>
-        <div class="rule"><b>숫자와 연도</b><p>‘5년 전’처럼 아라비아 숫자로 씁니다.</p></div>
-        <div class="rule"><b>스태프 크레디트</b><p>업무명과 일본어 이름을 한국어로 옮기고, 아래쪽 영문 이름은 그대로 둡니다.</p></div>
-      </div>
-
-      <h3>주요 용어</h3>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th scope="col">원문</th><th scope="col">한국어</th><th scope="col">비고</th></tr></thead>
-          <tbody>
-            <tr><td class="ja">亀島</td><td>카메시마</td><td class="note">작품의 무대가 되는 섬</td></tr>
-            <tr><td class="ja">八百比丘尼</td><td>야오비쿠니</td><td class="note">공식 명칭을 따름</td></tr>
-            <tr><td class="ja">なめどり</td><td>양아치 새</td><td class="note">새들의 불량배 무리. 개별 새 이름은 한국어 말장난으로 옮김</td></tr>
-            <tr><td class="ja">素潜り漁</td><td>물질 / 잠수 어로</td><td class="note">대사는 ‘물질’, 미니게임·자료 화면은 ‘잠수 어로’</td></tr>
-            <tr><td class="ja">トモカヅキ</td><td>토모카즈키</td><td class="note">이세·시마 지역 해녀 전승</td></tr>
-            <tr><td class="ja">呪主</td><td>저주인</td><td class="note">음독 ‘주주’로는 뜻이 전해지지 않아 ‘저주를 지닌 사람’이라는 뜻을 살림</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <section id="faq">
-    <div class="wrap">
-      <h2>자주 묻는 질문</h2>
-      <p class="lead">패치를 쓰기 전에 알아 두면 좋은 내용입니다.</p>
-      <details>
-        <summary>어디서 내려받나요?</summary>
-        <div><p>상단의 <b>한글패치 설치파일</b> 버튼이나 <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/releases">GitHub Releases</a>에서 내려받을 수 있습니다. 정식 v1.0.2 설치 파일을 제공합니다.</p></div>
-      </details>
-      <details>
-        <summary>패치를 지우고 원래대로 되돌리고 싶어요.</summary>
-        <div><p>Windows 설정의 설치된 앱에서 <b>파라노마 사이트2 한국어 패치</b>를 제거하면 남아 있는 <code>.bak</code>을 복원합니다. 백업이 없는 파일은 삭제되므로 제거 후 Steam의 <b>게임 파일 무결성 확인</b>으로 원본을 복구해 주세요.</p></div>
-      </details>
-      <details>
-        <summary>Switch나 모바일판에서도 쓸 수 있나요?</summary>
-        <div><p>아니요. Windows용 Steam판만 지원합니다.</p></div>
-      </details>
-      <details>
-        <summary>Steam 업데이트 뒤에 일본어로 돌아왔어요.</summary>
-        <div><p>Steam의 게임 파일 무결성 확인이나 게임 업데이트가 패치한 파일을 원래대로 되돌릴 수 있습니다. 게임이 업데이트되면 새 판본을 지원하는 패치가 나올 때까지 기다려 주세요.</p></div>
-      </details>
-      <details>
-        <summary>퍼즐 정답을 입력해도 안 넘어가요.</summary>
-        <div>
-          <p>문제별 권장 입력은 <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/blob/main/QNA_2.md">퀴즈 정답 안내(QNA_2.md)</a>에서 확인해 주세요.</p>
-          <p>안내된 정답으로도 진행되지 않으면 문제 장면과 입력한 답을 <a href="#report">문제 제보</a>로 알려 주세요.</p>
-        </div>
-      </details>
-      <details>
-        <summary>자료 화면의 줄바꿈이 어색한 곳이 있어요.</summary>
-        <div><p>자료의 문장 흐름과 제보된 그림·출처 배치를 수정했습니다. 최신 수정 화면의 추가 확인과 전체 분기 플레이 검증은 계속 수집합니다. 어색한 줄바꿈이나 진행 문제는 자료 이름·장면과 함께 제보해 주세요.</p></div>
-      </details>
-      <details>
-        <summary>그림 속 일본어가 일부 남아 있어요.</summary>
-        <div><p>진행에 필요한 제목·안내·단서만 한글화하고, 그림의 장식이나 작은 옛 글씨는 원화 그대로 두었습니다. 읽어야 진행할 수 있는 글자가 일본어로 남아 있다면 제보해 주세요.</p></div>
-      </details>
-      <details>
-        <summary>어떤 글꼴을 쓰나요?</summary>
-        <div>
-          <p>패치에 쓰는 글꼴입니다. 글꼴 원본은 수정하지 않았고, 배포 파일의 <code>Font-Licenses.txt</code>에 각 라이선스 원문을 함께 넣었습니다.</p>
-          <div class="table-wrap">
-            <table>
-              <thead><tr><th scope="col">글꼴</th><th scope="col">쓰는 곳</th><th scope="col">라이선스</th></tr></thead>
-              <tbody>
-                <tr><td>Noto Sans CJK KR</td><td>대사·메뉴 등 기본 본문</td><td class="note">SIL OFL 1.1 (© Adobe)</td></tr>
-                <tr><td>Noto Serif CJK KR</td><td>자료 화면 글, 자료 그림 속 문구</td><td class="note">SIL OFL 1.1 (© Adobe)</td></tr>
-                <tr><td>Pretendard</td><td>시작 화면 저작권 주의 문구</td><td class="note">SIL OFL 1.1</td></tr>
-                <tr><td>마루 부리 (MaruBuri)</td><td>인물 이름, 작은 타이틀</td><td class="note">SIL OFL 1.1 (© NAVER Corp.)</td></tr>
-                <tr><td>조선100년체</td><td>큰 타이틀 (이미지로 그림)</td><td class="note">방일영문화재단 무료 글꼴 (수정·판매 금지)</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </details>
-    </div>
-  </section>
-
-  <section id="report">
-    <div class="wrap">
-      <h2>문제 제보</h2>
-      <p class="lead">오역, 어색한 표현, 글자 잘림, 진행 문제를 알려 주세요. 작성한 내용은 <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/issues">GitHub Issues</a>의 새 이슈 화면에 채워져 열립니다.</p>
-      <form class="card report" id="report-form" novalidate>
-        <div class="field-row">
-          <label class="field">
-            <span class="label">문제 유형</span>
-            <select id="r-type">
-              <option>오역·어색한 표현</option>
-              <option>글자 깨짐·잘림</option>
-              <option>진행 불가·오류</option>
-              <option>그림 속 글자</option>
-              <option>기타</option>
-            </select>
-          </label>
-          <label class="field">
-            <span class="label">장면·상황</span>
-            <input id="r-scene" type="text" maxlength="120" placeholder="예: 항구에서 키쿠코와 대화하던 중">
-          </label>
-        </div>
+  <section id="report" class="wrap shared rp">
+    <h2 class="sec">문제 제보</h2>
+    <p class="lead">오역, 어색한 표현, 글자 잘림, 진행 문제를 알려 주세요. 작성한 내용은 <a href="https://github.com/deuxdoom/PARANORMASIGHT-KR-Patch/issues">GitHub Issues</a>의 새 이슈 화면에 채워져 열립니다.</p>
+    <form class="card report" id="report-form" novalidate>
+      <div class="field-row">
         <label class="field">
-          <span class="label">설명 <em>필수</em></span>
-          <textarea id="r-desc" rows="5" maxlength="3000" required placeholder="무엇이 어떻게 보였는지, 어떻게 바뀌면 좋을지 적어 주세요. 원문이나 바른 표현을 알면 함께 적어 주세요."></textarea>
+          <span class="label">게임</span>
+          <select id="r-game">
+            <option value="FILE38">2편 · 이세 인어 이야기</option>
+            <option value="FILE23">1편 · 혼조 7대 불가사의</option>
+          </select>
         </label>
-        <div class="field">
-          <span class="label">스크린샷 <small>최대 4장</small></span>
-          <div class="drop" id="r-drop" tabindex="0" role="button" aria-describedby="r-drop-help">
-            <input id="r-files" type="file" accept="image/*" multiple hidden>
-            <b>이미지를 끌어다 놓거나 눌러서 고르세요</b>
-            <span id="r-drop-help">Ctrl+V로 붙여 넣을 수도 있습니다.</span>
-          </div>
-          <ul class="thumbs" id="r-thumbs" aria-live="polite"></ul>
+        <label class="field">
+          <span class="label">문제 유형</span>
+          <select id="r-type">
+            <option>오역·어색한 표현</option>
+            <option>글자 깨짐·잘림</option>
+            <option>진행 불가·오류</option>
+            <option>그림 속 글자</option>
+            <option>기타</option>
+          </select>
+        </label>
+        <label class="field">
+          <span class="label">장면·상황</span>
+          <input id="r-scene" type="text" maxlength="120" placeholder="예: 항구에서 키쿠코와 대화하던 중">
+        </label>
+      </div>
+      <label class="field">
+        <span class="label">설명 <em>필수</em></span>
+        <textarea id="r-desc" rows="5" maxlength="3000" required placeholder="무엇이 어떻게 보였는지, 어떻게 바뀌면 좋을지 적어 주세요. 원문이나 바른 표현을 알면 함께 적어 주세요."></textarea>
+      </label>
+      <div class="field">
+        <span class="label">스크린샷 <small>최대 4장</small></span>
+        <div class="drop" id="r-drop" tabindex="0" role="button" aria-describedby="r-drop-help">
+          <input id="r-files" type="file" accept="image/*" multiple hidden>
+          <b>이미지를 끌어다 놓거나 눌러서 고르세요</b>
+          <span id="r-drop-help">Ctrl+V로 붙여 넣을 수도 있습니다.</span>
         </div>
-        <p class="hint alert"><strong class="hint-alert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18.2A2 2 0 0 0 3.5 21h17a2 2 0 0 0 1.7-2.8L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>이미지는 이 페이지에서 GitHub로 바로 전송되지 않습니다.</strong>제보 버튼을 누르면 첫 번째 스크린샷이 클립보드에 복사되니, 열린 GitHub 화면의 본문 <b>스크린샷</b> 항목 아래에 <kbd>Ctrl</kbd>+<kbd>V</kbd>로 붙여 넣어 주세요. 나머지 이미지는 각 미리보기의 <b>복사</b> 버튼으로 하나씩 붙여 넣으면 됩니다. 제보하려면 GitHub 로그인이 필요합니다.</p>
-        <div class="form-actions">
-          <button class="btn primary" type="submit">GitHub Issues로 제보하기</button>
-          <span class="status" id="r-status" role="status" aria-live="polite"></span>
-        </div>
-      </form>
-    </div>
+        <ul class="thumbs" id="r-thumbs" aria-live="polite"></ul>
+      </div>
+      <p class="hint alert"><strong class="hint-alert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18.2A2 2 0 0 0 3.5 21h17a2 2 0 0 0 1.7-2.8L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>이미지는 이 페이지에서 GitHub로 바로 전송되지 않습니다.</strong>제보 버튼을 누르면 첫 번째 스크린샷이 클립보드에 복사되니, 열린 GitHub 화면의 본문 <b>스크린샷</b> 항목 아래에 <kbd>Ctrl</kbd>+<kbd>V</kbd>로 붙여 넣어 주세요. 나머지 이미지는 각 미리보기의 <b>복사</b> 버튼으로 하나씩 붙여 넣으면 됩니다. 제보하려면 GitHub 로그인이 필요합니다.</p>
+      <div class="form-actions">
+        <button class="btn primary" type="submit">GitHub Issues로 제보하기</button>
+        <span class="status-line" id="r-status" role="status" aria-live="polite"></span>
+      </div>
+    </form>
   </section>
 </main>
 
 <footer>
   <div class="wrap foot">
-    <a class="official" href="https://www.jp.square-enix.com/paranormasight/file38/" rel="noopener">
-      <img src="assets/paranormasight2/logo-press-black.png" width="360" height="141" alt="PARANORMASIGHT: The Mermaid's Curse 로고">
-      <span>원작 공식 사이트 (일본어)</span>
-    </a>
+    <div class="officials">
+      <a class="official" href="https://www.jp.square-enix.com/paranormasight/" rel="noopener">
+        <img src="assets/paranormasight1/logo-press-black.png" width="360" height="141" alt="PARANORMASIGHT: The Seven Mysteries of Honjo 로고">
+        <span>1편 원작 공식 사이트 (일본어)</span>
+      </a>
+      <a class="official" href="https://www.jp.square-enix.com/paranormasight/file38/" rel="noopener">
+        <img src="assets/paranormasight2/logo-press-black.png" width="360" height="141" alt="PARANORMASIGHT: The Mermaid's Curse 로고">
+        <span>2편 원작 공식 사이트 (일본어)</span>
+      </a>
+    </div>
     <div>
       <p class="maker">한글 패치 제작 · <b>SAKURA</b></p>
-      <p>『PARANORMASIGHT: The Mermaid's Curse』와 이 페이지에 쓴 키 아트·로고, 게임 안의 모든 텍스트·이미지의 권리는 SQUARE ENIX에 있습니다. © SQUARE ENIX</p>
+      <p>『PARANORMASIGHT: The Seven Mysteries of Honjo』, 『PARANORMASIGHT: The Mermaid's Curse』와 이 페이지에 쓴 키 아트·로고, 게임 안의 모든 텍스트·이미지의 권리는 SQUARE ENIX에 있습니다. © SQUARE ENIX</p>
       <p>SQUARE ENIX and the SQUARE ENIX logo are trademarks or registered trademarks of Square Enix Holdings Co., Ltd.</p>
       <p>이 패치는 개인이 만든 비공식 팬 번역이며 SQUARE ENIX와 관계가 없습니다. 패치 사용에 따른 문제는 SQUARE ENIX에 문의하지 말아 주세요. 이 저장소에는 원본 게임 파일과 게임에서 추출한 데이터를 올리지 않으며, 키 아트와 로고는 패치를 소개하는 용도로만 씁니다. 권리자가 요청하면 바로 내립니다.</p>
     </div>
@@ -759,13 +984,12 @@
   var box = document.getElementById('lightbox');
   var lbImg = document.getElementById('lb-img');
   var lbCap = document.getElementById('lb-cap');
-  var at = 0, paused = false, userPaused = false;
+  var at = 0, paused = false, userPaused = false, offscreen = false;
 
   function place(instant) {
-    var viewport = track.parentNode.clientWidth;
-    var w = slides[at].offsetWidth;       // layout width, unaffected by the scale effect
+    var w = slides[at].offsetWidth;
     var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
-    var x = (viewport - w) / 2 - at * (w + gap);
+    var x = -at * (w + gap);
     if (instant) track.style.transition = 'none';
     track.style.transform = 'translateX(' + x + 'px)';
     if (instant) { void track.offsetWidth; track.style.transition = ''; }
@@ -804,6 +1028,7 @@
     root.classList.toggle('is-paused', p);
     schedule();
   }
+  function refresh() { setPaused(document.hidden || userPaused || box.open || offscreen); }
   function tick() {
     fills[at].style.width = (Math.min(Math.max(1 - remaining() / DURATION, 0), 1) * 100) + '%';
     requestAnimationFrame(tick);
@@ -815,7 +1040,7 @@
 
   play.addEventListener('click', function () {
     userPaused = !userPaused;
-    setPaused(userPaused);
+    refresh();
     play.innerHTML = userPaused ? '<span class="i-play" aria-hidden="true"></span>' : '<span class="i-pause" aria-hidden="true"></span>';
     play.setAttribute('aria-label', userPaused ? '자동 넘김 다시 시작' : '자동 넘김 일시 정지');
   });
@@ -842,7 +1067,7 @@
   }
   box.addEventListener('click', shrink);
   box.addEventListener('cancel', function (e) { e.preventDefault(); shrink(); });
-  box.addEventListener('close', function () { setPaused(userPaused); });
+  box.addEventListener('close', refresh);
 
   // swipe on touch screens
   var sx = null;
@@ -853,7 +1078,15 @@
     if (Math.abs(dx) > 50) go(at + (dx < 0 ? 1 : -1));
   });
 
-  document.addEventListener('visibilitychange', function () { setPaused(document.hidden || userPaused || box.open); });
+  // the carousel sits low in the right column: only advance while it is on screen
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      offscreen = !entries[0].isIntersecting;
+      refresh();
+    }).observe(root);
+  }
+
+  document.addEventListener('visibilitychange', refresh);
   window.addEventListener('resize', function () { place(true); });
   go(0);
   place(true);
@@ -871,7 +1104,23 @@
   var thumbs = document.getElementById('r-thumbs');
   var status = document.getElementById('r-status');
   var desc = document.getElementById('r-desc');
+  var game = document.getElementById('r-game');
   var files = [];
+
+  // a report link opened from a game column (#file23 ...) preselects that game
+  function pickGameFromHash() {
+    var h = location.hash;
+    if (/^#(file23|p1-)/.test(h)) game.value = 'FILE23';
+    else if (/^#(file38|about|original|screens|support|faq)$/.test(h)) game.value = 'FILE38';
+  }
+  pickGameFromHash();
+  window.addEventListener('hashchange', pickGameFromHash);
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href="#report"]');
+    if (!a) return;
+    var col = a.closest('.game');
+    if (col) game.value = col.id === 'file23' ? 'FILE23' : 'FILE38';
+  });
 
   function say(text, warn, link) {
     status.textContent = text;
@@ -952,6 +1201,8 @@
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    var gameId = game.value;
+    var gameName = game.options[game.selectedIndex].text;
     var type = document.getElementById('r-type').value;
     var scene = document.getElementById('r-scene').value.trim();
     var text = desc.value.trim();
@@ -960,13 +1211,14 @@
 
     var summary = (scene || text.split('\n')[0]).slice(0, 60);
     function body(t, cutNote) {
-      return '### 문제 유형\n' + type +
+      return '### 게임\n' + gameName +
+        '\n\n### 문제 유형\n' + type +
         '\n\n### 장면·상황\n' + (scene || '(미기재)') +
         '\n\n### 설명\n' + t + (cutNote ? '\n\n(내용이 길어 일부가 잘렸습니다. 이어서 적어 주세요.)' : '') +
         '\n\n### 스크린샷\n(이 아래에 스크린샷을 붙여 넣거나 끌어다 놓아 주세요)\n';
     }
     var params = new URLSearchParams();
-    params.set('title', '[' + type + '] ' + summary);
+    params.set('title', '[' + gameId + '][' + type + '] ' + summary);
     params.set('body', body(text, false));
     var url = REPO + '?' + params.toString();
     var cut = false;
